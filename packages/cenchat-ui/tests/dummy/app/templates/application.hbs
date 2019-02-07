@@ -1,0 +1,35 @@
+<CenTopBar class="header">
+  <CenIconButton @icon="bars" />
+  <h1>Top Bar</h1>
+  <CenIconLinkButton href={{url-for "sign-in"}} @icon="sign-in-alt" />
+</CenTopBar>
+
+<main class="main">
+  <article>
+    <CenToolbar>
+      <CenButton disabled="true">Disabled</CenButton>
+      <CenButton>Cancel</CenButton>
+      <CenButton>Save</CenButton>
+      <CenLinkButton href={{url-for "sign-in"}}>Link</CenLinkButton>
+      <CenIconButton @icon="bars" />
+    </CenToolbar>
+
+    <CenInput type="email" @label="Email" />
+
+    <CenSelect @label="Gender">
+      <option>Male</option>
+      <option>Female</option>
+    </CenSelect>
+
+    <CenTextarea required="true" @label="Notes" />
+  </article>
+</main>
+
+{{outlet}}
+
+<CenNavBar class="nav">
+  <CenIconButton @icon="home" />
+  <CenIconButton @icon="compass" />
+  <CenIconButton @icon="bell" />
+  <CenIconButton @icon="cog" />
+</CenNavBar>

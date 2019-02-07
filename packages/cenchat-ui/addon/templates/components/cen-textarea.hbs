@@ -1,0 +1,6 @@
+<div>{{@label}}</div>
+<textarea oninput={{action this.handleInput value="target.value"}} ...attributes></textarea>
+
+{{#if this.isInvalid}}
+  <div role="alert">{{this.feedback}}</div>
+{{/if}}

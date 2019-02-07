@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cenchat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{content-for "head"}}
+
+    <link rel="icon" href="{{rootURL}}assets/images/icons/32.png" sizes="32x32" type="image/png">
+
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/cenchat-widget.css">
+
+    {{content-for "head-footer"}}
+  </head>
+  <body class="layout light-theme">
+    {{content-for "body"}}
+
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/cenchat-widget.js"></script>
+
+    {{content-for "body-footer"}}
+  </body>
+</html>

@@ -1,0 +1,32 @@
+.cen-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  height: 36px;
+  padding: 0 8px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  line-height: 32px;
+  color: var(--font-primary-color);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  transition-timing-function: var(--motion-standard-curve);
+  transition-duration: var(--motion-tiny-expand-duration);
+  transition-property: transform;
+}
+
+.cen-link-button:disabled {
+  color: var(--disabled-color);
+}
+
+.cen-link-button:hover:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.cen-link-button:active:not(:disabled) {
+  transform: scale(0.84);
+}

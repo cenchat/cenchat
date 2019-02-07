@@ -1,0 +1,8 @@
+{{import TopBar from "./top-bar"}}
+{{import MainContent from "./main-content"}}
+
+<TopBar @currentUserChat={{@currentUserChat}} />
+
+<MainContent @chats={{@chats}}>
+  {{yield}}
+</MainContent>

@@ -1,0 +1,24 @@
+{{#if (eq @permissionState "writer")}}
+  <InfiniteContent
+    class="site-page-chats-chat_route-view-main-content side-sheet__content"
+    data-test-main-content="host"
+    @isReversed="true"
+    @isAbleToLoadMoreContent={{if (lte this.currentLimit @chat.reverseDescendingMessages.length) true false}}
+    @onLoadMoreContentEvent={{action this.handleLoadMoreContentEvent}}
+    ...attributes
+  >
+    <MessageList @messages={{@chat.reverseDescendingMessages}} />
+    {{yield}}
+  </InfiniteContent>
+{{else if (eq @permissionState "reader")}}
+  <InfiniteContent
+    class="site-page-chats-chat_route-view-main-content side-sheet__content"
+    data-test-main-content="host"
+    @isAbleToLoadMoreContent={{if (lte this.currentLimit @chat.messages.length) true false}}
+    @onLoadMoreContentEvent={{action this.handleLoadMoreContentEvent}}
+    ...attributes
+  >
+    <MessageList @messages={{@chat.messages}} />
+    {{yield}}
+  </InfiniteContent>
+{{/if}}

@@ -1,0 +1,44 @@
+.chat-composer {
+  display: flex;
+}
+
+.chat-composer__message-field {
+  flex: 1;
+  padding: 6px;
+  margin-right: 10px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-14);
+  color: var(--font-primary-color);
+  resize: none;
+  background-color: var(--surface-background-color);
+  border: none;
+}
+
+.chat-composer__message-field::placeholder {
+  color: var(--font-secondary-color);
+}
+
+.chat-composer__message-field::-webkit-input-placeholder {
+  color: var(--font-secondary-color);
+}
+
+.chat-composer__message-field:-ms-input-placeholder {
+  color: var(--font-secondary-color);
+}
+
+.chat-composer__message-field:disabled {
+  color: var(--disabled-color);
+}
+
+.chat-composer__message-field:disabled::placeholder {
+  color: var(--disabled-color);
+}
+
+.chat-composer__message-field:disabled::-webkit-input-placeholder {
+  color: var(--disabled-color);
+}
+
+.chat-composer__message-field:disabled:-ms-input-placeholder {
+  color: var(--disabled-color);
+}

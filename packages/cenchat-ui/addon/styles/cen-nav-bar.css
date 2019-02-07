@@ -1,0 +1,16 @@
+.cen-nav-bar {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding-right: 6px;
+  padding-left: 6px;
+  background-color: var(--surface-background-color);
+  border-top: 2px solid var(--divider-color);
+}
+
+.cen-nav-bar button,
+.cen-nav-bar a {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}

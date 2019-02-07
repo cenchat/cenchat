@@ -1,0 +1,28 @@
+.sign-in__container {
+  --brand-color: var(--cenchat-brand-color);
+
+  height: calc(100vh - 112px);
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.sign-in__card {
+  border: none;
+}
+
+@media (min-width: 960px) {
+  .sign-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 128px);
+  }
+
+  .sign-in__container {
+    max-width: 456px;
+    height: auto;
+    padding: 40px;
+    border: 1px solid var(--divider-color);
+    border-radius: var(--border-radius-square);
+  }
+}

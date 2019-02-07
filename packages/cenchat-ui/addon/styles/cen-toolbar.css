@@ -1,0 +1,17 @@
+.cen-toolbar {
+  display: flex;
+  align-items: center;
+  overflow: auto;
+}
+
+.cen-toolbar .cen-button:not(:first-child):not(:last-child),
+.cen-toolbar .cen-link-button:not(:first-child):not(:last-child) {
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.cen-toolbar .cen-icon-button:not(:first-child):not(:last-child),
+.cen-toolbar .cen-icon-link-button:not(:first-child):not(:last-child) {
+  margin-right: 6px;
+  margin-left: 6px;
+}

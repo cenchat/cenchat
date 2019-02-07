@@ -1,0 +1,30 @@
+.cen-subheader {
+  display: flex;
+  height: 48px;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.cen-subheader--extra-padded {
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.cen-subheader > h1,
+.cen-subheader > h2,
+.cen-subheader > h3,
+.cen-subheader > h4,
+.cen-subheader > h5,
+.cen-subheader > h6 {
+  flex: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  line-height: 48px;
+  color: var(--font-secondary-color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

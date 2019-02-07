@@ -1,0 +1,21 @@
+.cenchat-theme {
+  /* Colors */
+  --dark-87: rgba(0, 0, 0, 0.87);
+  --dark-60: rgba(0, 0, 0, 0.6);
+  --dark-38: rgba(0, 0, 0, 0.38);
+  --dark-12: rgba(0, 0, 0, 0.12);
+
+  /* Scaffolding */
+  --brand-color: var(--cenchat-brand-color);
+  --brand-text-color: var(--cenchat-brand-text-color);
+  --surface-background-color: #fff;
+  --disabled-color: var(--dark-38);
+  --danger-color: #b00020;
+
+  /* Divider */
+  --divider-color: var(--dark-12);
+
+  /* Typography */
+  --font-primary-color: var(--dark-87);
+  --font-secondary-color: var(--dark-60);
+}

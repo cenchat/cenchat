@@ -1,0 +1,6 @@
+{{import ChatCollection from "./chat-collection"}}
+
+<main class="layout__content layout__content-wrapper" data-test-main-content="host" ...attributes>
+  <ChatCollection @chats={{@chats}} />
+  {{yield}}
+</main>

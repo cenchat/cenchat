@@ -1,0 +1,18 @@
+<SideSheet class="side-sheet liquid-fire-side-sheet">
+  <CenTopBar>
+    <CenIconLinkButton href={{url-for "site.page.chats"}} @icon="arrow-left" />
+    <h2>Chat</h2>
+  </CenTopBar>
+
+  {{#if (or (not this.session.isAuthenticated) this.session.data.authenticated.user.isAnonymous)}}
+    <p class="site-page-chats-new_route-view__anonymous-banner" data-test-route-view="anonymous-banner">
+      Chatting anonymously. To continue with an account, sign in <CenLink href={{url-for "site.page.sign-in"}}>here</CenLink>.
+    </p>
+  {{/if}}
+
+  <div class="side-sheet__content">
+    {{yield}}
+  </div>
+
+  <ChatComposer class="side-sheet__toolbar" @onSendMessageClick={{action @onSendMessageClick}}></ChatComposer>
+</SideSheet>

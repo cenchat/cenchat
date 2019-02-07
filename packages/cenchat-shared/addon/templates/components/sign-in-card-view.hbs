@@ -1,0 +1,19 @@
+<section class="card card--flat" ...attributes>
+  <CenWordmarkLogo class="sign-in-card-view__logo" />
+
+  {{#if this.isSignInWithEmailLink}}
+    <SignInCardViewVerification @redirectUrl={{@redirectUrl}} @onSignInEvent={{action @onSignInEvent}} />
+  {{else}}
+    <SignInCardViewEmail
+      @isAnonymousSignInAllowed={{@isAnonymousSignInAllowed}}
+      @redirectUrl={{@redirectUrl}}
+      @onSignInEvent={{action @onSignInEvent}}
+    />
+  {{/if}}
+
+  <footer class="sign-in-card-view__footer">
+    <p class="sign-in-card-view__policy-message">
+      By continuing, you're indicating that you've read the <a href="https://cenchat.com/policies/privacy" target="_blank" rel="noopener">Privacy Policy</a> and agree to the <a href="https://cenchat.com/policies/terms" target="_blank" rel="noopener">Terms of Service</a>
+    </p>
+  </footer>
+</section>

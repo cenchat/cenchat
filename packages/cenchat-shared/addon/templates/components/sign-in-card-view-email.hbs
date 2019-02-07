@@ -1,0 +1,38 @@
+<div data-test-sign-in-card-view-email="host" ...attributes>
+  <header class="sign-in-card-view-email__header">
+    <h2 class="card__heading card__heading--small">Sign in</h2>
+    <p class="card__subheading">Instead of passwords, we'll send a sign in link to your inbox</p>
+  </header>
+
+  <CenForm class="sign-in-card-view-email__form" @onSubmit={{action this.handleEmailLinkFormSubmit}}>
+    <CenInput
+      data-test-sign-in-card-view-email="email-field"
+      type="email"
+      required="true"
+      @label="Email"
+      @onInput={{action (mut this.email)}}
+    />
+
+    <CenButton
+      class="sign-in-card-view-email__form-submit-button"
+      data-test-sign-in-card-view-email="send-link-button"
+      type="submit"
+    >
+      Send link
+    </CenButton>
+  </CenForm>
+
+  {{#if (and @isAnonymousSignInAllowed (not this.session.data.authenticated.user.isAnonymous))}}
+    <p class="sign-in-card-view-email__continue-anonymously-message" data-test-sign-in-card-view-email="continue-anonymously-message">
+      Or, you can also just
+
+      <button
+        class="sign-in-card-view-email__continue-anonymously-button"
+        data-test-sign-in-card-view-email="continue-anonymously-button"
+        onclick={{action @onSignInEvent "anonymous"}}
+      >
+        continue anonymously
+      </button>
+    </p>
+  {{/if}}
+</div>

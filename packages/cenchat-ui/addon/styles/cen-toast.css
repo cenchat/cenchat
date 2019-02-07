@@ -1,0 +1,83 @@
+.cen-toast {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2400;
+  box-sizing: border-box;
+  display: flex;
+  align-items: cennter;
+  min-height: 52px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.25rem;
+  color: var(--toast-text-color);
+  background-color: var(--toast-background-color);
+  box-shadow: var(--elevation-24);
+  transition-timing-function: ease-out;
+  transition-duration: 195ms;
+  transition-property: transform;
+  transform: translateY(230%);
+}
+
+@media (min-width: 600px) {
+  .cen-toast {
+    transition-duration: 255ms;
+  }
+}
+
+@media (min-width: 960px) {
+  .cen-toast {
+    right: auto;
+    min-width: 288px;
+    max-width: 568px;
+    margin: 16px;
+    border-radius: var(--border-radius-square);
+    transform: translateY(calc(130% + 16px));
+  }
+}
+
+@media (min-width: 1280px) {
+  .cen-toast {
+    transition-duration: 150ms;
+  }
+}
+
+.cen-toast[opened] {
+  transition-timing-function: ease-in;
+  transition-duration: 225ms;
+  transform: translateY(0);
+}
+
+@media (min-width: 600px) {
+  .cen-toast[opened] {
+    transition-duration: 295ms;
+  }
+}
+
+@media (min-width: 960px) {
+  .cen-toast[opened] {
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1280px) {
+  .cen-toast[opened] {
+    transition-duration: 175ms;
+  }
+}
+
+.cen-toast span {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+}
+
+.cen-toast span:only-child {
+  padding-right: 24px;
+}
+
+.cen-toast__text {
+  flex: 1;
+}
