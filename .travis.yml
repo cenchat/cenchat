@@ -22,5 +22,5 @@ before_install:
   - npm config set spin false
 
 script:
-  - npx lerna bootstrap
-  - npx lerna run test
+  - ./node_modules/.bin/lerna bootstrap
+  - ./node_modules/.bin/lerna run test
