@@ -1,0 +1,40 @@
+.layout {
+  padding-top: 56px;
+  padding-bottom: 52px;
+}
+
+@media (min-width: 960px) {
+  .layout {
+    padding-top: 64px;
+  }
+}
+
+.layout__header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 400;
+}
+
+.layout__content {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.layout__content--sectioned {
+  padding-top: 0;
+}
+
+.layout__content-wrapper {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.layout__nav {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 800;
+}

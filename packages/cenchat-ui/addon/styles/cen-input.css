@@ -1,0 +1,40 @@
+.cen-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cen-input div:first-child {
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-12);
+  color: var(--font-primary-color);
+}
+
+.cen-input input {
+  padding: 8px 16px;
+  margin-top: 8px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-16);
+  color: var(--font-primary-color);
+  background-color: transparent;
+  border: 1px solid var(--divider-color);
+  border-radius: var(--border-radius-square);
+  appearance: none;
+}
+
+.cen-input input:invalid {
+  box-shadow: none;
+}
+
+.cen-input [role="alert"] {
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-left: 16px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-12);
+  color: var(--danger-color);
+}

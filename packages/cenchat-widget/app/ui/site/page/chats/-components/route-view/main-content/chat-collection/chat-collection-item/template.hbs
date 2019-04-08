@@ -1,0 +1,12 @@
+<article class="site-page-chats_route-view-main-content-chat-collection-item card" data-test-chat-collection-item="host" ...attributes>
+  <CenLink class="card__primary-link" href={{url-for "site.page.chats.chat" @chat.id}}></CenLink>
+  <MessageList class="site-page-chats_route-view-main-content-chat-collection-item__message-list" @messages={{@chat.first3Messages}} />
+
+  {{#if this.isReadMoreVisible}}
+    <div class="site-page-chats_route-view-main-content-chat-collection-item__fade"></div>
+
+    <footer class="site-page-chats_route-view-main-content-chat-collection-item__footer">
+      See more
+    </footer>
+  {{/if}}
+</article>

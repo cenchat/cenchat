@@ -1,0 +1,5 @@
+<ul class="message-list" data-test-message-list="host" ...attributes>
+  {{#each this.messageGroups as |messageGroup|}}
+    <MessageListItem @messageGroup={{messageGroup}} />
+  {{/each}}
+</ul>

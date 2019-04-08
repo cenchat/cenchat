@@ -1,0 +1,19 @@
+<CenTopBar class="layout__header" data-test-top-bar="host" ...attributes>
+  <h1>Chats</h1>
+
+  {{#if @currentUserChat}}
+    <CenLinkButton
+      data-test-top-bar="start-chat-button"
+      href={{url-for "site.page.chats.chat" @currentUserChat.id}}
+    >
+      Start Chat
+    </CenLinkButton>
+  {{else}}
+    <CenLinkButton
+      data-test-top-bar="start-chat-button"
+      href={{url-for "site.page.chats.new"}}
+    >
+      Start Chat
+    </CenLinkButton>
+  {{/if}}
+</CenTopBar>

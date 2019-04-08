@@ -1,0 +1,51 @@
+.cen-icon-button {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  color: var(--font-primary-color);
+  background: none;
+  border: none;
+  transition-timing-function: var(--motion-standard-curve);
+  transition-duration: var(--motion-tiny-expand-duration);
+  transition-property: transform;
+}
+
+.cen-icon-button:disabled {
+  color: var(--disabled-color);
+}
+
+.cen-icon-button:hover:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.cen-icon-button:active:not(:disabled) {
+  transform: scale(0.84);
+}
+
+.cen-icon-button--performing::after {
+  position: absolute;
+  top: calc(50% - 12px);
+  left: calc(50% - 12px);
+  width: 24px;
+  height: 24px;
+  content: '';
+  border: 2px solid transparent;
+  border-top: 2px solid var(--brand-color);
+  border-right: 2px solid var(--brand-color);
+  border-radius: 100%;
+  animation-name: cen-icon-button-performing;
+  animation-duration: 800ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cen-icon-button-performing {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

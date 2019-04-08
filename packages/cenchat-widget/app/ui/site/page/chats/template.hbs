@@ -1,0 +1,5 @@
+{{import RouteView from "./-components/route-view"}}
+
+<RouteView @chats={{this.model.publicChats}} @currentUserChat={{this.model.currentUserChat}}>
+  {{liquid-outlet class="liquid-fire-side-sheet-outlet"}}
+</RouteView>

@@ -1,0 +1,59 @@
+.cen-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  height: 36px;
+  padding: 0 8px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  color: var(--font-primary-color);
+  text-align: center;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  transition-timing-function: var(--motion-standard-curve);
+  transition-duration: var(--motion-tiny-expand-duration);
+  transition-property: transform;
+}
+
+.cen-button:disabled {
+  color: var(--disabled-color);
+}
+
+.cen-button:hover:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.cen-button:active:not(:disabled) {
+  transform: scale(0.84);
+}
+
+.cen-button--performing::after {
+  position: absolute;
+  top: calc(50% - 12px);
+  left: calc(50% - 12px);
+  width: 24px;
+  height: 24px;
+  content: '';
+  border: 2px solid transparent;
+  border-top: 2px solid var(--brand-color);
+  border-right: 2px solid var(--brand-color);
+  border-radius: 100%;
+  animation-name: cen-button-performing;
+  animation-duration: 800ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cen-button-performing {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,6 @@
+<div>{{@label}}</div>
+<input oninput={{action this.handleInput value="target.value"}} ...attributes>
+
+{{#if this.isInvalid}}
+  <div role="alert">{{this.feedback}}</div>
+{{/if}}

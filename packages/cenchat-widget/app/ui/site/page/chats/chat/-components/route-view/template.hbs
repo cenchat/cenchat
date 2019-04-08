@@ -1,0 +1,30 @@
+{{import MainContent from "./main-content"}}
+
+<SideSheet class="side-sheet liquid-fire-side-sheet" data-test-route-view={{@chat.id}}>
+  <CenTopBar>
+    <CenIconLinkButton href={{url-for "site.page.chats"}} @icon="arrow-left" />
+    <h2>Chat</h2>
+  </CenTopBar>
+
+  {{#if (and (eq this.session.data.authenticated.user.uid @chat.creator.id) this.session.data.authenticated.user.isAnonymous)}}
+    <p class="site-page-chats-chat_route-view__anonymous-banner" data-test-route-view="anonymous-banner">
+      Chatting anonymously. To continue with an account, sign in <CenLink href={{url-for "site.page.sign-in"}}>here</CenLink>.
+    </p>
+  {{/if}}
+
+  {{#if this.permissionState}}
+    <MainContent id="site-page-chats-chat_route-view__main-content" @chat={{@chat}} @permissionState={{this.permissionState}}>
+      {{yield}}
+    </MainContent>
+  {{/if}}
+
+  <div class="side-sheet__toolbar">
+    {{#if (eq this.permissionState "writer")}}
+      <ChatComposer @onSendMessageClick={{action this.handleSendMessageClick}} />
+    {{else if (eq this.permissionState "reader")}}
+      <div class="site-page-chats-chat_route-view__composer-disabled" data-test-route-view="composer-disabled">
+        You're not allowed to participate in this chat
+      </div>
+    {{/if}}
+  </div>
+</SideSheet>

@@ -1,0 +1,26 @@
+.cen-icon-link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  color: var(--font-primary-color);
+  text-decoration: none;
+  border: none;
+  transition-timing-function: var(--motion-standard-curve);
+  transition-duration: var(--motion-tiny-expand-duration);
+  transition-property: transform;
+}
+
+.cen-icon-link-button:disabled {
+  color: var(--disabled-color);
+}
+
+.cen-icon-link-button:hover:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.cen-icon-link-button:active:not(:disabled) {
+  transform: scale(0.84);
+}

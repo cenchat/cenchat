@@ -1,0 +1,43 @@
+.message-list-item {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  list-style-type: none;
+}
+
+.message-list-item__header {
+  display: flex;
+  align-items: center;
+}
+
+.message-list-item__author-name {
+  margin-top: 0;
+  margin-right: 8px;
+  margin-bottom: 0;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-14);
+  color: var(--font-primary-color);
+}
+
+.message-list-item__timestamp {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-12);
+  color: var(--font-secondary-color);
+}
+
+.message-list-item__content {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-14);
+  color: var(--font-primary-color);
+  white-space: pre-wrap;
+}
+
+.message-list-item__content:not(:only-of-type):not(:last-of-type) {
+  margin-bottom: 4px;
+}

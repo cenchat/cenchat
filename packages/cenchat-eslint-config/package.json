@@ -1,0 +1,20 @@
+{
+  "name": "@cenchat/eslint-config",
+  "version": "0.0.1",
+  "private": true,
+  "description": "ESLint shareable config",
+  "scripts": {},
+  "repository": "https://github.com/cenchat/cenchat/tree/master/packages/cenchat-eslint-config",
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "author": "Cenchat",
+  "license": "GPL-3.0",
+  "peerDependencies": {
+    "eslint": "4.x",
+    "eslint-config-airbnb-base": "13.x",
+    "eslint-plugin-import": "2.x"
+  },
+  "dependencies": {}
+}

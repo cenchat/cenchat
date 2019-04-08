@@ -1,0 +1,8 @@
+<button
+  class="cen-button {{if this.isPerforming "cen-button--performing"}}"
+  disabled={{this.isPerforming}}
+  onclick={{action this.handleClick}}
+  ...attributes
+>
+  {{yield}}
+</button>

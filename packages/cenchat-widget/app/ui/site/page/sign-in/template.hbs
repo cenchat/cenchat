@@ -1,0 +1,9 @@
+<div class="site-page-sign-in layout__content layout__content-wrapper">
+  <SignInCard
+    @isAnonymousSignInAllowed={{true}}
+    @redirectUrl={{this.redirectUrl}}
+    @onAfterSignInEvent={{action this.handleAfterSignInEvent}}
+  />
+
+  {{outlet}}
+</div>

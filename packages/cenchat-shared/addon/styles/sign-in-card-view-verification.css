@@ -1,0 +1,38 @@
+.sign-in-card-view-verification {
+  display: flex;
+}
+
+.sign-in-card-view-verification--left-shifted {
+  animation-name: sign-in-card-view-verification-sign-in-slide-center-to-left;
+  animation-duration: 375ms;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes sign-in-card-view-verification-sign-in-slide-center-to-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.sign-in-card-view-verification__email {
+  min-width: 100%;
+}
+
+.sign-in-card-view-verification__header {
+  padding: 12px 16px 8px;
+  text-align: center;
+}
+
+.sign-in-card-view-verification__form {
+  padding: 8px 8px 4px;
+}
+
+.sign-in-card-view-verification__form-submit-button {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}

@@ -1,0 +1,35 @@
+<div
+  class="sign-in-card-view-verification {{if this.isEmailNotExisting "sign-in-card-view-verification--left-shifted"}}"
+  data-test-sign-in-card-view-verification="host"
+  ...attributes
+>
+  <div class="sign-in-card-view-verification__email">
+    <header class="sign-in-card-view-verification__header">
+      <h2 class="card__heading card__heading--small">Sign in</h2>
+      <p class="card__subheading">Re-enter your email for verification</p>
+    </header>
+
+    <CenForm class="sign-in-card-view-verification__form" @onSubmit={{action this.handleVerificationFormSubmit}}>
+      <CenInput
+        data-test-sign-in-card-view-verification="email-field"
+        type="email"
+        required="true"
+        value={{this.email}}
+        @label="Email"
+        @onInput={{action (mut this.email)}}
+      />
+
+      <CenButton
+        class="sign-in-card-view-verification__form-submit-button"
+        data-test-sign-in-card-view-verification="continue-button"
+        type="submit"
+      >
+        Continue
+      </CenButton>
+    </CenForm>
+  </div>
+
+  {{#if this.isEmailNotExisting}}
+    <SignInCardViewVerificationProfile @email={{this.email}} @onSignInEvent={{action @onSignInEvent}} />
+  {{/if}}
+</div>

@@ -1,0 +1,12 @@
+{{outlet}}
+
+<CenNavBar class="layout__nav">
+  <CenIconLinkButton href={{url-for "site.page.chats"}} @icon="comment" />
+
+  {{#if this.session.isAuthenticated}}
+    <CenIconLinkButton href={{url-for "site.page.my-account"}} @icon="user-circle" />
+    <CenIconLinkButton href="https://web.cenchat.com" target="_blank" @icon="home" />
+  {{else}}
+    <CenIconLinkButton href={{url-for "site.page.sign-in"}} @icon="sign-in-alt" />
+  {{/if}}
+</CenNavBar>

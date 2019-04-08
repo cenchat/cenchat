@@ -1,0 +1,45 @@
+.cen-select {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cen-select div:first-child {
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-12);
+  color: var(--font-primary-color);
+}
+
+.cen-select option {
+  color: initial;
+}
+
+.cen-select select {
+  padding: 8px 16px;
+  margin-top: 8px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-16);
+  color: var(--font-primary-color);
+  background: none;
+  border: 1px solid var(--divider-color);
+  border-radius: var(--border-radius-square);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.cen-select select:invalid {
+  box-shadow: none;
+}
+
+.cen-select [role="alert"] {
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-left: 16px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-12);
+  color: var(--danger-color);
+}

@@ -1,0 +1,28 @@
+<div
+  class="sign-in-card-view-verification-profile"
+  data-test-sign-in-card-view-verification-profile="host"
+  ...attributes
+>
+  <header class="sign-in-card-view-verification-profile__header">
+    <h2 class="card__heading card__heading--small">Complete your profile</h2>
+    <p class="card__subheading">This will help other users to identify you</p>
+  </header>
+
+  <CenForm class="sign-in-card-view-verification-profile__form" @onSubmit={{action @onSignInEvent "email-link" @email this.fullName}}>
+    <CenInput
+      data-test-sign-in-card-view-verification-profile="full-name-field"
+      type="text"
+      required="true"
+      @label="Full name"
+      @onInput={{action (mut this.fullName)}}
+    />
+
+    <CenButton
+      class="sign-in-card-view-verification-profile__form-submit-button"
+      data-test-sign-in-card-view-verification-profile="sign-in-button"
+      type="submit"
+    >
+      Sign In
+    </CenButton>
+  </CenForm>
+</div>
