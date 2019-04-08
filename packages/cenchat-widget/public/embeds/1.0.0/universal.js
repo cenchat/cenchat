@@ -88,7 +88,7 @@
   function getIframeSrc() {
     const siteId = getSiteId();
     const pageId = getPageId();
-    let iframeUrl = `http://localhost:4200/sites/${siteId}`;
+    let iframeUrl = `https://widget.cenchat.com/sites/${siteId}`;
 
     if (pageId) {
       iframeUrl = `${iframeUrl}/pages/${pageId}`;
@@ -118,7 +118,7 @@
    * @function
    */
   function getIframeElement() {
-    return document.querySelector('.cenchat-widget-container');
+    return document.querySelector('.cenchat-widget-iframe');
   }
 
   /**
