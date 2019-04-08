@@ -13,6 +13,9 @@ module.exports = function(defaults) {
   }
 
   const app = new EmberApp(defaults, {
+    fingerprint: {
+      exclude: ['universal.js'],
+    },
     funnel: {
       // TODO: Remove this once Module Unification lands
       exclude: filesToExclude,
