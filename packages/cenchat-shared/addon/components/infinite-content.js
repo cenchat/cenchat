@@ -84,10 +84,12 @@ export default Component.extend({
    * @function
    */
   processScroll() {
-    if (this.args.isReversed) {
-      this.processReverseScroll();
-    } else {
-      this.processStandardScroll();
+    if (!this.isDestroyed) {
+      if (this.args.isReversed) {
+        this.processReverseScroll();
+      } else {
+        this.processStandardScroll();
+      }
     }
   },
 
