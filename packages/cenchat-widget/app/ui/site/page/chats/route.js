@@ -8,11 +8,6 @@ export default Route.extend({
   /**
    * @type {Ember.Service}
    */
-  firebase: service('firebase'),
-
-  /**
-   * @type {Ember.Service}
-   */
   session: service('session'),
 
   /**
