@@ -3,7 +3,7 @@ import { setupTest } from 'ember-qunit';
 
 import sinon from 'sinon';
 
-import { setupTestState } from '@cenchat/shared/test-support';
+import { setupAuthState, setupTestState } from '@cenchat/shared/test-support';
 
 module('Unit | Route | site/page/chats', function (hooks) {
   setupTest(hooks);
