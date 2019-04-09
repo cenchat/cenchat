@@ -38,9 +38,9 @@ export default Route.extend({
       const { uid: currentUserId } = this.session.data.authenticated.user;
 
       try {
-        const chat = await this.store.findRecord('chat', `${page.get('id')}__${currentUserId}`);
+        const chet = await this.store.findRecord('chat', `${page.get('id')}__${currentUserId}`);
 
-        return chat;
+        return chet;
       } catch (error) {
         return null;
       }
