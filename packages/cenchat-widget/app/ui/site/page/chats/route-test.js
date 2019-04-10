@@ -46,7 +46,9 @@ module('Unit | Route | site/page/chats', function (hooks) {
   //   assert.equal(result.publicChats.length, 1);
   // });
 
-  // test('should return current user chat as part of the model when authenticated', async function (assert) {
+  // test(
+    // 'should return current user chat as part of the model when authenticated', 
+    // async function (assert) {
   //   assert.expect(1);
 
   //   // Arrange
