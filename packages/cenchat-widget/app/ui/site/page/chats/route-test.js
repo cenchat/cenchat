@@ -47,7 +47,7 @@ module('Unit | Route | site/page/chats', function (hooks) {
   // });
 
   // test(
-  // 'should return current user chat as part of the model when authenticated', 
+  // 'should return current user chat as part of the model when authenticated',
   // async function (assert) {
   //   assert.expect(1);
 
