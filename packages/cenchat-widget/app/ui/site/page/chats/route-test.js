@@ -13,7 +13,7 @@ module('Unit | Route | site/page/chats', function (hooks) {
   });
 
   // TODO: Remove this test once the tests below have been fixed
-  test('dummy test to make eslint pass', function (assert) {
+  test('dummy test to make eslint pass', async function (assert) {
     assert.expect(1);
 
     const route = this.owner.lookup('route:site/page/chats');
