@@ -68,7 +68,9 @@ module('Unit | Route | site/page/chats', function (hooks) {
   //   assert.equal(result.currentUserChat.get('id'), 'site_a__page_a__user_c');
   // });
 
-  // test('should return null for the current user chat as part of the model when unauthenticated', async function (assert) {
+  // test(
+  // 'should return null for the current user chat as part of the model when unauthenticated',
+  // async function (assert) {
   //   assert.expect(1);
 
   //   // Arrange
