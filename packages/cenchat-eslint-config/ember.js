@@ -12,7 +12,6 @@ module.exports = {
     {
       files: [
         '**/*-test.js',
-        '**/*-ewt.js',
       ],
       rules: {
         'prefer-arrow-callback': 'off',

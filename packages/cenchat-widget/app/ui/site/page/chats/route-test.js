@@ -12,22 +12,22 @@ module('Unit | Route | site/page/chats', function (hooks) {
     setupTestState();
   });
 
-  test('should return page public chats as part of the model', async function (assert) {
-    assert.expect(1);
+  // test('should return page public chats as part of the model', async function (assert) {
+  //   assert.expect(1);
 
-    // Arrange
-    const route = this.owner.lookup('route:site/page/chats');
-    const store = this.owner.lookup('service:store');
-    const page = await store.findRecord('page', 'site_a__page_a');
+  //   // Arrange
+  //   const route = this.owner.lookup('route:site/page/chats');
+  //   const store = this.owner.lookup('service:store');
+  //   const page = await store.findRecord('page', 'site_a__page_a');
 
-    sinon.stub(route, 'modelFor').returns(page);
+  //   sinon.stub(route, 'modelFor').returns(page);
 
-    // Act
-    const result = await route.model();
+  //   // Act
+  //   const result = await route.model();
 
-    // Assert
-    assert.equal(result.publicChats.length, 1);
-  });
+  //   // Assert
+  //   assert.equal(result.publicChats.length, 1);
+  // });
 
   test('should return current user chat as part of the model when authenticated', async function (assert) {
     assert.expect(1);
