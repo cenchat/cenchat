@@ -1,0 +1,19 @@
+html {
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--surface-background-color);
+}
+
+a {
+  color: var(--brand-color);
+}
+
+a:visited:not(.cen-link-button):not(.cen-icon-link-button) {
+  color: var(--brand-color);
+}
+
+strong {
+  font-weight: 500;
+}
