@@ -37,8 +37,8 @@ export default Route.extend({
   /**
    * @override
    */
-  redirect() {
-    if (this.session.isAuthenticated) {
+  redirect(model, transition) {
+    if (this.session.isAuthenticated && transition.targetName === 'index') {
       this.transitionTo('chats');
     }
   },

@@ -52,7 +52,7 @@ module('Unit | Route | application', function (hooks) {
     const stub = sinon.stub(route, 'transitionTo');
 
     // Act
-    route.redirect();
+    route.redirect(null, { targetName: 'index' });
 
     // Assert
     assert.ok(stub.calledWithExactly('chats'));

@@ -1,0 +1,14 @@
+{{import MainContent from "./main-content"}}
+
+<SideSheet class="side-sheet liquid-fire-side-sheet" data-test-route-view={{@chat.id}}>
+  <CenTopBar>
+    <CenIconLinkButton href={{url-for "chats"}} @icon="arrow-left" />
+    <h2>Chat</h2>
+  </CenTopBar>
+
+  <MainContent id="chats-chat_route-view__main-content" @chat={{@chat}}>
+    {{yield}}
+  </MainContent>
+
+  <ChatComposer class="chats-chat-route-view__toolbar" @onSendMessageClick={{action this.handleSendMessageClick}} />
+</SideSheet>
