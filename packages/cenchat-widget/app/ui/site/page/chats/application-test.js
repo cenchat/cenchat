@@ -3,13 +3,13 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 
 import { authenticateSession } from 'ember-simple-auth/test-support';
-import { setupTestState, timeout } from '@cenchat/shared/test-support';
+import { setupApplicationTestState, timeout } from '@cenchat/shared/test-support';
 
 module('Acceptance | site/page/chats', function (hooks) {
   setupApplicationTest(hooks);
 
   hooks.beforeEach(function () {
-    setupTestState();
+    setupApplicationTestState();
   });
 
   test('should transition to site.page.chats.new when clicking start chat and chat for current user does not exist', async function (assert) {
@@ -46,9 +46,9 @@ module('Acceptance | site/page/chats', function (hooks) {
 
     // Act
     await visit('/sites/site_a/pages/page_a/chats');
-    await timeout(1000);
 
     // Assert
+    await timeout(100); // Wait for relationships to load
     assert.dom('[data-test-chat-collection-item="host"]').exists({ count: 1 });
   });
 });

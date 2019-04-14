@@ -4,17 +4,12 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 import { setupTestState } from '@cenchat/shared/test-support';
-import sinon from 'sinon';
 
 module('Integration | Component | site/page/chats/-components/route-view/main-content/chat-collection', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(async function () {
     setupTestState();
-
-    const router = this.owner.lookup('service:router');
-
-    sinon.stub(router, 'urlFor');
 
     const page = await this.owner.lookup('service:store').findRecord('page', 'site_a__page_a');
     const publicChats = await page.get('publicChats');

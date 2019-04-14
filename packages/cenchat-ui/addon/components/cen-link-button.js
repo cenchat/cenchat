@@ -1,3 +1,4 @@
+import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 
@@ -25,12 +26,36 @@ export default Component.extend({
   /**
    * @override
    */
+  classNameBindings: ['isRouteActive:active'],
+
+  /**
+   * @override
+   */
   attributeBindings: ['href'],
 
   /**
    * @override
    */
   classNames: ['cen-link-button'],
+
+  /**
+   * @type {boolean}
+   */
+  isRouteActive: computed('router.currentURL', {
+    get() {
+      const href = this.element.getAttribute('href');
+
+      if (this.router.currentURL) {
+        if (href !== '/') {
+          return this.router.currentURL.includes(href);
+        }
+
+        return this.router.currentURL === href;
+      }
+
+      return false;
+    },
+  }),
 
   /**
    * @override

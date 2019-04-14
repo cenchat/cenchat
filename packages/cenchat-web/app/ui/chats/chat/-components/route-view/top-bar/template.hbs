@@ -1,0 +1,9 @@
+<CenTopBar data-test-top-bar="host" ...attributes>
+  <CenIconLinkButton href={{url-for "chats"}} @icon="arrow-left" />
+
+  {{#if (eq this.session.data.authenticated.user.uid @chat.creator.id)}}
+    <h2 data-test-top-bar="heading">{{@chat.site.displayName}}</h2>
+  {{else}}
+    <h2 data-test-top-bar="heading">{{@chat.creator.displayName}}</h2>
+  {{/if}}
+</CenTopBar>

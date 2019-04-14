@@ -1,10 +1,8 @@
+{{import TopBar from "./top-bar"}}
 {{import MainContent from "./main-content"}}
 
 <SideSheet class="side-sheet liquid-fire-side-sheet" data-test-route-view={{@chat.id}}>
-  <CenTopBar>
-    <CenIconLinkButton href={{url-for "chats"}} @icon="arrow-left" />
-    <h2>Chat</h2>
-  </CenTopBar>
+  <TopBar @chat={{@chat}} />
 
   <MainContent id="chats-chat_route-view__main-content" @chat={{@chat}}>
     {{yield}}

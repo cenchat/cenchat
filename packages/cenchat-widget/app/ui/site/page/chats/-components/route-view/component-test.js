@@ -3,15 +3,13 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-import sinon from 'sinon';
+import { setupTestState } from '@cenchat/shared/test-support';
 
 module('Integration | Component | site/page/chats/-components/route-view', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(async function () {
-    const router = this.owner.lookup('service:router');
-
-    sinon.stub(router, 'urlFor');
+    setupTestState();
 
     this.set('chats', []);
     this.set('currentUserChat', null);

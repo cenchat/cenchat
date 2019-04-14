@@ -3,15 +3,13 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-import sinon from 'sinon';
+import { setupTestState } from '@cenchat/shared/test-support';
 
 module('Integration | Component | site/page/my-account/-components/route-view', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
-    const router = this.owner.lookup('service:router');
-
-    sinon.stub(router, 'urlFor');
+    setupTestState();
   });
 
   test('should show <MainContent />', async function (assert) {

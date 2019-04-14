@@ -10,6 +10,19 @@ export function setupTestState() {
   const { owner } = getContext();
 
   mockFirebase(owner, getFixtureData());
+
+  const router = owner.lookup('service:router');
+
+  router.set('urlFor', () => {});
+}
+
+/**
+ * @function
+ */
+export function setupApplicationTestState() {
+  const { owner } = getContext();
+
+  mockFirebase(owner, getFixtureData());
 }
 
 /**
