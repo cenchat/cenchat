@@ -1,0 +1,18 @@
+<CenTopBar data-test-top-bar="host" ...attributes>
+  <CenIconLinkButton
+    href={{url-for "my-account"}}
+    title="Navigate back to previous page"
+    aria-label="Navigate back to previous page"
+    @icon="arrow-left"
+  />
+
+  <h2>Update info</h2>
+
+  <CenIconButton
+    data-test-top-bar="save-button"
+    title="Save changes"
+    aria-label="Save changes"
+    @icon="save"
+    @onClick={{action @onSaveInfoClick this.info}}
+  />
+</CenTopBar>

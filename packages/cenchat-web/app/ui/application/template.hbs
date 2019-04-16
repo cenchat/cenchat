@@ -1,3 +1,18 @@
 {{outlet}}
 
+<CenNavBar class="layout__nav">
+  <CenIconLinkButton
+    href={{url-for "chats"}}
+    title="Navigate to chats page"
+    aria-label="Navigate to chats page"
+    @icon="comment"
+  />
+  <CenIconLinkButton
+    href={{url-for "my-account"}}
+    title="Navigate to my accounts page"
+    aria-label="Navigate to my accounts page"
+    @icon="user-circle"
+  />
+</CenNavBar>
+
 <CenToast />

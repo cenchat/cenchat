@@ -18,10 +18,9 @@ export default Route.extend({
   /**
    * @override
    */
-  async model() {
+  model() {
     const { uid } = this.session.data.authenticated.user;
-    const user = await this.store.findRecord('user', uid);
 
-    return user.get('latestActiveChats');
+    return this.store.findRecord('user', uid);
   },
 });

@@ -1,5 +1,10 @@
 <CenTopBar data-test-top-bar="host" ...attributes>
-  <CenIconLinkButton href={{url-for "chats"}} @icon="arrow-left" />
+  <CenIconLinkButton
+    href={{url-for "chats"}}
+    title="Navigate back to previous page"
+    aria-label="Navigate back to previous page"
+    @icon="arrow-left"
+  />
 
   {{#if (eq this.session.data.authenticated.user.uid @chat.creator.id)}}
     <h2 data-test-top-bar="heading">{{@chat.site.displayName}}</h2>

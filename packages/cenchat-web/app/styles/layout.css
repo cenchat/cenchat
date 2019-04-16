@@ -5,6 +5,8 @@
 
 @media (min-width: 960px) {
   .layout {
+    display: flex;
+    flex-direction: row-reverse;
     padding-top: 64px;
     padding-bottom: 0;
   }
@@ -20,6 +22,7 @@
 
 .layout__content {
   display: flex;
+  width: 100%;
   height: 100%;
 }
 
@@ -33,7 +36,7 @@
 
 @media (min-width: 960px) {
   .layout__master-pane {
-    max-width: 375px;
+    width: 375px;
     border-right: 1px solid var(--divider-color);
   }
 }
@@ -58,4 +61,22 @@
   bottom: 0;
   left: 0;
   z-index: 800;
+}
+
+@media (min-width: 960px) {
+  .layout__nav {
+    position: static;
+    z-index: auto;
+    display: flex;
+    flex-direction: column;
+    width: 56px;
+    height: 100%;
+    border-top: none;
+    border-right: 1px solid var(--divider-color);
+  }
+
+  .layout__nav .cen-icon-link-button {
+    flex: initial;
+    margin: 10px;
+  }
 }

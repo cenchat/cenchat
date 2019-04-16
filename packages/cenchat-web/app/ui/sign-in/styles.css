@@ -16,6 +16,8 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - 128px);
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .sign-in__container {
@@ -25,4 +27,8 @@
     border: 1px solid var(--divider-color);
     border-radius: var(--border-radius-square);
   }
+}
+
+.sign-in ~ .layout__nav {
+  display: none;
 }

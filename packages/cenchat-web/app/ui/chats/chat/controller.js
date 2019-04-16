@@ -22,7 +22,10 @@ export default Controller.extend({
    * @function
    */
   async handleSendMessageEvent(text) {
-    const currentUser = this.store.peekRecord('user', this.session.data.authenticated.user.uid);
+    const currentUser = await this.store.findRecord(
+      'user',
+      this.session.data.authenticated.user.uid,
+    );
     const chat = this.model;
     const message = this.store.createRecord('message', {
       chat,

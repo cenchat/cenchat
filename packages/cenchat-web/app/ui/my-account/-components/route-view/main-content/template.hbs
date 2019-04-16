@@ -1,0 +1,9 @@
+{{import UpdateInfoCard from "./update-info-card"}}
+
+<main class="layout__content" data-test-main-content="host" ...attributes>
+  <div class="layout__master-pane layout__master-pane-wrapper">
+    <UpdateInfoCard @user={{@user}} />
+  </div>
+
+  {{yield}}
+</main>

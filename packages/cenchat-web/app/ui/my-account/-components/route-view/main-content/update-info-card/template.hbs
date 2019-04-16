@@ -1,0 +1,19 @@
+<article class="card" data-test-update-info-card="host" ...attributes>
+  <h2 class="my-account_route-view-main-content-update-info-card__heading card__heading">
+    Info
+  </h2>
+
+  <ul class="list">
+    <li class="list__item">
+      <div class="list__multi-line-content">
+        <h3 class="list__primary-text">Name</h3>
+
+        <p class="list__secondary-text" data-test-update-info-card="name">
+          {{@user.displayName}}
+        </p>
+      </div>
+    </li>
+  </ul>
+
+  <CenLink class="list__action" href={{url-for "my-account.update-info"}} />
+</article>
