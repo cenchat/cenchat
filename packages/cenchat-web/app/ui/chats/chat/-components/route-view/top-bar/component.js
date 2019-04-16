@@ -9,4 +9,9 @@ export default Component.extend({
    * @type {Ember.Service}
    */
   session: service('session'),
+
+  /**
+   * @override
+   */
+  tagName: '',
 });

@@ -1,0 +1,12 @@
+{{import InfoForm from "./info-form"}}
+
+<div data-test-main-content="host" ...attributes>
+  <InfoForm
+    @info={{@info}}
+    @onInfoUpdateEvent={{action @onInfoUpdateEvent}}
+    @onInfoFormSubmit={{action @onInfoFormSubmit}}
+    ...attributes
+  >
+    {{yield}}
+  </InfoForm>
+</div>

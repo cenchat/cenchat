@@ -1,0 +1,15 @@
+<CenForm
+  id="my-account-update-info_route-view-main-content-info-form"
+  data-test-info-form="host"
+  @onSubmit={{action this.onInfoFormSubmit}}
+  ...attributes
+>
+  <CenInput
+    data-test-info-form="display-name"
+    type="text"
+    maxlength="15"
+    required="true"
+    @label="Full name"
+    @onInput={{action this.handleDisplayNameInput}}
+  />
+</CenForm>

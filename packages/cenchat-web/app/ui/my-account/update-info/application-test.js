@@ -22,8 +22,8 @@ module('Acceptance | my-account/update-info', function (hooks) {
 
     // Act
     await visit('/my-account/update-info');
-    await fillIn('[data-test-main-content="name-field"]', 'New Name');
-    await click('[data-test-top-bar="save-button"]');
+    await fillIn('[data-test-info-form="display-name"] input', 'New Name');
+    await click('[data-test-route-view="save-info-button"]');
 
     // Assert
     assert.dom('[data-test-update-info-card="name"]').hasText('New Name');

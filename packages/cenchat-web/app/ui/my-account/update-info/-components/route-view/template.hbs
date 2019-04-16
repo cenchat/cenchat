@@ -1,5 +1,30 @@
-{{import TopBar from "./top-bar"}}
+{{import MainContent from "./main-content"}}
 
 <SideSheet class="side-sheet liquid-fire-side-sheet">
-  <TopBar @onSaveInfoClick={{action @onSaveInfoClick}} />
+  <CenTopBar>
+    <CenIconLinkButton
+      href={{url-for "my-account"}}
+      title="Navigate back to previous page"
+      aria-label="Navigate back to previous page"
+      @icon="arrow-left"
+    />
+
+    <h2>Update info</h2>
+
+    <CenIconButton
+      data-test-route-view="save-info-button"
+      title="Save changes"
+      aria-label="Save changes"
+      form="my-account-update-info_route-view-main-content-info-form"
+      @icon="save"
+    />
+  </CenTopBar>
+
+  <MainContent
+    @info={{@info}}
+    @onInfoUpdateEvent={{action @onInfoUpdateEvent}}
+    @onInfoFormSubmit={{action @onInfoFormSubmit}}
+  >
+    {{yield}}
+  </MainContent>
 </SideSheet>

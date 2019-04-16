@@ -1,1 +1,9 @@
-{{outlet}}
+{{import RouteView from "./-components/route-view"}}
+
+<RouteView
+  @info={{this.info}}
+  @onInfoUpdateEvent={{action this.handleInfoUpdateEvent}}
+  @onInfoFormSubmit={{action this.handleInfoFormSubmit}}
+>
+  {{outlet}}
+</RouteView>
