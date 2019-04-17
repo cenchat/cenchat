@@ -15,13 +15,24 @@ module('Integration | Component | my-account/-components/route-view', function (
     const user = await store.findRecord('user', 'user_a');
 
     this.set('user', user);
+    this.set('onSignOutClick', () => {});
+  });
+
+  test('should show <TopBar />', async function (assert) {
+    assert.expect(1);
+
+    // Act
+    await render(hbs`{{my-account/-components/route-view user=this.user onSignOutClick=(action this.onSignOutClick)}}`);
+
+    // Assert
+    assert.dom('[data-test-top-bar="host"]').exists();
   });
 
   test('should show <MainContent />', async function (assert) {
     assert.expect(1);
 
     // Act
-    await render(hbs`{{my-account/-components/route-view user=this.user}}`);
+    await render(hbs`{{my-account/-components/route-view user=this.user onSignOutClick=(action this.onSignOutClick)}}`);
 
     // Assert
     assert.dom('[data-test-main-content="host"]').exists();

@@ -15,4 +15,11 @@ export default function () {
     this.use('toLeft'),
     this.reverse('toRight'),
   );
+
+  this.transition(
+    this.fromRoute('my-account.index'),
+    this.toRoute('my-account.delete'),
+    this.use('toLeft'),
+    this.reverse('toRight'),
+  );
 }

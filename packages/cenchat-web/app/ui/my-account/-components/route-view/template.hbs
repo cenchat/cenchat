@@ -1,8 +1,7 @@
+{{import TopBar from "./top-bar"}}
 {{import MainContent from "./main-content"}}
 
-<CenTopBar class="layout__header">
-  <h1>My account</h1>
-</CenTopBar>
+<TopBar @onSignOutClick={{action @onSignOutClick}} />
 
 <MainContent @user={{@user}}>
   {{yield}}

@@ -1,16 +1,17 @@
-<CenForm
-  id="my-account-profile_route-view-main-content-profile-form"
-  data-test-profile-form="host"
-  @onSubmit={{action this.onProfileFormSubmit}}
-  ...attributes
->
-  <CenInput
-    data-test-profile-form="display-name"
-    type="text"
-    value={{@user.displayName}}
-    maxlength="15"
-    required="true"
-    @label="Name"
-    @onInput={{action this.handleDisplayNameInput}}
-  />
-</CenForm>
+<div class="card card--flat" data-test-profile-form="host" ...attributes>
+  <CenForm
+    class="card__form"
+    id="my-account-profile_route-view-main-content-profile-form"
+    @onSubmit={{action this.onProfileFormSubmit}}
+  >
+    <CenInput
+      data-test-profile-form="display-name"
+      type="text"
+      value={{@user.displayName}}
+      maxlength="15"
+      required="true"
+      @label="Name"
+      @onInput={{action this.handleDisplayNameInput}}
+    />
+  </CenForm>
+</div>

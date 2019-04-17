@@ -35,6 +35,7 @@ export async function setupAuthState(data) {
 
   session.set('data', { authenticated: data });
   session.set('isAuthenticated', true);
+  session.set('invalidate', () => {});
 
   // Preload user model
   const store = owner.lookup('service:store');

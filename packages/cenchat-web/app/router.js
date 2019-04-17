@@ -13,6 +13,7 @@ Router.map(function() {
   });
   this.route('my-account', function() {
     this.route('update');
+    this.route('delete');
   });
 });
 

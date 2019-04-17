@@ -1,6 +1,7 @@
 <article class="card" data-test-profile-card="host" ...attributes>
+  <CenLink class="card__primary-link" href={{url-for "my-account.update"}} />
   <h2 class="my-account_route-view-main-content-profile-card__heading card__heading">
-    Info
+    Profile
   </h2>
 
   <ul class="list">
@@ -14,6 +15,4 @@
       </div>
     </li>
   </ul>
-
-  <CenLink class="list__action" href={{url-for "my-account.update"}} />
 </article>
