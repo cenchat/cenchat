@@ -11,6 +11,11 @@ export default Controller.extend({
   /**
    * @type {Ember.Service}
    */
+  session: service('session'),
+
+  /**
+   * @type {Ember.Service}
+   */
   store: service('store'),
 
   /**
@@ -39,9 +44,12 @@ export default Controller.extend({
    * @function
    */
   async handleInfoFormSubmit() {
-    this.model.set('displayName', this.info.displayName.trim());
-    this.model.set('name', this.info.displayName.trim().toLowerCase());
+    const { displayName } = this.info;
+
+    this.model.set('displayName', displayName.trim());
+    this.model.set('name', displayName.trim().toLowerCase());
     await this.model.save();
+    await this.session.data.authenticated.user.updateProfile({ displayName });
     this.set('info', { displayName: null });
     toast('Info updated');
   },

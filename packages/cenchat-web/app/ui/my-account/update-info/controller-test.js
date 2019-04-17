@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-import { setupTestState } from '@cenchat/shared/test-support';
+import { setupAuthState, setupTestState } from '@cenchat/shared/test-support';
+import sinon from 'sinon';
 
 module('Unit | Controller | my-account/update-info', function (hooks) {
   setupTest(hooks);
@@ -47,9 +48,15 @@ module('Unit | Controller | my-account/update-info', function (hooks) {
   });
 
   test('should be able to save user info updates', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     // Arrange
+    const stub = sinon.stub().returns(Promise.resolve);
+
+    await setupAuthState({
+      user: { uid: 'user_a', updateProfile: stub },
+    });
+
     const controller = this.owner.lookup('controller:my-account/update-info');
 
     controller.set('model', this.model);
@@ -70,5 +77,6 @@ module('Unit | Controller | my-account/update-info', function (hooks) {
       shortBio: null,
       username: null,
     });
+    assert.ok(stub.calledWithExactly({ displayName: 'Foo Bar' }));
   });
 });

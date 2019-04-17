@@ -2,8 +2,8 @@ import { click, fillIn, visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 
-import { authenticateSession } from 'ember-simple-auth/test-support';
-import { setupApplicationTestState } from '@cenchat/shared/test-support';
+import { setupAuthState, setupApplicationTestState } from '@cenchat/shared/test-support';
+import sinon from 'sinon';
 
 module('Acceptance | my-account/update-info', function (hooks) {
   setupApplicationTest(hooks);
@@ -16,8 +16,8 @@ module('Acceptance | my-account/update-info', function (hooks) {
     assert.expect(1);
 
     // Arrange
-    await authenticateSession({
-      user: { uid: 'user_a' },
+    await setupAuthState({
+      user: { uid: 'user_a', updateProfile: sinon.stub().returns(Promise.resolve()) },
     });
 
     // Act
