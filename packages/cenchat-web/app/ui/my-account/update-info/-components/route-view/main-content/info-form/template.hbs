@@ -7,9 +7,10 @@
   <CenInput
     data-test-info-form="display-name"
     type="text"
+    value={{@user.displayName}}
     maxlength="15"
     required="true"
-    @label="Full name"
+    @label="Name"
     @onInput={{action this.handleDisplayNameInput}}
   />
 </CenForm>

@@ -97,11 +97,11 @@ export default function getFixtureData() {
         __doc__: {
           user_a: {
             displayName: 'User A',
-            displayUsername: 'user_a',
+            displayUsername: null,
             name: 'user a',
             photoUrl: 'user_a.jpg',
             shortBio: null,
-            username: 'user_a',
+            username: null,
 
             __collection__: {
               chats: {
@@ -139,11 +139,11 @@ export default function getFixtureData() {
 
           user_b: {
             displayName: 'User B',
-            displayUsername: 'user_b',
+            displayUsername: null,
             name: 'user b',
             photoUrl: 'user_b.jpg',
             shortBio: null,
-            username: 'user_b',
+            username: null,
 
             __collection__: {
               chats: {
@@ -163,11 +163,11 @@ export default function getFixtureData() {
 
           user_c: {
             displayName: 'User C',
-            displayUsername: 'user_c',
+            displayUsername: null,
             name: 'user c',
             photoUrl: 'user_c.jpg',
             shortBio: null,
-            username: 'user_c',
+            username: null,
 
             __collection__: {
               chats: {
@@ -187,11 +187,11 @@ export default function getFixtureData() {
 
           user_d: {
             displayName: 'User D',
-            displayUsername: 'user_d',
+            displayUsername: null,
             name: 'user d',
             photoUrl: 'user_d.jpg',
             shortBio: null,
-            username: 'user_d',
+            username: null,
           },
         },
       },

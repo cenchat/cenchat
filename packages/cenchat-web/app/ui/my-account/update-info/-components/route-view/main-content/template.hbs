@@ -1,8 +1,8 @@
 {{import InfoForm from "./info-form"}}
 
-<div data-test-main-content="host" ...attributes>
+<div class="side-sheet__content" data-test-main-content="host" ...attributes>
   <InfoForm
-    @info={{@info}}
+    @user={{@user}}
     @onInfoUpdateEvent={{action @onInfoUpdateEvent}}
     @onInfoFormSubmit={{action @onInfoFormSubmit}}
     ...attributes

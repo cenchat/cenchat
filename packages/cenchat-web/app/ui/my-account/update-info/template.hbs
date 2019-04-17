@@ -1,7 +1,8 @@
 {{import RouteView from "./-components/route-view"}}
 
 <RouteView
-  @info={{this.info}}
+  @user={{this.model}}
+  @isInfoDirty={{this.isInfoDirty}}
   @onInfoUpdateEvent={{action this.handleInfoUpdateEvent}}
   @onInfoFormSubmit={{action this.handleInfoFormSubmit}}
 >
