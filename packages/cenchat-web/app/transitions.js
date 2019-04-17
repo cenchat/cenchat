@@ -11,7 +11,7 @@ export default function () {
 
   this.transition(
     this.fromRoute('my-account.index'),
-    this.toRoute('my-account.update-info'),
+    this.toRoute('my-account.update'),
     this.use('toLeft'),
     this.reverse('toRight'),
   );

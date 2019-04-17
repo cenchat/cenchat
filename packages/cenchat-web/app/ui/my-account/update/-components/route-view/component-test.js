@@ -5,7 +5,7 @@ import hbs from 'htmlbars-inline-precompile';
 
 import { setupTestState } from '@cenchat/shared/test-support';
 
-module('Integration | Component | my-account/update-info/-components/route-view', function (hooks) {
+module('Integration | Component | my-account/update/-components/route-view', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(async function () {
@@ -15,9 +15,9 @@ module('Integration | Component | my-account/update-info/-components/route-view'
     const user = await store.findRecord('user', 'user_a');
 
     this.set('user', user);
-    this.set('isInfoDirty', false);
-    this.set('onInfoUpdateEvent', () => {});
-    this.set('onInfoFormSubmit', () => {});
+    this.set('hasPendingProfileChanges', false);
+    this.set('onProfileUpdateEvent', () => {});
+    this.set('onProfileFormSubmit', () => {});
   });
 
   test('should show <TopBar />', async function (assert) {
@@ -25,11 +25,11 @@ module('Integration | Component | my-account/update-info/-components/route-view'
 
     // Act
     await render(hbs`
-      {{my-account/update-info/-components/route-view
+      {{my-account/update/-components/route-view
         user=this.user
-        isInfoDirty=this.isInfoDirty
-        onInfoUpdateEvent=(action this.onInfoUpdateEvent)
-        onInfoFormSubmit=(action this.onInfoFormSubmit)
+        hasPendingProfileChanges=this.hasPendingProfileChanges
+        onProfileUpdateEvent=(action this.onProfileUpdateEvent)
+        onProfileFormSubmit=(action this.onProfileFormSubmit)
       }}
     `);
 
@@ -42,11 +42,11 @@ module('Integration | Component | my-account/update-info/-components/route-view'
 
     // Act
     await render(hbs`
-      {{my-account/update-info/-components/route-view
+      {{my-account/update/-components/route-view
         user=this.user
-        isInfoDirty=this.isInfoDirty
-        onInfoUpdateEvent=(action this.onInfoUpdateEvent)
-        onInfoFormSubmit=(action this.onInfoFormSubmit)
+        hasPendingProfileChanges=this.hasPendingProfileChanges
+        onProfileUpdateEvent=(action this.onProfileUpdateEvent)
+        onProfileFormSubmit=(action this.onProfileFormSubmit)
       }}
     `);
 

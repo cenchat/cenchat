@@ -5,7 +5,7 @@ import hbs from 'htmlbars-inline-precompile';
 
 import { setupTestState } from '@cenchat/shared/test-support';
 
-module('Integration | Component | my-account/update-info/-components/route-view/top-bar', function (hooks) {
+module('Integration | Component | my-account/update/-components/route-view/top-bar', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
@@ -16,10 +16,10 @@ module('Integration | Component | my-account/update-info/-components/route-view/
     assert.expect(1);
 
     // Arrange
-    this.set('isInfoDirty', true);
+    this.set('hasPendingProfileChanges', true);
 
     // Act
-    await render(hbs`{{my-account/update-info/-components/route-view/top-bar isInfoDirty=this.isInfoDirty}}`);
+    await render(hbs`{{my-account/update/-components/route-view/top-bar hasPendingProfileChanges=this.hasPendingProfileChanges}}`);
 
     // Assert
     assert.dom('[data-test-top-bar="save-button"]').isNotDisabled();
@@ -29,10 +29,10 @@ module('Integration | Component | my-account/update-info/-components/route-view/
     assert.expect(1);
 
     // Arrange
-    this.set('isInfoDirty', false);
+    this.set('hasPendingProfileChanges', false);
 
     // Act
-    await render(hbs`{{my-account/update-info/-components/route-view/top-bar isInfoDirty=this.isInfoDirty}}`);
+    await render(hbs`{{my-account/update/-components/route-view/top-bar hasPendingProfileChanges=this.hasPendingProfileChanges}}`);
 
     // Assert
     assert.dom('[data-test-top-bar="save-button"]').isDisabled();

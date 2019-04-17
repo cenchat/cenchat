@@ -12,8 +12,8 @@
     data-test-top-bar="save-button"
     title="Save changes"
     aria-label="Save changes"
-    disabled={{not @isInfoDirty}}
-    form="my-account-update-info_route-view-main-content-info-form"
+    disabled={{not @hasPendingProfileChanges}}
+    form="my-account-profile_route-view-main-content-profile-form"
     @icon="check"
   />
 </CenTopBar>

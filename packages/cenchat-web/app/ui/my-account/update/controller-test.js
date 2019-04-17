@@ -4,7 +4,7 @@ import { setupTest } from 'ember-qunit';
 import { setupAuthState, setupTestState } from '@cenchat/shared/test-support';
 import sinon from 'sinon';
 
-module('Unit | Controller | my-account/update-info', function (hooks) {
+module('Unit | Controller | my-account/update', function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(async function () {
@@ -16,38 +16,38 @@ module('Unit | Controller | my-account/update-info', function (hooks) {
     this.set('model', user);
   });
 
-  test('should track if info is dirty', function (assert) {
+  test('should track if profile has pending changes', function (assert) {
     assert.expect(1);
 
     // Arrange
-    const controller = this.owner.lookup('controller:my-account/update-info');
+    const controller = this.owner.lookup('controller:my-account/update');
 
     controller.set('model', this.model);
-    controller.set('info', { displayName: 'Foo Bar' });
+    controller.set('pendingProfileChange', { displayName: 'Foo Bar' });
 
     // Act
-    const result = controller.get('isInfoDirty');
+    const result = controller.get('hasPendingProfileChanges');
 
     // Arrange
     assert.ok(result);
   });
 
-  test('should be able to handle update user info events', function (assert) {
+  test('should be able to handle update user profile events', function (assert) {
     assert.expect(1);
 
     // Arrange
-    const controller = this.owner.lookup('controller:my-account/update-info');
+    const controller = this.owner.lookup('controller:my-account/update');
 
     controller.set('model', this.model);
 
     // Act
-    controller.handleInfoUpdateEvent({ displayName: 'Foo Bar' });
+    controller.handleProfileUpdateEvent({ displayName: 'Foo Bar' });
 
     // Arrange
-    assert.deepEqual(controller.info, { displayName: 'Foo Bar' });
+    assert.deepEqual(controller.pendingProfileChange, { displayName: 'Foo Bar' });
   });
 
-  test('should be able to save user info updates', async function (assert) {
+  test('should be able to save user profile updates', async function (assert) {
     assert.expect(2);
 
     // Arrange
@@ -57,13 +57,13 @@ module('Unit | Controller | my-account/update-info', function (hooks) {
       user: { uid: 'user_a', updateProfile: stub },
     });
 
-    const controller = this.owner.lookup('controller:my-account/update-info');
+    const controller = this.owner.lookup('controller:my-account/update');
 
     controller.set('model', this.model);
-    controller.set('info', { displayName: 'Foo Bar' });
+    controller.set('pendingProfileChange', { displayName: 'Foo Bar' });
 
     // Act
-    await controller.handleInfoFormSubmit();
+    await controller.handleProfileFormSubmit();
 
     // Arrange
     const db = this.owner.lookup('service:firebase').firestore();

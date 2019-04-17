@@ -1,0 +1,10 @@
+{{import RouteView from "./-components/route-view"}}
+
+<RouteView
+  @user={{this.model}}
+  @hasPendingProfileChanges={{this.hasPendingProfileChanges}}
+  @onProfileUpdateEvent={{action this.handleProfileUpdateEvent}}
+  @onProfileFormSubmit={{action this.handleProfileFormSubmit}}
+>
+  {{outlet}}
+</RouteView>

@@ -17,13 +17,13 @@ module('Integration | Component | my-account/-components/route-view/main-content
     this.set('user', user);
   });
 
-  test('should show <UpdateInfoCard />', async function (assert) {
+  test('should show <ProfileCard />', async function (assert) {
     assert.expect(1);
 
     // Act
     await render(hbs`{{my-account/-components/route-view/main-content user=this.user}}`);
 
     // Assert
-    assert.dom('[data-test-update-info-card="host"]').exists();
+    assert.dom('[data-test-profile-card="host"]').exists();
   });
 });

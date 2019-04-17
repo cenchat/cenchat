@@ -14,6 +14,6 @@ export default Component.extend({
    * @function
    */
   handleDisplayNameInput(value) {
-    this.args.onInfoUpdateEvent({ displayName: value });
+    this.args.onProfileUpdateEvent({ displayName: value });
   },
 });

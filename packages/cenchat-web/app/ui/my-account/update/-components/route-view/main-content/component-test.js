@@ -5,7 +5,7 @@ import hbs from 'htmlbars-inline-precompile';
 
 import { setupTestState } from '@cenchat/shared/test-support';
 
-module('Integration | Component | my-account/-components/route-view/main-content/update-info-card', function (hooks) {
+module('Integration | Component | my-account/update/-components/route-view/main-content', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(async function () {
@@ -15,15 +15,19 @@ module('Integration | Component | my-account/-components/route-view/main-content
     const user = await store.findRecord('user', 'user_a');
 
     this.set('user', user);
+    this.set('onProfileUpdateEvent', () => {});
+    this.set('onProfileFormSubmit', () => {});
   });
 
-  test('should show user info', async function (assert) {
+  test('should show <InfoForm />', async function (assert) {
     assert.expect(1);
 
     // Act
-    await render(hbs`{{my-account/-components/route-view/main-content/update-info-card user=this.user}}`);
+    await render(hbs`
+      {{my-account/update/-components/route-view/main-content user=this.user onProfileUpdateEvent=(action this.onProfileUpdateEvent) onProfileFormSubmit=(action this.onProfileFormSubmit)}}
+    `);
 
     // Assert
-    assert.dom('[data-test-update-info-card="name"]').hasText('User A');
+    assert.dom('[data-test-profile-form="host"]').exists();
   });
 });

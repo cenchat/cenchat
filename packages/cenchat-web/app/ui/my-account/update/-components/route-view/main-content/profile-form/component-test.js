@@ -6,7 +6,7 @@ import hbs from 'htmlbars-inline-precompile';
 import { setupTestState } from '@cenchat/shared/test-support';
 import sinon from 'sinon';
 
-module('Integration | Component | my-account/update-info/-components/route-view/main-content/info-form', function (hooks) {
+module('Integration | Component | my-account/update/-components/route-view/main-content/profile-form', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(async function () {
@@ -16,20 +16,20 @@ module('Integration | Component | my-account/update-info/-components/route-view/
     const user = await store.findRecord('user', 'user_a');
 
     this.set('user', user);
-    this.set('onInfoUpdateEvent', () => {});
-    this.set('onInfoFormSubmit', () => {});
+    this.set('onProfileUpdateEvent', () => {});
+    this.set('onProfileFormSubmit', () => {});
   });
 
   test('should fire an external action when inputting name', async function (assert) {
     assert.expect(1);
 
-    const spy = sinon.spy(this, 'onInfoUpdateEvent');
+    const spy = sinon.spy(this, 'onProfileUpdateEvent');
 
     // Act
     await render(hbs`
-      {{my-account/update-info/-components/route-view/main-content/info-form user=this.user onInfoUpdateEvent=(action this.onInfoUpdateEvent) onInfoFormSubmit=(action this.onInfoFormSubmit)}}
+      {{my-account/update/-components/route-view/main-content/profile-form user=this.user onProfileUpdateEvent=(action this.onProfileUpdateEvent) onProfileFormSubmit=(action this.onProfileFormSubmit)}}
     `);
-    await fillIn('[data-test-info-form="display-name"] input', 'Foo Bar');
+    await fillIn('[data-test-profile-form="display-name"] input', 'Foo Bar');
 
     // Assert
     assert.ok(spy.calledWith({ displayName: 'Foo Bar' }));

@@ -2,12 +2,12 @@
 {{import MainContent from "./main-content"}}
 
 <SideSheet class="side-sheet liquid-fire-side-sheet">
-  <TopBar @isInfoDirty={{@isInfoDirty}} />
+  <TopBar @hasPendingProfileChanges={{@hasPendingProfileChanges}} />
 
   <MainContent
     @user={{@user}}
-    @onInfoUpdateEvent={{action @onInfoUpdateEvent}}
-    @onInfoFormSubmit={{action @onInfoFormSubmit}}
+    @onProfileUpdateEvent={{action @onProfileUpdateEvent}}
+    @onProfileFormSubmit={{action @onProfileFormSubmit}}
   >
     {{yield}}
   </MainContent>

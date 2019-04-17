@@ -21,36 +21,39 @@ export default Controller.extend({
   /**
    * @type {Object}
    */
-  info: { displayName: null },
+  pendingProfileChange: { displayName: null },
 
   /**
    * @type {boolean}
    */
-  isInfoDirty: computed('info', {
+  hasPendingProfileChanges: computed('pendingProfileChange', {
     get() {
-      return this.info.displayName !== null && this.info.displayName.trim();
+      return (
+        this.pendingProfileChange.displayName !== null
+        && this.pendingProfileChange.displayName.trim()
+      );
     },
   }),
 
   /**
-   * @param {Object} newInfo
+   * @param {Object} data
    * @function
    */
-  handleInfoUpdateEvent(newInfo) {
-    this.set('info', { ...this.info, ...newInfo });
+  handleProfileUpdateEvent(data) {
+    this.set('pendingProfileChange', { ...this.pendingProfileChange, ...data });
   },
 
   /**
    * @function
    */
-  async handleInfoFormSubmit() {
-    const { displayName } = this.info;
+  async handleProfileFormSubmit() {
+    const { displayName } = this.pendingProfileChange;
 
     this.model.set('displayName', displayName.trim());
     this.model.set('name', displayName.trim().toLowerCase());
     await this.model.save();
     await this.session.data.authenticated.user.updateProfile({ displayName });
-    this.set('info', { displayName: null });
-    toast('Info updated');
+    this.set('pendingProfileChange', { displayName: null });
+    toast('Profile updated');
   },
 });
