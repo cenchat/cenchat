@@ -14,7 +14,8 @@
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
-    "start": "ember serve"
+    "start": "ember serve",
+    "test": "ember test --test-port 0"
   },
   "devDependencies": {
     "@cenchat/eslint-config": "^0.0.1",
