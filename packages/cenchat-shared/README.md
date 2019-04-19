@@ -1,7 +1,7 @@
 @cenchat/shared
 ==============================================================================
 
-Utilities package
+Shared modules
 
 
 Compatibility
