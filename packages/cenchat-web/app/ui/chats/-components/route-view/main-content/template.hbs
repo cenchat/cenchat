@@ -1,25 +1,22 @@
 {{import ChatList from "./chat-list"}}
 
 <main class="layout__content" data-test-main-content="host" ...attributes>
-  <div class="layout__master-pane layout__master-pane--list">
-    {{#if @chats}}
+  {{#if @chats}}
+    <div class="layout__master-pane layout__master-pane--list">
       <ChatList @chats={{@chats}} />
-    {{else}}
-      <div class="layout__master-pane-wrapper">
-        <article
-          class="empty-state card"
-          data-test-main-content="empty-state-message"
-          ...attributes
-        >
-          <h2 class="card__heading">Nothing here right now</h2>
-
-          <p class="card__subheading">
-            Chats publicized by the admins will show up here
-          </p>
-        </article>
-      </div>
-    {{/if}}
-  </div>
+    </div>
+  {{else}}
+    <div class="layout__master-pane layout__master-pane-wrapper">
+      <article
+        class="card"
+        data-test-main-content="empty-state-message"
+        ...attributes
+      >
+        <h2 class="card__heading">Nothing here right now</h2>
+        <p class="card__subheading">Your chats will show up here</p>
+      </article>
+    </div>
+  {{/if}}
 
   {{yield}}
 </main>
