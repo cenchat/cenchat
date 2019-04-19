@@ -1,0 +1,19 @@
+<CenTopBar data-test-top-bar="host">
+  <CenIconLinkButton
+    href={{url-for "my-account"}}
+    title="Navigate back to previous page"
+    aria-label="Navigate back to previous page"
+    @icon="arrow-left"
+  />
+
+  <h3>Update profile</h3>
+
+  <CenIconButton
+    data-test-top-bar="save-button"
+    title="Save changes"
+    aria-label="Save changes"
+    disabled={{not @hasPendingProfileChanges}}
+    form="my-account-profile_route-view-main-content-profile-form"
+    @icon="check"
+  />
+</CenTopBar>

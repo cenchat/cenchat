@@ -20,6 +20,24 @@ export default DS.Model.extend({
   displayUsername: DS.attr('string'),
 
   /**
+   * @type {Array.<Model.Chat>}
+   */
+  latestActiveChats: DS.hasMany('chat', {
+    inverse: null,
+    isRealtime: true,
+
+    buildReference(db, record) {
+      return db.collection(`users/${record.get('id')}/chats`);
+    },
+
+    filter(ref, record) {
+      const limit = record.get('hasManyLimit.latestActiveChats');
+
+      return ref.orderBy('lastActivityTimestamp', 'desc').limit(limit);
+    },
+  }),
+
+  /**
    * @type {string}
    */
   name: DS.attr('string'),
@@ -38,4 +56,9 @@ export default DS.Model.extend({
    * @type {string}
    */
   username: DS.attr('string'),
+
+  /**
+   * @type {Object}
+   */
+  hasManyLimit: { latestActiveChats: 16 },
 });

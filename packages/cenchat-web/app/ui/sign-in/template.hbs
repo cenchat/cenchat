@@ -1,0 +1,7 @@
+<main class="sign-in">
+  <div class="sign-in__container">
+    <SignInCard class="sign-in__card" @onAfterSignInEvent={{action this.handleAfterSignInEvent}} />
+  </div>
+
+  {{outlet}}
+</main>

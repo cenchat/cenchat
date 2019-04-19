@@ -1,0 +1,14 @@
+{{import TopBar from "./top-bar"}}
+{{import MainContent from "./main-content"}}
+
+<SideSheet class="side-sheet liquid-fire-side-sheet" ...attributes>
+  <TopBar @hasPendingProfileChanges={{@hasPendingProfileChanges}} />
+
+  <MainContent
+    @user={{@user}}
+    @onProfileUpdateEvent={{action @onProfileUpdateEvent}}
+    @onProfileFormSubmit={{action @onProfileFormSubmit}}
+  >
+    {{yield}}
+  </MainContent>
+</SideSheet>

@@ -1,0 +1,12 @@
+{{import TopBar from "./top-bar"}}
+{{import MainContent from "./main-content"}}
+
+<SideSheet class="side-sheet liquid-fire-side-sheet" data-test-route-view={{@chat.id}}>
+  <TopBar @chat={{@chat}} />
+
+  <MainContent id="chats-chat_route-view__main-content" @chat={{@chat}}>
+    {{yield}}
+  </MainContent>
+
+  <ChatComposer class="chats-chat-route-view__toolbar" @onSendMessageClick={{action this.handleSendMessageClick}} />
+</SideSheet>

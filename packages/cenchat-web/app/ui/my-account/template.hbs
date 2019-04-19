@@ -1,0 +1,5 @@
+{{import RouteView from "./-components/route-view"}}
+
+<RouteView @user={{this.model}} @onSignOutClick={{action this.handleSignOutClick}}>
+  {{liquid-outlet class="liquid-fire-side-sheet-outlet"}}
+</RouteView>

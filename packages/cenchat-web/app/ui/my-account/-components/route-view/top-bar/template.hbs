@@ -1,0 +1,11 @@
+<CenTopBar class="layout__header" data-test-top-bar="host" ...attributes>
+  <h1>My account</h1>
+
+  <CenIconButton
+    data-test-top-bar="sign-out-button"
+    title="Sign out"
+    aria-label="Sign out"
+    @icon="sign-out-alt"
+    @onClick={{action @onSignOutClick}}
+  />
+</CenTopBar>

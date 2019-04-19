@@ -8,20 +8,17 @@
     <p class="card__subheading">This will help other users to identify you</p>
   </header>
 
-  <CenForm class="sign-in-card-view-verification-profile__form" @onSubmit={{action @onSignInEvent "email-link" @email this.fullName}}>
+  <CenForm class="sign-in-card-view-verification-profile__form" @onSubmit={{action @onSignInEvent "email-link" @email this.name}}>
     <CenInput
-      data-test-sign-in-card-view-verification-profile="full-name-field"
+      data-test-sign-in-card-view-verification-profile="name"
       type="text"
+      maxlength="15"
       required="true"
-      @label="Full name"
-      @onInput={{action (mut this.fullName)}}
+      @label="Name"
+      @onInput={{action (mut this.name)}}
     />
 
-    <CenButton
-      class="sign-in-card-view-verification-profile__form-submit-button"
-      data-test-sign-in-card-view-verification-profile="sign-in-button"
-      type="submit"
-    >
+    <CenButton class="sign-in-card-view-verification-profile__form-submit-button" data-test-sign-in-card-view-verification-profile="sign-in-button" type="submit">
       Sign In
     </CenButton>
   </CenForm>

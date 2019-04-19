@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+
 import layout from '../templates/components/sign-in-card-view-verification-profile';
 
 /**
@@ -18,5 +19,5 @@ export default Component.extend({
   /**
    * @type {string}
    */
-  fullName: null,
+  name: null,
 });

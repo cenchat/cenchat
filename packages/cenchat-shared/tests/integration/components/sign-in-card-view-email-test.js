@@ -35,7 +35,7 @@ module('Integration | Component | sign-in-card-view-email', function (hooks) {
     `);
 
     // Act
-    await fillIn('[data-test-sign-in-card-view-email="email-field"] input', 'foo@gmail.com');
+    await fillIn('[data-test-sign-in-card-view-email="email"] input', 'foo@gmail.com');
     await click('[data-test-sign-in-card-view-email="send-link-button"]');
 
     // Assert

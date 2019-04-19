@@ -1,0 +1,9 @@
+{{import MainContent from "./main-content"}}
+
+<CenTopBar class="layout__header">
+  <h1>Chats</h1>
+</CenTopBar>
+
+<MainContent @chats={{@chats}}>
+  {{yield}}
+</MainContent>

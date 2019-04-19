@@ -1,0 +1,19 @@
+<li class="list__item" data-test-chat-list-item="host" ...attributes>
+  {{#if (and @chat.site @chat.lastMessage.author)}}
+    <CenLink class="list__action" href={{url-for "chats.chat" @chat.id}} />
+
+    <div class="list__multi-line-content">
+      <h2 class="list__primary-text list__wrap-text" data-test-chat-list-item="name">
+        {{@chat.site.displayName}}
+      </h2>
+
+      <p class="list__secondary-text list__wrap-text" data-test-chat-list-item="message">
+        {{render-or @chat.lastMessage.author.displayName "Anonymous"}}: {{@chat.lastMessage.text}}
+      </p>
+    </div>
+
+    <time class="list__meta" data-test-chat-list-item="timestamp">
+      {{moment-from-now @chat.lastActivityTimestamp hideAffix=true}}
+    </time>
+  {{/if}}
+</li>

@@ -28,12 +28,9 @@
     <article class="card card--flat">
       <ul class="list">
         <li class="list__item">
-          <button class="list__action" onclick={{action this.handleSignOutClick}}>
-            <div>
-              <CenIcon @class="list__icon" @icon="sign-out-alt" />
-              <div class="list__single-line-content">Sign out</div>
-            </div>
-          </button>
+          <button class="list__action" onclick={{action this.handleSignOutClick}}></button>
+          <CenIcon @class="list__icon" @icon="sign-out-alt" />
+          <div class="list__single-line-content">Sign out</div>
         </li>
       </ul>
     </article>

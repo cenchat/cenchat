@@ -1,0 +1,11 @@
+<InfiniteContent
+  class="chats-chat_route-view-main-content side-sheet__content"
+  data-test-main-content="host"
+  @isReversed="true"
+  @isAbleToLoadMoreContent={{if (lte this.currentLimit @chat.reverseDescendingMessages.length) true false}}
+  @onLoadMoreContentEvent={{action this.handleLoadMoreContentEvent}}
+  ...attributes
+>
+  <MessageList @messages={{@chat.reverseDescendingMessages}} />
+  {{yield}}
+</InfiniteContent>

@@ -38,15 +38,15 @@ export default Component.extend({
   /**
    * @param {string} type
    * @param {string} [email]
-   * @param {string} [fullName]
+   * @param {string} [displayName]
    * @function
    */
-  async handleSignInEvent(type, email, fullName) {
+  async handleSignInEvent(type, email, displayName) {
     try {
       if (this.session.isAuthenticated && this.session.data.authenticated.user.isAnonymous) {
-        await this.convertAnonymousToPermanentAccount(email, fullName);
+        await this.convertAnonymousToPermanentAccount(email, displayName);
       } else {
-        await this.signInUser(type, email, fullName);
+        await this.signInUser(type, email, displayName);
       }
 
       await this.preloadSessionRecord();
@@ -64,10 +64,10 @@ export default Component.extend({
 
   /**
    * @param {string} email
-   * @param {string} fullName
+   * @param {string} displayName
    * @function
    */
-  async convertAnonymousToPermanentAccount(email, fullName) {
+  async convertAnonymousToPermanentAccount(email, displayName) {
     const auth = this.firebase.auth();
     const credential = firebase.auth.EmailAuthProvider.credentialWithLink(
       email,
@@ -77,31 +77,31 @@ export default Component.extend({
 
     localStorage.removeItem('cenchatEmailForSignIn');
 
-    await linkAuthResult.user.updateProfile({ displayName: fullName });
-    await this.updateUserRecord(fullName);
+    await linkAuthResult.user.updateProfile({ displayName });
+    await this.updateUserRecord(displayName);
   },
 
   /**
-   * @param {string} fullName
+   * @param {string} displayName
    * @function
    */
-  async updateUserRecord(fullName) {
+  async updateUserRecord(displayName) {
     const db = this.firebase.firestore();
     const currentUserId = this.session.data.authenticated.user.uid;
 
     await db.doc(`users/${currentUserId}`).update({
-      displayName: fullName,
-      name: fullName.toLowerCase(),
+      displayName,
+      name: displayName.toLowerCase(),
     });
   },
 
   /**
    * @param {string} type
    * @param {string} [email]
-   * @param {string} [fullName]
+   * @param {string} [displayName]
    * @function
    */
-  async signInUser(type, email, fullName) {
+  async signInUser(type, email, displayName) {
     await this.session.authenticate('authenticator:firebase', async (auth) => {
       let credential;
 
@@ -115,11 +115,11 @@ export default Component.extend({
         localStorage.removeItem('cenchatEmailForSignIn');
 
         if (credential.additionalUserInfo.isNewUser) {
-          await credential.user.updateProfile({ displayName: fullName });
+          await credential.user.updateProfile({ displayName });
           await this.store.createRecord('user', {
+            displayName,
             id: credential.user.uid,
-            displayName: fullName,
-            name: fullName.toLowerCase(),
+            name: displayName.toLowerCase(),
           }).save();
         }
       }

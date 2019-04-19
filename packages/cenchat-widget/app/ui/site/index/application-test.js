@@ -5,13 +5,13 @@ import EmberObject from '@ember/object';
 
 import sinon from 'sinon';
 
-import { setupTestState } from '@cenchat/shared/test-support';
+import { setupApplicationTestState } from '@cenchat/shared/test-support';
 
 module('Acceptance | site/index', function (hooks) {
   setupApplicationTest(hooks);
 
   hooks.beforeEach(function () {
-    setupTestState();
+    setupApplicationTestState();
   });
 
   test('should redirect to site.page when record for page exists', async function (assert) {

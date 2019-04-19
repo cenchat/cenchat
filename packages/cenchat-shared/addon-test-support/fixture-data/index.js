@@ -97,13 +97,35 @@ export default function getFixtureData() {
         __doc__: {
           user_a: {
             displayName: 'User A',
-            displayUsername: 'user_a',
+            displayUsername: null,
             name: 'user a',
             photoUrl: 'user_a.jpg',
             shortBio: null,
-            username: 'user_a',
+            username: null,
 
             __collection__: {
+              chats: {
+                __doc__: {
+                  site_a__page_a__user_b: {
+                    creator: '__ref__:users/user_b',
+                    isPublic: true,
+                    lastActivityTimestamp: new Date('2018-01-02'),
+                    lastMessage: '__ref__:messages/message_b',
+                    page: '__ref__:pages/site_a__page_a',
+                    site: '__ref__:sites/site_a',
+                  },
+
+                  site_a__page_a__user_c: {
+                    creator: '__ref__:users/user_c',
+                    isPublic: false,
+                    lastActivityTimestamp: new Date('2018-01-04'),
+                    lastMessage: '__ref__:messages/message_c',
+                    page: '__ref__:pages/site_a__page_a',
+                    site: '__ref__:sites/site_a',
+                  },
+                },
+              },
+
               sitesAsAdmin: {
                 __doc__: {
                   site_a: {
@@ -117,29 +139,59 @@ export default function getFixtureData() {
 
           user_b: {
             displayName: 'User B',
-            displayUsername: 'user_b',
+            displayUsername: null,
             name: 'user b',
             photoUrl: 'user_b.jpg',
             shortBio: null,
-            username: 'user_b',
+            username: null,
+
+            __collection__: {
+              chats: {
+                __doc__: {
+                  site_a__page_a__user_b: {
+                    creator: '__ref__:users/user_b',
+                    isPublic: true,
+                    lastActivityTimestamp: new Date('2018-01-02'),
+                    lastMessage: '__ref__:messages/message_b',
+                    page: '__ref__:pages/site_a__page_a',
+                    site: '__ref__:sites/site_a',
+                  },
+                },
+              },
+            },
           },
 
           user_c: {
             displayName: 'User C',
-            displayUsername: 'user_c',
+            displayUsername: null,
             name: 'user c',
             photoUrl: 'user_c.jpg',
             shortBio: null,
-            username: 'user_c',
+            username: null,
+
+            __collection__: {
+              chats: {
+                __doc__: {
+                  site_a__page_a__user_c: {
+                    creator: '__ref__:users/user_c',
+                    isPublic: false,
+                    lastActivityTimestamp: new Date('2018-01-04'),
+                    lastMessage: '__ref__:messages/message_c',
+                    page: '__ref__:pages/site_a__page_a',
+                    site: '__ref__:sites/site_a',
+                  },
+                },
+              },
+            },
           },
 
           user_d: {
             displayName: 'User D',
-            displayUsername: 'user_d',
+            displayUsername: null,
             name: 'user d',
             photoUrl: 'user_d.jpg',
             shortBio: null,
-            username: 'user_d',
+            username: null,
           },
         },
       },

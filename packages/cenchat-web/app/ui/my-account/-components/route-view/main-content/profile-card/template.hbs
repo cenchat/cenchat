@@ -1,0 +1,18 @@
+<article class="card" data-test-profile-card="host" ...attributes>
+  <CenLink class="card__primary-link" href={{url-for "my-account.update"}} />
+  <h2 class="my-account_route-view-main-content-profile-card__heading card__heading">
+    Profile
+  </h2>
+
+  <ul class="list">
+    <li class="list__item">
+      <div class="list__multi-line-content">
+        <h3 class="list__primary-text">Name</h3>
+
+        <p class="list__secondary-text" data-test-profile-card="name">
+          {{@user.displayName}}
+        </p>
+      </div>
+    </li>
+  </ul>
+</article>

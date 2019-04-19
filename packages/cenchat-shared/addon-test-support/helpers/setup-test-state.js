@@ -10,6 +10,19 @@ export function setupTestState() {
   const { owner } = getContext();
 
   mockFirebase(owner, getFixtureData());
+
+  const router = owner.lookup('service:router');
+
+  router.set('urlFor', () => {});
+}
+
+/**
+ * @function
+ */
+export function setupApplicationTestState() {
+  const { owner } = getContext();
+
+  mockFirebase(owner, getFixtureData());
 }
 
 /**
@@ -22,6 +35,7 @@ export async function setupAuthState(data) {
 
   session.set('data', { authenticated: data });
   session.set('isAuthenticated', true);
+  session.set('invalidate', () => {});
 
   // Preload user model
   const store = owner.lookup('service:store');

@@ -3,13 +3,13 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 
 import { authenticateSession } from 'ember-simple-auth/test-support';
-import { setupTestState } from '@cenchat/shared/test-support';
+import { setupApplicationTestState } from '@cenchat/shared/test-support';
 
 module('Acceptance | site/page/chats/chat', function (hooks) {
   setupApplicationTest(hooks);
 
   hooks.beforeEach(function () {
-    setupTestState();
+    setupApplicationTestState();
   });
 
   test('should create a message record when sending a message', async function (assert) {

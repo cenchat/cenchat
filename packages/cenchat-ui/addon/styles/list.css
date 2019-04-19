@@ -8,13 +8,17 @@
 }
 
 .list__item {
+  position: relative;
   display: flex;
   align-items: center;
 }
 
 .list__action {
-  overflow: hidden;
-  font-family: var(--font-family);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .list__action:hover {
@@ -32,29 +36,16 @@
 }
 
 a.list__action {
-  display: flex;
-  flex: 1;
-  align-items: center;
   color: inherit;
   text-decoration: none;
 }
 
 button.list__action {
-  display: block;
-  flex: 1;
+  width: 100%;
+  height: 100%;
   padding: 0;
-  overflow: hidden;
-  text-align: left;
   background: none;
   border: none;
-}
-
-a.list__action > div,
-button.list__action > div {
-  display: flex;
-  flex: 0 1 auto;
-  align-items: center;
-  padding: 0;
 }
 
 .list__icon {
@@ -74,7 +65,6 @@ button.list__action > div {
 }
 
 .list__single-line-content {
-  box-sizing: border-box;
   flex: 1;
   padding: 12px 16px;
   overflow: hidden;
@@ -84,7 +74,6 @@ button.list__action > div {
 }
 
 .list__multi-line-content {
-  box-sizing: border-box;
   flex: 1;
   padding: 14px 16px;
   overflow: hidden;
@@ -113,4 +102,12 @@ button.list__action > div {
   margin-bottom: 0;
   font-weight: var(--font-weight-regular);
   line-height: 1.25rem;
+}
+
+.list__meta {
+  padding-right: 16px;
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-12);
+  color: var(--font-secondary-color);
 }
