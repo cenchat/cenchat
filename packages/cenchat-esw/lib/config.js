@@ -6,12 +6,18 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = class Config extends Plugin {
+  /**
+   * @override
+   */
   constructor(inputNodes, option) {
     super(inputNodes, option);
 
     this.option = option;
   }
 
+  /**
+   * @override
+   */
   build() {
     let module = '';
 
