@@ -1,7 +1,7 @@
-@cenchat/shared
+@cenchat/esw
 ==============================================================================
 
-Shared modules
+Packages for [ember-service-worker](https://github.com/dockyard/ember-service-worker)
 
 
 Compatibility
@@ -15,5 +15,5 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-lerna add @cenchat/shared --scope <package> --dev
+lerna add @cenchat/esw --scope <package> --dev
 ```

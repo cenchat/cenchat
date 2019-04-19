@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@cenchat/eslint-config": "^0.0.1",
+    "@cenchat/esw": "^0.0.1",
     "@cenchat/shared": "^0.0.1",
     "@cenchat/ui": "^0.0.1",
     "@ember/jquery": "^0.5.2",
@@ -64,7 +65,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-ember": "^5.2.0",
     "eslint-plugin-import": "^2.14.0",
-    "firebase": "^5.9.3",
+    "firebase": "^5.10.0",
     "liquid-fire": "^0.29.5",
     "loader.js": "^4.7.0",
     "postcss-cssnext": "^3.1.0",
