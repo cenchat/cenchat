@@ -1,7 +1,12 @@
-{{import TopBar from "./top-bar"}}
 {{import MainContent from "./main-content"}}
 
-<TopBar @currentUserChat={{@currentUserChat}} />
+<CenTopBar class="layout__header" data-test-top-bar="host" ...attributes>
+  <h1>Chats</h1>
+
+  <CenLinkButton data-test-top-bar="start-chat-button" href={{url-for "site.page.chats.new"}}>
+    Start Chat
+  </CenLinkButton>
+</CenTopBar>
 
 <MainContent @chats={{@chats}}>
   {{yield}}

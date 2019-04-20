@@ -13,7 +13,7 @@ export default Route.extend({
   /**
    * @override
    */
-  model(params) {
+  async model(params) {
     return this.store.findRecord('chat', params.chat_id);
   },
 });

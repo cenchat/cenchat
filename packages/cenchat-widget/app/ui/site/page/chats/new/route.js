@@ -8,7 +8,29 @@ export default Route.extend({
   /**
    * @type {Ember.Service}
    */
+  session: service('session'),
+
+  /**
+   * @type {Ember.Service}
+   */
   store: service('store'),
+
+  /**
+   * @override
+   */
+  async beforeModel() {
+    if (this.session.isAuthenticated) {
+      try {
+        const page = this.modelFor('site.page');
+        const { uid } = this.session.data.authenticated.user;
+        const chat = await this.store.findRecord('chat', `${page.get('id')}__${uid}`);
+
+        this.replaceWith('site.page.chats.chat', chat.get('id'));
+      } catch (error) {
+        // Do nothing
+      }
+    }
+  },
 
   /**
    * @override

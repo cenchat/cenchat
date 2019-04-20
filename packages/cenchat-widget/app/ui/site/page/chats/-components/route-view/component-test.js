@@ -12,24 +12,13 @@ module('Integration | Component | site/page/chats/-components/route-view', funct
     setupTestState();
 
     this.set('chats', []);
-    this.set('currentUserChat', null);
-  });
-
-  test('should show <TopBar />', async function (assert) {
-    assert.expect(1);
-
-    // Act
-    await render(hbs`{{site/page/chats/-components/route-view chats=this.chats currentUserChat=this.currentUserChat}}`);
-
-    // Assert
-    assert.dom('[data-test-top-bar="host"]').exists();
   });
 
   test('should show <MainContent />', async function (assert) {
     assert.expect(1);
 
     // Act
-    await render(hbs`{{site/page/chats/-components/route-view chats=this.chats currentUserChat=this.currentUserChat}}`);
+    await render(hbs`{{site/page/chats/-components/route-view chats=this.chats}}`);
 
     // Assert
     assert.dom('[data-test-main-content="host"]').exists();
