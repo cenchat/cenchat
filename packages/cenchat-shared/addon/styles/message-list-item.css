@@ -19,6 +19,14 @@
   color: var(--font-primary-color);
 }
 
+.message-list-item__author-name--badged {
+  padding-right: 12px;
+  padding-left: 12px;
+  color: #fff;
+  background-color: #757575;
+  border-radius: 100px;
+}
+
 .message-list-item__timestamp {
   margin-top: 0;
   margin-bottom: 0;
