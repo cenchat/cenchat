@@ -159,6 +159,7 @@
         width: 100%;
         height: calc(100% - 56px);
         overflow: hidden;
+        background-color: #fff;
         border: none;
         border-top-left-radius: 16px;
         border-top-right-radius: 16px;
