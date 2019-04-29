@@ -58,7 +58,11 @@ export default Component.extend({
         this.args.onAfterSignInEvent();
       }
     } catch (error) {
-      toast(error.message);
+      if (error.code === 'permission-denied') {
+        toast('Username already exists');
+      } else {
+        toast(error.message)
+      }
     }
   },
 
@@ -89,12 +93,13 @@ export default Component.extend({
     const db = this.firebase.firestore();
     const batch = db.batch();
     const currentUserId = this.session.data.authenticated.user.uid;
+    const username = displayUsername.toLowerCase();
 
     batch.update(db.doc(`users/${currentUserId}`), {
       displayUsername,
-      username: displayUsername.toLowerCase(),
+      username,
     });
-    batch.set(db.doc(`usernames/${displayUsername}`), {
+    batch.set(db.doc(`usernames/${username}`), {
       cloudFirestoreReference: db.doc(`users/${currentUserId}`),
     });
 
@@ -121,8 +126,6 @@ export default Component.extend({
         localStorage.removeItem('cenchatEmailForSignIn');
 
         if (credential.additionalUserInfo.isNewUser) {
-          await credential.user.updateProfile({ displayName: displayUsername });
-
           const username = displayUsername.toLowerCase();
 
           await this.store.createRecord('user', {
@@ -138,6 +141,7 @@ export default Component.extend({
               },
             },
           });
+          await credential.user.updateProfile({ displayName: displayUsername });
         }
       }
 
