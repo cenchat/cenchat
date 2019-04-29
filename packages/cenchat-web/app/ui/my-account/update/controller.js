@@ -72,7 +72,7 @@ export default Controller.extend({
       if (error.code === 'permission-denied') {
         toast('Username already exists');
       } else {
-        toast(error.message)
+        toast(error.message);
       }
     }
   },
