@@ -19,5 +19,5 @@ export default Component.extend({
   /**
    * @type {string}
    */
-  name: null,
+  username: null,
 });

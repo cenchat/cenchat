@@ -22,10 +22,10 @@ module('Acceptance | my-account/update', function (hooks) {
 
     // Act
     await visit('/my-account/update');
-    await fillIn('[data-test-profile-form="display-name"] input', 'New Name');
+    await fillIn('[data-test-profile-form="display-username"] input', 'new_name');
     await click('[data-test-top-bar="save-button"]');
 
     // Assert
-    assert.dom('[data-test-profile-card="name"]').hasText('New Name');
+    assert.dom('[data-test-profile-card="name"]').hasText('@new_name');
   });
 });

@@ -38,15 +38,15 @@ export default Component.extend({
   /**
    * @param {string} type
    * @param {string} [email]
-   * @param {string} [displayName]
+   * @param {string} [displayUsername]
    * @function
    */
-  async handleSignInEvent(type, email, displayName) {
+  async handleSignInEvent(type, email, displayUsername) {
     try {
       if (this.session.isAuthenticated && this.session.data.authenticated.user.isAnonymous) {
-        await this.convertAnonymousToPermanentAccount(email, displayName);
+        await this.convertAnonymousToPermanentAccount(email, displayUsername);
       } else {
-        await this.signInUser(type, email, displayName);
+        await this.signInUser(type, email, displayUsername);
       }
 
       await this.preloadSessionRecord();
@@ -58,16 +58,20 @@ export default Component.extend({
         this.args.onAfterSignInEvent();
       }
     } catch (error) {
-      toast(error.message);
+      if (error.code === 'permission-denied') {
+        toast('Username already exists');
+      } else {
+        toast(error.message);
+      }
     }
   },
 
   /**
    * @param {string} email
-   * @param {string} displayName
+   * @param {string} displayUsername
    * @function
    */
-  async convertAnonymousToPermanentAccount(email, displayName) {
+  async convertAnonymousToPermanentAccount(email, displayUsername) {
     const auth = this.firebase.auth();
     const credential = firebase.auth.EmailAuthProvider.credentialWithLink(
       email,
@@ -77,31 +81,38 @@ export default Component.extend({
 
     localStorage.removeItem('cenchatEmailForSignIn');
 
-    await linkAuthResult.user.updateProfile({ displayName });
-    await this.updateUserRecord(displayName);
+    await linkAuthResult.user.updateProfile({ displayName: displayUsername });
+    await this.updateUserRecord(displayUsername);
   },
 
   /**
-   * @param {string} displayName
+   * @param {string} displayUsername
    * @function
    */
-  async updateUserRecord(displayName) {
+  async updateUserRecord(displayUsername) {
     const db = this.firebase.firestore();
+    const batch = db.batch();
     const currentUserId = this.session.data.authenticated.user.uid;
+    const username = displayUsername.toLowerCase();
 
-    await db.doc(`users/${currentUserId}`).update({
-      displayName,
-      name: displayName.toLowerCase(),
+    batch.update(db.doc(`users/${currentUserId}`), {
+      displayUsername,
+      username,
     });
+    batch.set(db.doc(`usernames/${username}`), {
+      cloudFirestoreReference: db.doc(`users/${currentUserId}`),
+    });
+
+    await batch.commit();
   },
 
   /**
    * @param {string} type
    * @param {string} [email]
-   * @param {string} [displayName]
+   * @param {string} [displayUsername]
    * @function
    */
-  async signInUser(type, email, displayName) {
+  async signInUser(type, email, displayUsername) {
     await this.session.authenticate('authenticator:firebase', async (auth) => {
       let credential;
 
@@ -115,12 +126,22 @@ export default Component.extend({
         localStorage.removeItem('cenchatEmailForSignIn');
 
         if (credential.additionalUserInfo.isNewUser) {
-          await credential.user.updateProfile({ displayName });
+          const username = displayUsername.toLowerCase();
+
           await this.store.createRecord('user', {
-            displayName,
+            displayUsername,
+            username,
             id: credential.user.uid,
-            name: displayName.toLowerCase(),
-          }).save();
+          }).save({
+            adapterOptions: {
+              include(batch, db) {
+                batch.set(db.doc(`usernames/${username}`), {
+                  cloudFirestoreReference: db.doc(`users/${credential.user.uid}`),
+                });
+              },
+            },
+          });
+          await credential.user.updateProfile({ displayName: displayUsername });
         }
       }
 

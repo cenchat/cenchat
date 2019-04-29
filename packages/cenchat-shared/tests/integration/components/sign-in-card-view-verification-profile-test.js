@@ -22,10 +22,10 @@ module('Integration | Component | sign-in-card-view-verification-profile', funct
     await render(hbs`<SignInCardViewVerificationProfile @email={{this.email}} @onSignInEvent={{this.onSignInEvent}} />`);
 
     // Act
-    await fillIn('[data-test-sign-in-card-view-verification-profile="name"] input', 'User A');
+    await fillIn('[data-test-sign-in-card-view-verification-profile="username"] input', 'user_a');
     await click('[data-test-sign-in-card-view-verification-profile="sign-in-button"]');
 
     // Assert
-    assert.ok(spy.calledWith('email-link', 'user_a@gmail.com', 'User A'));
+    assert.ok(spy.calledWith('email-link', 'user_a@gmail.com', 'user_a'));
   });
 });

@@ -1,8 +1,10 @@
 <li class="message-list-item" data-test-message-list-item="host" ...attributes>
   <div class="message-list-item__header">
     <h3
-      class="message-list-item__author-name {{if (eq @messageGroup.author.id @messageGroup.messages.firstObject.chat.creator.id) "message-list-item__author-name--badged"}}"data-test-message-list-item="author-name">
-      {{or @messageGroup.author.displayName "Anonymous"}}
+      class="message-list-item__author-name {{if (eq @messageGroup.author.id @messageGroup.messages.firstObject.chat.creator.id) "message-list-item__author-name--badged"}}"
+      data-test-message-list-item="author-name"
+    >
+      {{or (concat "@" @messageGroup.author.displayUsername) "Anonymous"}}
     </h3>
 
     <time class="message-list-item__timestamp" data-test-message-list-item="timestamp">

@@ -5,13 +5,16 @@
     @onSubmit={{action this.onProfileFormSubmit}}
   >
     <CenInput
-      data-test-profile-form="display-name"
+      data-test-profile-form="display-username"
       type="text"
-      value={{@user.displayName}}
+      title="Use at least 3 characters and it should only contain letters, numbers, and underscores"
+      aria-label="Use at least 3 characters and it should only contain letters, numbers, and underscores"
       maxlength="15"
+      pattern="[A-Za-z\d]\w{1,13}[A-Za-z\d]"
+      value={{@user.displayUsername}}
       required="true"
       @label="Name"
-      @onInput={{action this.handleDisplayNameInput}}
+      @onInput={{action this.handleDisplayUsernameInput}}
     />
   </CenForm>
 </div>
