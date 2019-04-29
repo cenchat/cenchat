@@ -12,11 +12,6 @@ export default DS.Model.extend({
   /**
    * @type {string}
    */
-  displayName: DS.attr('string'),
-
-  /**
-   * @type {string}
-   */
   displayUsername: DS.attr('string'),
 
   /**
@@ -36,11 +31,6 @@ export default DS.Model.extend({
       return ref.orderBy('lastActivityTimestamp', 'desc').limit(limit);
     },
   }),
-
-  /**
-   * @type {string}
-   */
-  name: DS.attr('string'),
 
   /**
    * @type {string}

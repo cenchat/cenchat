@@ -29,9 +29,9 @@ module('Integration | Component | my-account/update/-components/route-view/main-
     await render(hbs`
       {{my-account/update/-components/route-view/main-content/profile-form user=this.user onProfileUpdateEvent=(action this.onProfileUpdateEvent) onProfileFormSubmit=(action this.onProfileFormSubmit)}}
     `);
-    await fillIn('[data-test-profile-form="display-name"] input', 'Foo Bar');
+    await fillIn('[data-test-profile-form="display-username"] input', 'foobar');
 
     // Assert
-    assert.ok(spy.calledWith({ displayName: 'Foo Bar' }));
+    assert.ok(spy.calledWith({ displayUsername: 'foobar' }));
   });
 });

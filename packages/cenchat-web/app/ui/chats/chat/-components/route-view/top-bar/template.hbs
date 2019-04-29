@@ -9,6 +9,8 @@
   {{#if (eq this.session.data.authenticated.user.uid @chat.creator.id)}}
     <h2 data-test-top-bar="heading">{{@chat.site.displayName}}</h2>
   {{else}}
-    <h2 data-test-top-bar="heading">{{@chat.creator.displayName}}</h2>
+    <h2 data-test-top-bar="heading">
+      {{or (concat "@" @chat.creator.displayUsername) "Anonymous"}}
+    </h2>
   {{/if}}
 </CenTopBar>

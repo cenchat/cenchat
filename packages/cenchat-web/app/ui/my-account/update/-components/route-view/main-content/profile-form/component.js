@@ -13,7 +13,7 @@ export default Component.extend({
    * @param {string} value
    * @function
    */
-  handleDisplayNameInput(value) {
-    this.args.onProfileUpdateEvent({ displayName: value });
+  handleDisplayUsernameInput(value) {
+    this.args.onProfileUpdateEvent({ displayUsername: value });
   },
 });

@@ -93,15 +93,33 @@ export default function getFixtureData() {
         },
       },
 
+      usernames: {
+        __doc__: {
+          user_a: {
+            cloudFirestoreReference: '__ref__:users/user_a',
+          },
+
+          user_b: {
+            cloudFirestoreReference: '__ref__:users/user_b',
+          },
+
+          user_c: {
+            cloudFirestoreReference: '__ref__:users/user_c',
+          },
+
+          user_d: {
+            cloudFirestoreReference: '__ref__:users/user_d',
+          },
+        },
+      },
+
       users: {
         __doc__: {
           user_a: {
-            displayName: 'User A',
-            displayUsername: null,
-            name: 'user a',
+            displayUsername: 'user_a',
             photoUrl: 'user_a.jpg',
             shortBio: null,
-            username: null,
+            username: 'user_a',
 
             __collection__: {
               chats: {
@@ -138,12 +156,10 @@ export default function getFixtureData() {
           },
 
           user_b: {
-            displayName: 'User B',
-            displayUsername: null,
-            name: 'user b',
+            displayUsername: 'user_b',
             photoUrl: 'user_b.jpg',
             shortBio: null,
-            username: null,
+            username: 'user_b',
 
             __collection__: {
               chats: {
@@ -162,12 +178,10 @@ export default function getFixtureData() {
           },
 
           user_c: {
-            displayName: 'User C',
-            displayUsername: null,
-            name: 'user c',
+            displayUsername: 'user_c',
             photoUrl: 'user_c.jpg',
             shortBio: null,
-            username: null,
+            username: 'user_c',
 
             __collection__: {
               chats: {
@@ -186,12 +200,10 @@ export default function getFixtureData() {
           },
 
           user_d: {
-            displayName: 'User D',
-            displayUsername: null,
-            name: 'user d',
+            displayUsername: 'user_d',
             photoUrl: 'user_d.jpg',
             shortBio: null,
-            username: null,
+            username: 'user_d',
           },
         },
       },

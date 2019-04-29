@@ -23,7 +23,7 @@ module('Unit | Controller | my-account/update', function (hooks) {
     const controller = this.owner.lookup('controller:my-account/update');
 
     controller.set('model', this.model);
-    controller.set('pendingProfileChange', { displayName: 'Foo Bar' });
+    controller.set('pendingProfileChange', { displayUsername: 'Foobar' });
 
     // Act
     const result = controller.get('hasPendingProfileChanges');
@@ -41,10 +41,10 @@ module('Unit | Controller | my-account/update', function (hooks) {
     controller.set('model', this.model);
 
     // Act
-    controller.handleProfileUpdateEvent({ displayName: 'Foo Bar' });
+    controller.handleProfileUpdateEvent({ displayUsername: 'Foobar' });
 
     // Arrange
-    assert.deepEqual(controller.pendingProfileChange, { displayName: 'Foo Bar' });
+    assert.deepEqual(controller.pendingProfileChange, { displayUsername: 'Foobar' });
   });
 
   test('should be able to save user profile updates', async function (assert) {
@@ -60,7 +60,7 @@ module('Unit | Controller | my-account/update', function (hooks) {
     const controller = this.owner.lookup('controller:my-account/update');
 
     controller.set('model', this.model);
-    controller.set('pendingProfileChange', { displayName: 'Foo Bar' });
+    controller.set('pendingProfileChange', { displayUsername: 'Foobar' });
 
     // Act
     await controller.handleProfileFormSubmit();
@@ -70,13 +70,11 @@ module('Unit | Controller | my-account/update', function (hooks) {
     const userDocSnapshot = await db.doc('users/user_a').get();
 
     assert.deepEqual(userDocSnapshot.data(), {
-      displayName: 'Foo Bar',
-      displayUsername: null,
-      name: 'foo bar',
+      displayUsername: 'Foobar',
       photoUrl: 'user_a.jpg',
       shortBio: null,
-      username: null,
+      username: 'foobar',
     });
-    assert.ok(stub.calledWithExactly({ displayName: 'Foo Bar' }));
+    assert.ok(stub.calledWithExactly({ displayName: 'Foobar' }));
   });
 });

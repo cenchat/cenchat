@@ -26,7 +26,7 @@ module('Integration | Component | chats/-components/route-view/main-content/chat
     // Assert
     await timeout(100); // Wait for relationship to load and render
     assert.dom('[data-test-chat-list-item="name"]').hasText('Site A');
-    assert.dom('[data-test-chat-list-item="message"]').hasText('User B: Message B');
+    assert.dom('[data-test-chat-list-item="message"]').hasText('@user_b: Message B');
     assert.dom('[data-test-chat-list-item="timestamp"]').exists();
   });
 });
