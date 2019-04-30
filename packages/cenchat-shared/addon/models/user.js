@@ -43,6 +43,54 @@ export default DS.Model.extend({
   shortBio: DS.attr('string'),
 
   /**
+   * @type {Array.<Model.Site>}
+   */
+  sitesAsAdmin: DS.hasMany('site', {
+    inverse: 'admins',
+    isRealtime: true,
+
+    buildReference(db, record) {
+      return db.collection(`users/${record.get('id')}/sites`);
+    },
+
+    filter(ref) {
+      return ref.where('role', '==', 1);
+    },
+  }),
+
+  /**
+   * @type {Array.<Model.Site>}
+   */
+  sitesAsEditor: DS.hasMany('site', {
+    inverse: 'editors',
+    isRealtime: true,
+
+    buildReference(db, record) {
+      return db.collection(`users/${record.get('id')}/sites`);
+    },
+
+    filter(ref) {
+      return ref.where('role', '==', 2);
+    },
+  }),
+
+  /**
+   * @type {Array.<Model.Site>}
+   */
+  sitesAsModerator: DS.hasMany('site', {
+    inverse: 'moderators',
+    isRealtime: true,
+
+    buildReference(db, record) {
+      return db.collection(`users/${record.get('id')}/sites`);
+    },
+
+    filter(ref) {
+      return ref.where('role', '==', 3);
+    },
+  }),
+
+  /**
    * @type {string}
    */
   username: DS.attr('string'),

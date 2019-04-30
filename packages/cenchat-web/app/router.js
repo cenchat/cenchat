@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('update');
     this.route('delete');
   });
+  this.route('sites');
 });
 
 export default Router;

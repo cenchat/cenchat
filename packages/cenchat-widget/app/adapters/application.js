@@ -3,4 +3,9 @@ import CloudFirestoreAdapter from 'ember-cloud-firestore-adapter/adapters/cloud-
 /**
  * @namespace Adapter
  */
-export default CloudFirestoreAdapter.extend();
+export default CloudFirestoreAdapter.extend({
+  /**
+   * @type {string}
+   */
+  referenceKeyName: 'cloudFirestoreReference',
+});
