@@ -11,7 +11,7 @@ module('Acceptance | sites', function (hooks) {
     setupApplicationTestState();
   });
 
-  test('should list the sites the user is an admin of', async function (assert) {
+  test('should show the unverified sites the current user is an admin of', async function (assert) {
     assert.expect(1);
 
     // Arrange
@@ -23,6 +23,36 @@ module('Acceptance | sites', function (hooks) {
     await visit('/sites');
 
     // Assert
-    assert.dom('[data-test-site-collection-item="host"]').exists({ count: 1 });
+    assert.dom('[data-test-main-content="unverified-sites"] [data-test-site-collection="host"]').exists();
+  });
+
+  test('should show the verified sites the current user is an admin of', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    await setupAuthState({
+      user: { uid: 'user_a' },
+    });
+
+    // Act
+    await visit('/sites');
+
+    // Assert
+    assert.dom('[data-test-main-content="admin-sites"] [data-test-site-collection="host"]').exists();
+  });
+
+  test('should show the sites the current user is a moderator of', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    await setupAuthState({
+      user: { uid: 'user_a' },
+    });
+
+    // Act
+    await visit('/sites');
+
+    // Assert
+    assert.dom('[data-test-main-content="moderator-sites"] [data-test-site-collection="host"]').exists();
   });
 });

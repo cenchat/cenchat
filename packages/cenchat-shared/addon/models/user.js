@@ -61,22 +61,6 @@ export default DS.Model.extend({
   /**
    * @type {Array.<Model.Site>}
    */
-  sitesAsEditor: DS.hasMany('site', {
-    inverse: 'editors',
-    isRealtime: true,
-
-    buildReference(db, record) {
-      return db.collection(`users/${record.get('id')}/sites`);
-    },
-
-    filter(ref) {
-      return ref.where('role', '==', 2);
-    },
-  }),
-
-  /**
-   * @type {Array.<Model.Site>}
-   */
   sitesAsModerator: DS.hasMany('site', {
     inverse: 'moderators',
     isRealtime: true,

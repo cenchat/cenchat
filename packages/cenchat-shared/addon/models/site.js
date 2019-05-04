@@ -36,22 +36,6 @@ export default DS.Model.extend({
   displayName: DS.attr('string'),
 
   /**
-   * @type {Array.<Model.User>}
-   */
-  editors: DS.hasMany('user', {
-    inverse: 'sitesAsEditor',
-    isRealtime: true,
-
-    buildReference(db, record) {
-      return db.collection(`sites/${record.get('id')}/members`);
-    },
-
-    filter(ref) {
-      return ref.where('role', '==', 2);
-    },
-  }),
-
-  /**
    * @type {string}
    */
   hostname: DS.attr('string'),

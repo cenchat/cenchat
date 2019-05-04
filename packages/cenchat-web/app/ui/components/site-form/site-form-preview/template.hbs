@@ -1,0 +1,19 @@
+<CenSubheader>
+  <h4>Preview</h4>
+</CenSubheader>
+
+<div class="site-form-preview__card site-form-preview__card--{{@theme}} card card--flat">
+  <div class="site-form-preview__card-top-bar">Chats</div>
+
+  <div class="site-form-preview__card-content">
+    <div class="site-form-preview__card-messages card">
+      <MessageList @messages={{this.previewMessages}} />
+    </div>
+  </div>
+
+  <div class="site-form-preview__card-bottom-bar">
+    <CenIconButton class="active" type="button" @icon="comment" />
+    <CenIconButton type="button" @icon="user-circle" />
+    <CenIconButton type="button" @icon="home" />
+  </div>
+</div>

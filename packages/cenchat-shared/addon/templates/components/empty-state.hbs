@@ -1,0 +1,21 @@
+<article class="empty-state" ...attributes>
+  <CenIcon @class="empty-state__image fa-6x" @icon="cloud-sun" />
+
+  <header class="empty-state__header">
+    <h2 class="empty-state__title" data-test-empty-state="title">
+      {{@title}}
+    </h2>
+
+    {{#if @subtitle}}
+      <p class="empty-state__subtitle" data-test-empty-state="subtitle">
+        {{@subtitle}}
+      </p>
+    {{/if}}
+  </header>
+
+  {{#if @description}}
+    <p class="empty-state__description" data-test-empty-state="description">
+      {{@description}}
+    </p>
+  {{/if}}
+</article>

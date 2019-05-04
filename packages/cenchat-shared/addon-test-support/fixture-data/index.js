@@ -80,11 +80,70 @@ export default function getFixtureData() {
             theme: 'light',
 
             __collection__: {
-              admins: {
+              members: {
                 __doc__: {
                   user_a: {
                     cloudFirestoreReference: '__ref__:users/user_a',
-                    name: 'user a',
+                    role: 1,
+                    username: 'user a',
+                  },
+                },
+              },
+
+              slugs: {
+                __doc__: {
+                  '%2Ffoo%2Fbar': {
+                    cloudFirestoreReference: '__ref__:pages/site_a__page_a',
+                  },
+                },
+              },
+            },
+          },
+
+          site_b: {
+            brandColor: '#212121',
+            displayName: 'Site B',
+            hostname: 'site_b.com',
+            imageUrl: 'site_b.jpg',
+            isVerified: true,
+            name: 'site b',
+            theme: 'light',
+
+            __collection__: {
+              members: {
+                __doc__: {
+                  user_a: {
+                    cloudFirestoreReference: '__ref__:users/user_a',
+                    role: 3,
+                    username: 'user a',
+                  },
+
+                  user_b: {
+                    cloudFirestoreReference: '__ref__:users/user_b',
+                    role: 1,
+                    username: 'user b',
+                  },
+                },
+              },
+            },
+          },
+
+          site_c: {
+            brandColor: '#212121',
+            displayName: 'Site C',
+            hostname: 'site_c.com',
+            imageUrl: 'site_c.jpg',
+            isVerified: false,
+            name: 'site c',
+            theme: 'light',
+
+            __collection__: {
+              members: {
+                __doc__: {
+                  user_a: {
+                    cloudFirestoreReference: '__ref__:users/user_a',
+                    role: 1,
+                    username: 'user a',
                   },
                 },
               },
@@ -144,11 +203,24 @@ export default function getFixtureData() {
                 },
               },
 
-              sitesAsAdmin: {
+              sites: {
                 __doc__: {
                   site_a: {
                     cloudFirestoreReference: '__ref__:sites/site_a',
                     name: 'site a',
+                    role: 1,
+                  },
+
+                  site_b: {
+                    cloudFirestoreReference: '__ref__:sites/site_b',
+                    name: 'site b',
+                    role: 3,
+                  },
+
+                  site_c: {
+                    cloudFirestoreReference: '__ref__:sites/site_c',
+                    name: 'site c',
+                    role: 1,
                   },
                 },
               },
@@ -171,6 +243,16 @@ export default function getFixtureData() {
                     lastMessage: '__ref__:messages/message_b',
                     page: '__ref__:pages/site_a__page_a',
                     site: '__ref__:sites/site_a',
+                  },
+                },
+              },
+
+              sites: {
+                __doc__: {
+                  site_b: {
+                    cloudFirestoreReference: '__ref__:sites/site_b',
+                    name: 'site b',
+                    role: 1,
                   },
                 },
               },

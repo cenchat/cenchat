@@ -1,0 +1,14 @@
+.site-form__appearance-preview-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 960px) {
+  .site-form__appearance-preview-container {
+    flex-direction: row;
+  }
+}
+
+.site-form__appearance {
+  flex: 1;
+}

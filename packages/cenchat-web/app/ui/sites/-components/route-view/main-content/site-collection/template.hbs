@@ -1,0 +1,7 @@
+{{import SiteCollectionItem from "./site-collection-item"}}
+
+<div data-test-site-collection="host">
+  {{#each @sites as |site|}}
+    <SiteCollectionItem @site={{site}} />
+  {{/each}}
+</div>

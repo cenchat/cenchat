@@ -1,0 +1,8 @@
+<div class="side-sheet__content" data-test-main-content="host">
+  <SiteForm
+    @onSiteUpdateEvent={{action @onSiteUpdateEvent}}
+    @onSiteFormSubmit={{action @onSiteFormSubmit}}
+  >
+    {{yield}}
+  </SiteForm>
+</div>

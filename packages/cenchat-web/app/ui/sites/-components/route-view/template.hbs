@@ -1,0 +1,15 @@
+{{import MainContent from "./main-content"}}
+
+<CenTopBar class="layout__header">
+  <h1>Sites</h1>
+  <CenIconLinkButton
+    href={{url-for "sites.new"}}
+    title="Navigate back to new site page"
+    aria-label="Navigate back to new site page"
+    @icon="plus"
+  />
+</CenTopBar>
+
+<MainContent @sitesAsAdmin={{@sitesAsAdmin}} @sitesAsModerator={{@sitesAsModerator}}>
+  {{yield}}
+</MainContent>

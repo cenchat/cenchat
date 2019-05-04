@@ -1,0 +1,71 @@
+{{import SiteFormPreview from "./site-form-preview"}}
+
+<div class="card card--flat" data-test-site-form="host">
+  <CenForm
+    class="card__form card__form--sectioned"
+    id="site-form"
+    @onSubmit={{action this.onSiteFormSubmit}}
+  >
+    <section>
+      <CenSubheader>
+        <h4>Info</h4>
+      </CenSubheader>
+
+      <CenInput
+        data-test-site-form="hostname"
+        type="text"
+        title="Use the hostname of your site (e.g. example.com)"
+        aria-label="Use the hostname of your site (e.g. example.com)"
+        pattern="(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])"
+        placeholder="example.com"
+        value={{@site.hostname}}
+        required="true"
+        @label="Hostname"
+        @onInput={{action this.handleHostnameInput}}
+      />
+      <CenInput
+        data-test-site-form="name"
+        type="text"
+        placeholder="My Example Site"
+        value={{@site.displayName}}
+        required="true"
+        @label="Name"
+        @onInput={{action this.handleNameInput}}
+      />
+    </section>
+
+    <div class="site-form__appearance-preview-container">
+      <section class="site-form__appearance">
+        <CenSubheader>
+          <h4>Appearance</h4>
+        </CenSubheader>
+
+        <div class="site-form__appearance-fields">
+          <CenInput
+            data-test-site-form="brand-color"
+            type="text"
+            title="Use a hexadecimal color (e.g. #455b82)"
+            aria-label="Use a hexadecimal color (e.g. #455b82)"
+            pattern="(^#[0-9(A-F|a-f)]{6}$)|(^#[0-9(A-F|a-f)]{3}$)"
+            placeholder="#455b82"
+            value={{@site.brandColor}}
+            required="true"
+            @label="Brand color (in hex code)"
+            @onInput={{action this.handleBrandColorInput}}
+          />
+
+          <CenSelect
+            data-test-site-form="theme"
+            @label="Theme"
+            @onChange={{action this.handleThemeChange}}
+          >
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </CenSelect>
+        </div>
+      </section>
+
+      <SiteFormPreview @brandColor={{this.brandColor}} @theme={{this.theme}} />
+    </div>
+  </CenForm>
+</div>

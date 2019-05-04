@@ -1,0 +1,22 @@
+<article class="card" data-test-site-collection-item="host">
+  {{#if @site.imageUrl}}
+    <div class="card__banner">
+      <img
+        class="card__image"
+        data-test-site-collection-item="image"
+        src={{@site.imageUrl}}
+        alt={{@site.displayName}}
+      >
+    </div>
+  {{/if}}
+
+  <header>
+    <h3 class="card__heading" data-test-site-collection-item="name">
+      {{@site.displayName}}
+    </h3>
+
+    <p class="card__subheading" data-test-site-collection-item="hostname">
+      {{@site.hostname}}
+    </p>
+  </header>
+</article>

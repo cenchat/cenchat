@@ -11,8 +11,22 @@
 }
 
 .card--flat {
-  background-color: transparent;
   border: none;
+}
+
+.card__banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 224px;
+  overflow: hidden;
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .card__heading {
@@ -73,6 +87,10 @@
 
 .card__form {
   padding: 16px 8px 8px 8px;
+}
+
+.card__form--sectioned {
+  padding-top: 0;
 }
 
 .card__form-actions {

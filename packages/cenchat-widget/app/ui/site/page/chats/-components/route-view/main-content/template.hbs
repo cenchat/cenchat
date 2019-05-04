@@ -1,6 +1,19 @@
 {{import ChatCollection from "./chat-collection"}}
 
 <main class="layout__content layout__content-wrapper" data-test-main-content="host" ...attributes>
-  <ChatCollection @chats={{@chats}} />
+  {{#if @chats}}
+    <ChatCollection @chats={{@chats}} />
+  {{else}}
+    {{#let this.router.currentRoute.parent.parent.parent.attributes.displayName as |siteName|}}
+      <EmptyState
+        class="site-page-chats_route-view-main-content__empty-state"
+        data-test-main-content="empty-state"
+        @title="Nothing to read yet"
+        @subtitle="Chats publicized by {{siteName}} will show up here"
+        @description="By default, your chats are private between you and {{siteName}}. However, it may be publicized as read-only without your consent depending on how insightful it is."
+      />
+    {{/let}}
+  {{/if}}
+
   {{yield}}
 </main>

@@ -26,6 +26,6 @@ module('Acceptance | my-account/update', function (hooks) {
     await click('[data-test-top-bar="save-button"]');
 
     // Assert
-    assert.dom('[data-test-profile-card="name"]').hasText('@new_name');
+    assert.dom('[data-test-application="toast"]').hasText('Profile updated');
   });
 });

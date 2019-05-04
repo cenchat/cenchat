@@ -1,1 +1,5 @@
-{{outlet}}
+{{import RouteView from "./-components/route-view"}}
+
+<RouteView @sitesAsAdmin={{this.model.sitesAsAdmin}} @sitesAsModerator={{this.model.sitesAsModerator}}>
+  {{liquid-outlet class="liquid-fire-side-sheet-outlet"}}
+</RouteView>

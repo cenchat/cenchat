@@ -1,0 +1,13 @@
+.site-page-chats_route-view-main-content__empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 140px);
+}
+
+@media (min-width: 960px) {
+  .site-page-chats_route-view-main-content__empty-state {
+    min-height: calc(100vh - 144px);
+  }
+}

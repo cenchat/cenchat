@@ -1,0 +1,13 @@
+{{import TopBar from "./top-bar"}}
+{{import MainContent from "./main-content"}}
+
+<SideSheet class="side-sheet liquid-fire-side-sheet">
+  <TopBar @hasPendingSiteChanges={{@hasPendingSiteChanges}} />
+
+  <MainContent
+    @onSiteUpdateEvent={{action @onSiteUpdateEvent}}
+    @onSiteFormSubmit={{action @onSiteFormSubmit}}
+  >
+    {{yield}}
+  </MainContent>
+</SideSheet>

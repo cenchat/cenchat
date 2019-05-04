@@ -7,14 +7,11 @@
     </div>
   {{else}}
     <div class="layout__master-pane layout__master-pane-wrapper">
-      <article
-        class="card"
-        data-test-main-content="empty-state-message"
-        ...attributes
-      >
-        <h2 class="card__heading">Nothing here right now</h2>
-        <p class="card__subheading">Your chats will show up here</p>
-      </article>
+      <EmptyState
+        data-test-main-content="empty-state"
+        @title="Nothing in Chats"
+        @subtitle="Your chats will show up here"
+      />
     </div>
   {{/if}}
 

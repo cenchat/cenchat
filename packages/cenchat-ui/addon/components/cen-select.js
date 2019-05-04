@@ -14,7 +14,12 @@ export default Component.extend({
   /**
    * @override
    */
-  tagName: '',
+  tagName: 'label',
+
+  /**
+   * @override
+   */
+  classNames: ['cen-select'],
 
   /**
    * @param {string} value
