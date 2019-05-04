@@ -1,0 +1,50 @@
+{{import SiteCollection from "./site-collection"}}
+
+<main class="layout__content" data-test-main-content="host">
+  <div class="layout__master-pane layout__master-pane--sectioned layout__master-pane-wrapper">
+    {{#if (or @sitesAsAdmin @sitesAsModerator)}}
+      {{#let (filter-by "isVerified" false @sitesAsAdmin) as |unverifiedSites|}}
+        {{#if unverifiedSites}}
+          <section data-test-main-content="unverified-sites">
+            <CenSubheader>
+              <h2>Unverified Sites</h2>
+            </CenSubheader>
+
+            <SiteCollection @sites={{unverifiedSites}} />
+          </section>
+        {{/if}}
+      {{/let}}
+
+      {{#let (filter-by "isVerified" true @sitesAsAdmin) as |verifiedSites|}}
+        {{#if verifiedSites}}
+          <section data-test-main-content="admin-sites">
+            <CenSubheader>
+              <h2>Sites with admin role</h2>
+            </CenSubheader>
+
+            <SiteCollection @sites={{verifiedSites}} />
+          </section>
+        {{/if}}
+      {{/let}}
+
+      {{#if @sitesAsModerator}}
+        <section data-test-main-content="moderator-sites">
+          <CenSubheader>
+            <h2>Sites with moderator role</h2>
+          </CenSubheader>
+
+          <SiteCollection @sites={{@sitesAsModerator}} />
+        </section>
+      {{/if}}
+    {{else}}
+      <EmptyState
+        data-test-main-content="empty-state"
+        @title="Nothing in Sites"
+        @subtitle="Sites you're a member of will show up here"
+        @description="If you're someone who's looking to use Cenchat for your website, you can start by creating a Site"
+      />
+    {{/if}}
+  </div>
+
+  {{yield}}
+</main>

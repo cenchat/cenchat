@@ -67,6 +67,7 @@ export default Controller.extend({
       });
       await this.session.data.authenticated.user.updateProfile({ displayName: newDisplayUsername });
       this.set('pendingProfileChange', { displayUsername: null });
+      this.transitionToRoute('my-account');
       toast('Profile updated');
     } catch (error) {
       if (error.code === 'permission-denied') {

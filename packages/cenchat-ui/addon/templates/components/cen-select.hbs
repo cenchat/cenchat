@@ -1,7 +1,5 @@
-<label class="cen-select">
-  <div>{{@label}}</div>
+<div>{{@label}}</div>
 
-  <select onchange={{action this.handleChange value="target.value"}} ...attributes>
-    {{yield}}
-  </select>
-</label>
+<select onchange={{action this.handleChange value="target.value"}} ...attributes>
+  {{yield}}
+</select>

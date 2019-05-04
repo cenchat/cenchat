@@ -1,0 +1,79 @@
+.site-form-preview {
+  flex: 1;
+}
+
+@media (min-width: 920px) {
+  .site-form-preview {
+    margin-left: 16px;
+  }
+}
+
+.site-form-preview__card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  height: 284px;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: var(--elevation-2);
+}
+
+.site-form-preview__card--light {
+  --brand-color: var(--cenchat-brand-color);
+  --font-primary-color: rgba(0, 0, 0, 0.87);
+  --font-secondary-color: rgba(0, 0, 0, 0.6);
+  --surface-background-color: #fff;
+  --divider-color: rgba(0, 0, 0, 0.12);
+}
+
+.site-form-preview__card--dark {
+  --brand-color: var(--cenchat-brand-color);
+  --font-primary-color: rgba(255, 255, 255, 1);
+  --font-secondary-color: rgba(255, 255, 255, 0.7);
+  --surface-background-color: #212121;
+  --divider-color: rgba(255, 255, 255, 0.12);
+}
+
+.site-form-preview__card-top-bar {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 10px 16px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-medium);
+  color: var(--font-primary-color);
+  background-color: var(--surface-background-color);
+  border-bottom: 2px solid var(--divider-color);
+}
+
+.site-form-preview__card-content {
+  flex: 1;
+  padding: 16px;
+}
+
+.site-form-preview__card-messages {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.site-form-preview__card-bottom-bar {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding-right: 6px;
+  padding-left: 6px;
+  background-color: var(--surface-background-color);
+  border-top: 2px solid var(--divider-color);
+}
+
+.site-form-preview__card-bottom-bar button {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.site-form-preview__card-bottom-bar button.active {
+  color: var(--brand-color);
+}

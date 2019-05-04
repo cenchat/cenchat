@@ -51,16 +51,16 @@ module('Integration | Component | chats/-components/route-view/main-content', fu
     await render(hbs`{{chats/-components/route-view/main-content chats=this.chats}}`);
 
     // Assert
-    assert.dom('[data-test-main-content="empty-state-message"]').exists();
+    assert.dom('[data-test-main-content="empty-state"]').exists();
   });
 
-  test('should hide empty state message when there are chats', async function (assert) {
+  test('should hide empty state when there are chats', async function (assert) {
     assert.expect(1);
 
     // Act
     await render(hbs`{{chats/-components/route-view/main-content chats=this.chats}}`);
 
     // Assert
-    assert.dom('[data-test-main-content="empty-state-message"]').doesNotExist();
+    assert.dom('[data-test-main-content="empty-state"]').doesNotExist();
   });
 });

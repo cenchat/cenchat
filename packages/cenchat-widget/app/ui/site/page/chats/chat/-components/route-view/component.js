@@ -39,11 +39,11 @@ export default Component.extend({
    */
   async setupPermissionState() {
     if (this.session.isAuthenticated) {
-      const isSiteAdmin = await this.checkIfSiteAdmin();
+      const isSiteMember = await this.checkIfSiteMember();
 
       if (
         this.args.chat.get('creator.id') === this.session.data.authenticated.user.uid
-        || isSiteAdmin
+        || isSiteMember
       ) {
         this.set('permissionState', 'writer');
       } else {
@@ -55,16 +55,16 @@ export default Component.extend({
   },
 
   /**
-   * @return {Promise.<boolean>} Resolves to true if site admin. Otherwise, false.
+   * @return {Promise.<boolean>} Resolves to true if site member. Otherwise, false.
    * @function
    */
-  async checkIfSiteAdmin() {
+  async checkIfSiteMember() {
     const db = this.firebase.firestore();
     const siteId = this.args.chat.get('site.id');
     const currentUserId = this.session.data.authenticated.user.uid;
 
     try {
-      const docSnapshot = await db.doc(`sites/${siteId}/admins/${currentUserId}`).get();
+      const docSnapshot = await db.doc(`sites/${siteId}/members/${currentUserId}`).get();
 
       return docSnapshot.exists;
     } catch (error) {
@@ -72,6 +72,9 @@ export default Component.extend({
     }
   },
 
+  /**
+   * @function
+   */
   async handleSendMessageClick(...args) {
     const element = document.querySelector('#site-page-chats-chat_route-view__main-content');
 

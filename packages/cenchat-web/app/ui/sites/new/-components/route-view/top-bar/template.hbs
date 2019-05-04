@@ -1,0 +1,19 @@
+<CenTopBar data-test-top-bar="host">
+  <CenIconLinkButton
+    href={{url-for "sites"}}
+    title="Navigate back to previous page"
+    aria-label="Navigate back to previous page"
+    @icon="arrow-left"
+  />
+
+  <h3>New site</h3>
+
+  <CenIconButton
+    data-test-top-bar="save-button"
+    title="Save site"
+    aria-label="Save site"
+    disabled={{not @hasPendingSiteChanges}}
+    form="site-form"
+    @icon="check"
+  />
+</CenTopBar>

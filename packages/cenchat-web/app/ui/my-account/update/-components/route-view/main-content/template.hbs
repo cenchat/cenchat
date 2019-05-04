@@ -1,11 +1,10 @@
 {{import ProfileForm from "./profile-form"}}
 
-<div class="side-sheet__content" data-test-main-content="host" ...attributes>
+<div class="side-sheet__content" data-test-main-content="host">
   <ProfileForm
     @user={{@user}}
     @onProfileUpdateEvent={{action @onProfileUpdateEvent}}
     @onProfileFormSubmit={{action @onProfileFormSubmit}}
-    ...attributes
   >
     {{yield}}
   </ProfileForm>
