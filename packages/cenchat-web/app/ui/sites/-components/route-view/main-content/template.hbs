@@ -1,7 +1,7 @@
 {{import SiteCollection from "./site-collection"}}
 
 <main class="layout__content" data-test-main-content="host">
-  <div class="layout__master-pane layout__master-pane--sectioned layout__master-pane-wrapper">
+  <div class="layout__master-pane wrapper">
     {{#if (or @sitesAsAdmin @sitesAsModerator)}}
       {{#let (filter-by "isVerified" false @sitesAsAdmin) as |unverifiedSites|}}
         {{#if unverifiedSites}}

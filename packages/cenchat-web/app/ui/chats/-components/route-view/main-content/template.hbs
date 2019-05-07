@@ -1,12 +1,12 @@
 {{import ChatList from "./chat-list"}}
 
-<main class="layout__content" data-test-main-content="host" ...attributes>
+<main class="layout__content" data-test-main-content="host">
   {{#if @chats}}
-    <div class="layout__master-pane layout__master-pane--list">
+    <div class="layout__master-pane layout__wrapper layout__wrapper--list">
       <ChatList @chats={{@chats}} />
     </div>
   {{else}}
-    <div class="layout__master-pane layout__master-pane-wrapper">
+    <div class="layout__master-pane layout__wrapper">
       <EmptyState
         data-test-main-content="empty-state"
         @title="Nothing in Chats"

@@ -1,18 +1,17 @@
 {{import MainContent from "./main-content"}}
 
 <SideSheet class="side-sheet liquid-fire-side-sheet">
-  <CenTopBar data-test-top-bar="host">
+  <CenTopBar>
     <CenIconLinkButton
-      href={{url-for "my-account"}}
+      href={{url-for "sites"}}
       title="Navigate back to previous page"
       aria-label="Navigate back to previous page"
       @icon="arrow-left"
     />
-
-    <h3>Delete account</h3>
+    <h3>{{@site.displayName}}</h3>
   </CenTopBar>
 
-  <MainContent @onDeleteAccountFormSubmit={{action @onDeleteAccountFormSubmit}}>
+  <MainContent @site={{@site}}>
     {{yield}}
   </MainContent>
 </SideSheet>

@@ -1,4 +1,4 @@
-<li class="list__item" data-test-chat-list-item="host" ...attributes>
+<li class="list__item" data-test-chat-list-item="host">
   {{#if (and @chat.site @chat.lastMessage.author)}}
     <CenLink class="list__action" href={{url-for "chats.chat" @chat.id}} />
 

@@ -1,6 +1,9 @@
 {{import DeleteAccountCaptcha from "./delete-account-captcha"}}
 
-<div class="side-sheet__content" data-test-main-content="host" ...attributes>
-  <DeleteAccountCaptcha @onDeleteAccountFormSubmit={{action @onDeleteAccountFormSubmit}} />
+<div class="side-sheet__content" data-test-main-content="host">
+  <div class="wrapper">
+    <DeleteAccountCaptcha @onDeleteAccountFormSubmit={{action @onDeleteAccountFormSubmit}} />
+  </div>
+
   {{yield}}
 </div>
