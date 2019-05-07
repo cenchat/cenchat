@@ -1,6 +1,7 @@
 .empty-state {
   width: 100%;
   max-width: 240px;
+  padding-top: 16px;
   margin: auto;
   text-align: center;
 }

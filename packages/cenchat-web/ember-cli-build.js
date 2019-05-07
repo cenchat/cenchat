@@ -13,9 +13,6 @@ module.exports = function(defaults) {
   }
 
   const app = new EmberApp(defaults, {
-    'ember-composable-helpers': {
-      only: ['filter-by'],
-    },
     fingerprint: {
       replaceExtensions: ['html', 'css', 'js', 'webmanifest'],
     },

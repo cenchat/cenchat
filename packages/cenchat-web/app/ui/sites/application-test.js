@@ -11,22 +11,7 @@ module('Acceptance | sites', function (hooks) {
     setupApplicationTestState();
   });
 
-  test('should show the unverified sites the current user is an admin of', async function (assert) {
-    assert.expect(1);
-
-    // Arrange
-    await setupAuthState({
-      user: { uid: 'user_a' },
-    });
-
-    // Act
-    await visit('/sites');
-
-    // Assert
-    assert.dom('[data-test-main-content="unverified-sites"] [data-test-site-collection="host"]').exists();
-  });
-
-  test('should show the verified sites the current user is an admin of', async function (assert) {
+  test('should show the sites the current user is an admin of', async function (assert) {
     assert.expect(1);
 
     // Arrange
