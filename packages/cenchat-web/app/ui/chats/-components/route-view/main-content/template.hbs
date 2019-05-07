@@ -2,11 +2,11 @@
 
 <main class="layout__content" data-test-main-content="host">
   {{#if @chats}}
-    <div class="layout__master-pane layout__wrapper layout__wrapper--list">
+    <div class="layout__master-pane wrapper wrapper--list">
       <ChatList @chats={{@chats}} />
     </div>
   {{else}}
-    <div class="layout__master-pane layout__wrapper">
+    <div class="layout__master-pane wrapper">
       <EmptyState
         data-test-main-content="empty-state"
         @title="Nothing in Chats"
