@@ -1,6 +1,6 @@
 {{import ChatCollection from "./chat-collection"}}
 
-<main class="layout__content layout__content-wrapper" data-test-main-content="host" ...attributes>
+<main class="wrapper" data-test-main-content="host">
   {{#if @chats}}
     <ChatCollection @chats={{@chats}} />
   {{else}}
@@ -10,7 +10,7 @@
         data-test-main-content="empty-state"
         @title="Nothing to read yet"
         @subtitle="Chats publicized by {{siteName}} will show up here"
-        @description="By default, your chats are private between you and {{siteName}}. However, it may be publicized as read-only without your consent depending on how insightful it is."
+        @description="By default, your chats are private between you and {{siteName}}. However, they may be publicize it as read-only for other people without your consent."
       />
     {{/let}}
   {{/if}}
