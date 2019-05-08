@@ -1,40 +1,28 @@
-<div class="layout__content layout__content--sectioned" data-test-main-content="host" ...attributes>
+<div class="wrapper " data-test-main-content="host">
   {{#if this.session.data.authenticated.user.isAnonymous}}
-    <section class="layout__content-wrapper" data-test-main-content="tips">
-      <CenSubheader>
-        <h2>Tips</h2>
-      </CenSubheader>
+    <article class="card" data-test-main-content="tips">
+      <header class="card__header">
+        <h3 class="card__heading">Upgrade to permanent account</h3>
+        <p class="card__subheading">You're signed in anonymously. Having a permanent account allows you to access your chats on any device.</p>
+      </header>
 
-      <article class="card">
-        <header class="card__header">
-          <h3 class="card__heading">Upgrade to permanent account</h3>
-          <p class="card__subheading">Permanent account allows you to access your chats on any device</p>
-        </header>
-
-        <div class="card__actions">
-          <CenLinkButton href={{url-for "site.page.sign-in"}}>
-            Upgrade
-          </CenLinkButton>
-        </div>
-      </article>
-    </section>
+      <div class="card__actions">
+        <CenLinkButton href={{url-for "site.page.sign-in"}}>
+          Upgrade
+        </CenLinkButton>
+      </div>
+    </article>
   {{/if}}
 
-  <section>
-    <CenSubheader class="cen-subheader--extra-padded">
-      <h2>Account management</h2>
-    </CenSubheader>
-
-    <article class="card card--flat">
-      <ul class="list">
-        <li class="list__item">
-          <button class="list__action" onclick={{action this.handleSignOutClick}}></button>
-          <CenIcon @class="list__icon" @icon="sign-out-alt" />
-          <div class="list__single-line-content">Sign out</div>
-        </li>
-      </ul>
-    </article>
-  </section>
+  <article class="card">
+    <ul class="list">
+      <li class="list__item">
+        <button class="list__action" onclick={{action this.handleSignOutClick}}></button>
+        <CenIcon @class="list__icon" @icon="sign-out-alt" />
+        <div class="list__single-line-content">Sign out</div>
+      </li>
+    </ul>
+  </article>
 
   {{yield}}
 </div>

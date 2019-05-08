@@ -1,6 +1,6 @@
 {{import ChatCollectionItem from "./chat-collection-item"}}
 
-<section data-test-chat-collection="host" ...attributes>
+<section data-test-chat-collection="host">
   {{#each @chats as |chat|}}
     {{#if chat.first3Messages}}
       <ChatCollectionItem @chat={{chat}} />
