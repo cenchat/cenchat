@@ -8,6 +8,11 @@ module('Unit | Controller | sites/site/update', function (hooks) {
 
   hooks.beforeEach(async function () {
     setupTestState();
+
+    const store = this.owner.lookup('service:store');
+    const site = await store.findRecord('site', 'site_a');
+
+    this.set('site', site);
   });
 
   test('should track if site has pending changes', function (assert) {
@@ -16,8 +21,10 @@ module('Unit | Controller | sites/site/update', function (hooks) {
     // Arrange
     const controller = this.owner.lookup('controller:sites/site/update');
 
+    controller.set('model', this.site);
+
     // Act
-    controller.handleSiteUpdateEvent({ hostname: 'site-100.jpg' });
+    controller.handleSiteUpdateEvent({ hostname: 'site-100.com' });
 
     // Arrange
     assert.deepEqual(controller.hasPendingSiteChanges, true);
@@ -29,14 +36,17 @@ module('Unit | Controller | sites/site/update', function (hooks) {
     // Arrange
     const controller = this.owner.lookup('controller:sites/site/update');
 
+    controller.set('model', this.site);
+
     // Act
-    controller.handleSiteUpdateEvent({ hostname: 'site-100.jpg' });
+    controller.handleSiteUpdateEvent({ hostname: 'site-100.com' });
 
     // Arrange
     assert.deepEqual(controller.newSiteData, {
-      hostname: 'site-100.jpg',
-      displayName: null,
-      brandColor: null,
+      brandColor: '#212121',
+      displayName: 'Site A',
+      hostname: 'site-100.com',
+      name: 'site a',
       theme: 'light',
     });
   });
@@ -50,13 +60,11 @@ module('Unit | Controller | sites/site/update', function (hooks) {
     });
 
     const controller = this.owner.lookup('controller:sites/site/update');
-    const store = this.owner.lookup('service:store');
-    const site = await store.findRecord('site', 'site_a');
 
-    controller.set('model', site);
+    controller.set('model', this.site);
     controller.set('newSiteData', {
-      displayName: 'Site 100',
       brandColor: '#ffffff',
+      displayName: 'Site 100',
       theme: 'dark',
     });
 
