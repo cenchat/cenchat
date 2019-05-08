@@ -8,6 +8,11 @@ export default Route.extend({
   /**
    * @type {Ember.Service}
    */
+  session: service('session'),
+
+  /**
+   * @type {Ember.Service}
+   */
   store: service('store'),
 
   /**
@@ -15,5 +20,17 @@ export default Route.extend({
    */
   model(params) {
     return this.store.findRecord('site', params.site_id);
+  },
+
+  /**
+   * @override
+   */
+  async afterModel(model) {
+    const { uid: currentUserId } = this.session.data.authenticated.user;
+    const isMember = await model.isMember(currentUserId);
+
+    if (!isMember) {
+      this.transitionTo('sites');
+    }
   },
 });
