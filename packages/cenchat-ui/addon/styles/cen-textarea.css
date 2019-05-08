@@ -30,6 +30,10 @@
   box-shadow: none;
 }
 
+.cen-textarea textarea[disabled] {
+  color: var(--disabled-color);
+}
+
 .cen-textarea [role="alert"] {
   padding-top: 8px;
   padding-right: 16px;
