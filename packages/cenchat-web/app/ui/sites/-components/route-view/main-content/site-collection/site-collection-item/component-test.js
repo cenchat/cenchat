@@ -26,6 +26,6 @@ module('Integration | Component | sites/-components/route-view/main-content/site
     // Assert
     assert.dom('[data-test-site-collection-item="image"]').hasAttribute('src', 'site_a.jpg');
     assert.dom('[data-test-site-collection-item="name"]').hasText('Site A');
-    assert.dom('[data-test-site-collection-item="hostname"]').hasText('site_a.com');
+    assert.dom('[data-test-site-collection-item="hostname"]').hasText('site-a.com');
   });
 });

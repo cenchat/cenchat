@@ -5,6 +5,7 @@
   <TopBar @hasPendingSiteChanges={{@hasPendingSiteChanges}} />
 
   <MainContent
+    @site={{@site}}
     @onSiteUpdateEvent={{action @onSiteUpdateEvent}}
     @onSiteFormSubmit={{action @onSiteFormSubmit}}
   >

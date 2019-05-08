@@ -6,7 +6,7 @@ import { setupAuthState, setupTestState } from '@cenchat/shared/test-support';
 module('Unit | Controller | sites/new', function (hooks) {
   setupTest(hooks);
 
-  hooks.beforeEach(async function () {
+  hooks.beforeEach(function () {
     setupTestState();
   });
 
@@ -17,26 +17,26 @@ module('Unit | Controller | sites/new', function (hooks) {
     const controller = this.owner.lookup('controller:sites/new');
 
     // Act
-    controller.handleSiteUpdateEvent({ hostname: 'site-100.jpg' });
+    controller.handleSiteUpdateEvent({ hostname: 'site-100.com' });
 
     // Arrange
     assert.deepEqual(controller.hasPendingSiteChanges, true);
   });
 
-  test('should be able to handle update user profile events', function (assert) {
+  test('should be able to handle update site data events', function (assert) {
     assert.expect(1);
 
     // Arrange
     const controller = this.owner.lookup('controller:sites/new');
 
     // Act
-    controller.handleSiteUpdateEvent({ hostname: 'site-100.jpg' });
+    controller.handleSiteUpdateEvent({ hostname: 'site-100.com' });
 
     // Arrange
     assert.deepEqual(controller.newSiteData, {
-      hostname: 'site-100.jpg',
-      displayName: null,
       brandColor: null,
+      displayName: null,
+      hostname: 'site-100.com',
       theme: 'light',
     });
   });
@@ -52,10 +52,10 @@ module('Unit | Controller | sites/new', function (hooks) {
     const controller = this.owner.lookup('controller:sites/new');
 
     controller.set('newSiteData', {
-      id: 'site_100', // Not really passed-in, only for this test case
-      hostname: 'site-100.jpg',
-      displayName: 'Site 100',
       brandColor: '#ffffff',
+      displayName: 'Site 100',
+      hostname: 'site-100.com',
+      id: 'site_100', // Not really passed-in, only for this test case
       theme: 'dark',
     });
 
@@ -69,7 +69,7 @@ module('Unit | Controller | sites/new', function (hooks) {
     assert.deepEqual(siteDocSnapshot.data(), {
       brandColor: '#ffffff',
       displayName: 'Site 100',
-      hostname: 'site-100.jpg',
+      hostname: 'site-100.com',
       imageUrl: null,
       isVerified: false,
       name: 'site 100',

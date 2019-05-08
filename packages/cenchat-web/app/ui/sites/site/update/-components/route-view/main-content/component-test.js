@@ -5,12 +5,16 @@ import hbs from 'htmlbars-inline-precompile';
 
 import { setupTestState } from '@cenchat/shared/test-support';
 
-module('Integration | Component | sites/new/-components/route-view/main-content', function (hooks) {
+module('Integration | Component | sites/site/update/-components/route-view/main-content', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function () {
+  hooks.beforeEach(async function () {
     setupTestState();
 
+    const store = this.owner.lookup('service:store');
+    const site = await store.findRecord('site', 'site_a');
+
+    this.set('site', site);
     this.set('onSiteUpdateEvent', () => {});
     this.set('onSiteFormSubmit', () => {});
   });
@@ -20,7 +24,8 @@ module('Integration | Component | sites/new/-components/route-view/main-content'
 
     // Act
     await render(hbs`
-      {{sites/new/-components/route-view/main-content
+      {{sites/site/update/-components/route-view/main-content
+        site=this.site
         onSiteUpdateEvent=(action this.onSiteUpdateEvent)
         onSiteFormSubmit=(action this.onSiteFormSubmit)
       }}

@@ -26,7 +26,7 @@ module('Integration | Component | sites/site/-components/route-view/main-content
     // Assert
     assert.dom('[data-test-site-info="id"]').hasText('site_a');
     assert.dom('[data-test-site-info="display-name"]').hasText('Site A');
-    assert.dom('[data-test-site-info="hostname"]').hasText('site_a.com');
+    assert.dom('[data-test-site-info="hostname"]').hasText('site-a.com');
     assert.dom('[data-test-site-info="brand-color"]').hasText('#212121');
     assert.dom('[data-test-site-info="theme"]').hasText('light');
   });

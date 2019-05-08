@@ -1,0 +1,10 @@
+{{import RouteView from "./-components/route-view"}}
+
+<RouteView
+  @site={{this.model}}
+  @hasPendingSiteChanges={{this.hasPendingSiteChanges}}
+  @onSiteUpdateEvent={{action this.handleSiteUpdateEvent}}
+  @onSiteFormSubmit={{action this.handleSiteFormSubmit}}
+>
+  {{outlet}}
+</RouteView>

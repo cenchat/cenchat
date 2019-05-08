@@ -33,7 +33,7 @@ module('Integration | Component | site-form', function (hooks) {
     `);
 
     // Assert
-    assert.dom('[data-test-site-form="hostname"] input').hasValue('site_a.com');
+    assert.dom('[data-test-site-form="hostname"] input').hasValue('site-a.com');
     assert.dom('[data-test-site-form="name"] input').hasValue('Site A');
     assert.dom('[data-test-site-form="brand-color"] input').hasValue('#212121');
     assert.dom('[data-test-site-form="theme"] select').hasValue('light');
