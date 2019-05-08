@@ -1,14 +1,10 @@
 {{import ProfileCard from "./profile-card"}}
 
-<main class="layout__content" data-test-main-content="host" ...attributes>
-  <div class="layout__master-pane layout__master-pane-wrapper">
-    <ProfileCard class="my-account_route-view-main-content__card" @user={{@user}} />
+<main class="layout__content" data-test-main-content="host">
+  <div class="layout__master-pane wrapper">
+    <ProfileCard @user={{@user}} />
 
-    <article
-      class="my-account_route-view-main-content__card card"
-      data-test-profile-card="host"
-      ...attributes
-    >
+    <article class="card" data-test-profile-card="host">
       <CenLink class="card__primary-link" href={{url-for "my-account.delete"}} />
       <h2 class="card__heading">Delete account</h2>
 

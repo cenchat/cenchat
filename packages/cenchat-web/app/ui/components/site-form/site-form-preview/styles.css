@@ -16,7 +16,9 @@
   height: 284px;
   margin-right: auto;
   margin-left: auto;
-  box-shadow: var(--elevation-2);
+  overflow: hidden;
+  border: 1px solid var(--divider-color);
+  border-radius: var(--border-radius-square);
 }
 
 .site-form-preview__card--light {
@@ -51,11 +53,15 @@
 .site-form-preview__card-content {
   flex: 1;
   padding: 16px;
+  background-color: var(--surface-background-color);
 }
 
 .site-form-preview__card-messages {
   padding-right: 16px;
   padding-left: 16px;
+  overflow: hidden;
+  border: 1px solid var(--divider-color);
+  border-radius: var(--border-radius-square);
 }
 
 .site-form-preview__card-bottom-bar {

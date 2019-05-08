@@ -20,17 +20,6 @@ module('Integration | Component | sites/-components/route-view/main-content', fu
     this.set('sitesAsModerator', sitesAsModerator);
   });
 
-  test('should show the unverified sites the current user is an admin of', async function (assert) {
-    assert.expect(2);
-
-    // Act
-    await render(hbs`{{sites/-components/route-view/main-content sitesAsAdmin=this.sitesAsAdmin sitesAsModerator=this.sitesAsModerator}}`);
-
-    // Assert
-    assert.dom('[data-test-main-content="unverified-sites"]').exists();
-    assert.dom('[data-test-main-content="unverified-sites"] [data-test-site-collection="host"]').exists();
-  });
-
   test('should show the verified sites the current user is an admin of', async function (assert) {
     assert.expect(2);
 

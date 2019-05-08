@@ -1,6 +1,6 @@
 {{import ChatListItem from "./chat-list-item"}}
 
-<ul class="list" data-test-chat-list="host" ...attributes>
+<ul class="list" data-test-chat-list="host">
   {{#each @chats as |chat|}}
     <ChatListItem @chat={{chat}} />
   {{/each}}
