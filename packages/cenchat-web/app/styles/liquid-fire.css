@@ -10,9 +10,15 @@
 
 @media (min-width: 960px) {
   .liquid-fire-side-sheet-outlet {
-    position: static;
+    position: relative;
     z-index: initial;
     flex: 1;
+  }
+
+  .liquid-fire-side-sheet-outlet .liquid-fire-side-sheet-outlet {
+    position: absolute;
+    z-index: 2000;
+    flex: initial;
   }
 }
 

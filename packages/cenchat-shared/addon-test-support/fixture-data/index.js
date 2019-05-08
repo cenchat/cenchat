@@ -73,7 +73,7 @@ export default function getFixtureData() {
           site_a: {
             brandColor: '#212121',
             displayName: 'Site A',
-            hostname: 'site_a.com',
+            hostname: 'site-a.com',
             imageUrl: 'site_a.jpg',
             isVerified: true,
             name: 'site a',
@@ -103,7 +103,7 @@ export default function getFixtureData() {
           site_b: {
             brandColor: '#212121',
             displayName: 'Site B',
-            hostname: 'site_b.com',
+            hostname: 'site-b.com',
             imageUrl: 'site_b.jpg',
             isVerified: true,
             name: 'site b',
@@ -131,7 +131,7 @@ export default function getFixtureData() {
           site_c: {
             brandColor: '#212121',
             displayName: 'Site C',
-            hostname: 'site_c.com',
+            hostname: 'site-c.com',
             imageUrl: 'site_c.jpg',
             isVerified: false,
             name: 'site c',
