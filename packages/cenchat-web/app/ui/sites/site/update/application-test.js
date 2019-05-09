@@ -11,7 +11,7 @@ module('Acceptance | sites/site/update', function (hooks) {
     setupApplicationTestState();
   });
 
-  test('should be able to update the site', async function (assert) {
+  test('should be able to update the site when current user is an admin', async function (assert) {
     assert.expect(1);
 
     // Arrange

@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-import { setupTestState } from '@cenchat/shared/test-support';
+import { setupAuthState, setupTestState } from '@cenchat/shared/test-support';
 
 module('Integration | Component | sites/site/-components/route-view/main-content/site-info', function (hooks) {
   setupRenderingTest(hooks);
@@ -20,6 +20,11 @@ module('Integration | Component | sites/site/-components/route-view/main-content
   test('should show site info', async function (assert) {
     assert.expect(5);
 
+    // Arrange
+    await setupAuthState({
+      user: { uid: 'user_a' },
+    });
+
     // Act
     await render(hbs`{{sites/site/-components/route-view/main-content/site-info site=this.site}}`);
 
@@ -29,5 +34,35 @@ module('Integration | Component | sites/site/-components/route-view/main-content
     assert.dom('[data-test-site-info="hostname"]').hasText('site-a.com');
     assert.dom('[data-test-site-info="brand-color"]').hasText('#212121');
     assert.dom('[data-test-site-info="theme"]').hasText('light');
+  });
+
+  test('should show update link when current user is an admin', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    await setupAuthState({
+      user: { uid: 'user_a' },
+    });
+
+    // Act
+    await render(hbs`{{sites/site/-components/route-view/main-content/site-info site=this.site}}`);
+
+    // Assert
+    assert.dom('[data-test-site-info="update-link"]').exists();
+  });
+
+  test('should hide update link when current user is not an admin', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    await setupAuthState({
+      user: { uid: 'user_b' },
+    });
+
+    // Act
+    await render(hbs`{{sites/site/-components/route-view/main-content/site-info site=this.site}}`);
+
+    // Assert
+    assert.dom('[data-test-site-info="update-link"]').doesNotExist();
   });
 });

@@ -1,9 +1,15 @@
+import { inject as service } from '@ember/service';
 import DS from 'ember-data';
 
 /**
  * @namespace Model
  */
 export default DS.Model.extend({
+  /**
+   * @type {Ember.Service}
+   */
+  firebase: service('firebase'),
+
   /**
    * @type {Array.<Model.User>}
    */
@@ -80,4 +86,38 @@ export default DS.Model.extend({
    * @type {Array.<Model.Page>}
    */
   pages: DS.hasMany('page'),
+
+  /**
+   * @param {string} userId
+   * @return {Promise.<boolean>} Resolves to true when user is an admin. Otherwise, false.
+   * @function
+   */
+  async isAdmin(userId) {
+    const db = this.firebase.firestore();
+    const memberDocSnapshot = await db
+      .collection('sites')
+      .doc(this.get('id'))
+      .collection('members')
+      .doc(userId)
+      .get();
+
+    return memberDocSnapshot.exists && memberDocSnapshot.get('role') === 1;
+  },
+
+  /**
+   * @param {string} userId
+   * @return {Promise.<boolean>} Resolves to true when user is a member. Otherwise, false.
+   * @function
+   */
+  async isMember(userId) {
+    const db = this.firebase.firestore();
+    const memberDocSnapshot = await db
+      .collection('sites')
+      .doc(this.get('id'))
+      .collection('members')
+      .doc(userId)
+      .get();
+
+    return memberDocSnapshot.exists;
+  },
 });
