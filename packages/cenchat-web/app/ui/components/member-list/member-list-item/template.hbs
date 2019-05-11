@@ -1,0 +1,17 @@
+<li class="list__item" data-test-member-list-item="host">
+  <div class="list__single-line-content">
+    <h5 class="list__primary-text list__wrap-text" data-test-member-list-item="display-username">
+      @{{@member.displayUsername}}
+    </h5>
+  </div>
+
+  <div class="sites-site-members_route-view-main-content-message-list-item__role-dropdown">
+    <select data-test-member-list-item="role-field" value={{@type}} onchange={{action @onRoleChange value="target.value"}}>
+      <option value="none">None</option>
+      <option value="admins" selected={{eq @type "admin"}}>Admin</option>
+      <option value="moderators" selected={{eq @type "moderator"}}>Moderator</option>
+    </select>
+
+    <CenIcon @icon="caret-down" />
+  </div>
+</li>

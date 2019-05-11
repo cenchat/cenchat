@@ -1,0 +1,18 @@
+<CenTopBar data-test-top-bar="host">
+  <CenIconLinkButton
+    href={{url-for "sites.site"}}
+    title="Navigate back to previous page"
+    aria-label="Navigate back to previous page"
+    @icon="arrow-left"
+  />
+  <h3>Members</h3>
+  <CenIconButton
+    data-test-top-bar="save-button"
+    title="Save site"
+    aria-label="Save site"
+    disabled={{this.isSaveDisabled}}
+    form="site-form"
+    @icon="check"
+    @onClick={{action @onSaveRolesClick}}
+  />
+</CenTopBar>

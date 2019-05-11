@@ -1,0 +1,7 @@
+{{import MemberListItem from "./member-list-item"}}
+
+<ul class="list" data-test-member-list="host">
+  {{#each @members as |member|}}
+    <MemberListItem @member={{member}} @type={{@type}} @onRoleChange={{action @onRoleChange member}} />
+  {{/each}}
+</ul>

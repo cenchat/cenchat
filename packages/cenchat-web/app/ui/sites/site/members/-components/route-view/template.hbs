@@ -1,0 +1,16 @@
+{{import TopBar from "./top-bar"}}
+{{import MainContent from "./main-content"}}
+
+<SideSheet class="liquid-fire-side-sheet">
+  <TopBar @pendingRoleChange={{@pendingRoleChange}} @onSaveRolesClick={{action @onSaveRolesClick}}/>
+
+  <MainContent
+    @admins={{@admins}}
+    @moderators={{@moderators}}
+    @searchedUsers={{@searchedUsers}}
+    @onRoleChange={{action @onRoleChange}}
+    @onSearchUserInput={{action @onSearchUserInput}}
+  >
+    {{yield}}
+  </MainContent>
+</SideSheet>

@@ -1,0 +1,43 @@
+{{import SearchForm from "./search-form"}}
+
+<div class="side-sheet__content" data-test-main-content="host">
+  <div class="wrapper">
+    <section data-test-main-content="admins">
+      <CenSubheader>
+        <h4>Add members</h4>
+      </CenSubheader>
+
+      <SearchForm
+        @searchedUsers={{@searchedUsers}}
+        @onRoleChange={{action @onRoleChange}}
+        @onSearchUserInput={{action @onSearchUserInput}}
+      />
+    </section>
+
+    <section data-test-main-content="admins">
+      <CenSubheader>
+        <h4>Existing members</h4>
+      </CenSubheader>
+
+      <article class="card">
+        <h5 class="card__heading card__heading--small">Admins</h5>
+        <p class="card__subheading">Can manage all aspects of the Site. They can publicize and respond to chats, manage the members, and update the Site info.</p>
+
+        <MemberList @members={{@admins}} @type="admin" @onRoleChange={{action @onRoleChange}} />
+      </article>
+
+      {{#if @moderators}}
+        <article data-test-main-content="moderators">
+          <h5 class="card__heading card__heading--small">Admins</h5>
+          <p class="card__subheading">Can publicize and respond to chats</p>
+
+          <div class="card">
+            <MemberList @members={{@moderators}} @type="moderator" @onRoleChange={{action @onRoleChange}} />
+          </div>
+        </article>
+      {{/if}}
+    </section>
+  </div>
+
+  {{yield}}
+</div>

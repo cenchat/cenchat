@@ -10,11 +10,6 @@ export default Controller.extend({
   /**
    * @type {Ember.Service}
    */
-  router: service('router'),
-
-  /**
-   * @type {Ember.Service}
-   */
   session: service('session'),
 
   /**
