@@ -1,0 +1,23 @@
+.sites-site-members_route-view-main-content-message-list-item__role-dropdown {
+  position: relative;
+}
+
+.sites-site-members_route-view-main-content-message-list-item__role-dropdown select {
+  padding: 12px 24px 12px 8px;
+  margin-right: 12px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-16);
+  color: var(--font-primary-color);
+  text-align: right;
+  text-align-last: right;
+  background: none;
+  border: none;
+}
+
+.sites-site-members_route-view-main-content-message-list-item__role-dropdown svg {
+  position: absolute;
+  top: 25%;
+  right: 12px;
+  pointer-events: none;
+}

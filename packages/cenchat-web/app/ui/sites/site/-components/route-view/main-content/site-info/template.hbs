@@ -36,7 +36,7 @@
     </li>
   </ul>
 
-  {{#if this.isAdmin}}
+  {{#if @isAdmin}}
     <div class="card__actions">
       <CenLinkButton data-test-site-info="update-link" href={{url-for "sites.site.update"}}>
         Update

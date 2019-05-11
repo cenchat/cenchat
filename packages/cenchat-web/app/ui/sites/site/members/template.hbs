@@ -1,0 +1,13 @@
+{{import RouteView from "./-components/route-view"}}
+
+<RouteView
+  @admins={{this.model.admins}}
+  @moderators={{this.model.moderators}}
+  @pendingRoleChange={{this.pendingRoleChange}}
+  @searchedUsers={{this.searchedUsers}}
+  @onRoleChange={{action this.handleRoleChange}}
+  @onSearchUserInput={{action this.handleSearchUserInput}}
+  @onSaveRolesClick={{action this.handleSaveRolesClick}}
+>
+  {{outlet}}
+</RouteView>

@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-import { setupAuthState, setupTestState } from '@cenchat/shared/test-support';
+import { setupTestState } from '@cenchat/shared/test-support';
 
 module('Integration | Component | sites/site/-components/route-view/main-content/site-info', function (hooks) {
   setupRenderingTest(hooks);
@@ -15,18 +15,14 @@ module('Integration | Component | sites/site/-components/route-view/main-content
     const site = await store.findRecord('site', 'site_a');
 
     this.set('site', site);
+    this.set('isAdmin', true);
   });
 
   test('should show site info', async function (assert) {
     assert.expect(5);
 
-    // Arrange
-    await setupAuthState({
-      user: { uid: 'user_a' },
-    });
-
     // Act
-    await render(hbs`{{sites/site/-components/route-view/main-content/site-info site=this.site}}`);
+    await render(hbs`{{sites/site/-components/route-view/main-content/site-info site=this.site isAdmin=this.isAdmin}}`);
 
     // Assert
     assert.dom('[data-test-site-info="id"]').hasText('site_a');
@@ -39,13 +35,8 @@ module('Integration | Component | sites/site/-components/route-view/main-content
   test('should show update link when current user is an admin', async function (assert) {
     assert.expect(1);
 
-    // Arrange
-    await setupAuthState({
-      user: { uid: 'user_a' },
-    });
-
     // Act
-    await render(hbs`{{sites/site/-components/route-view/main-content/site-info site=this.site}}`);
+    await render(hbs`{{sites/site/-components/route-view/main-content/site-info site=this.site isAdmin=this.isAdmin}}`);
 
     // Assert
     assert.dom('[data-test-site-info="update-link"]').exists();
@@ -55,12 +46,10 @@ module('Integration | Component | sites/site/-components/route-view/main-content
     assert.expect(1);
 
     // Arrange
-    await setupAuthState({
-      user: { uid: 'user_b' },
-    });
+    this.set('isAdmin', false);
 
     // Act
-    await render(hbs`{{sites/site/-components/route-view/main-content/site-info site=this.site}}`);
+    await render(hbs`{{sites/site/-components/route-view/main-content/site-info site=this.site isAdmin=this.isAdmin}}`);
 
     // Assert
     assert.dom('[data-test-site-info="update-link"]').doesNotExist();

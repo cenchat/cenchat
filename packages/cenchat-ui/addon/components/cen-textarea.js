@@ -1,4 +1,4 @@
-import { scheduleOnce } from '@ember/runloop';
+import { debounce, scheduleOnce } from '@ember/runloop';
 import Component from '@ember/component';
 
 import layout from '../templates/components/cen-textarea';
@@ -37,7 +37,7 @@ export default Component.extend({
    * @function
    */
   handleInput(value) {
-    this.processInput(value);
+    debounce(this, 'processInput', value, 1000);
   },
 
   /**

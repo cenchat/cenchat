@@ -60,8 +60,8 @@
             @label="Theme"
             @onChange={{action this.handleThemeChange}}
           >
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
+            <option value="light" selected={{eq @site.theme "light"}}>Light</option>
+            <option value="dark" selected={{eq @site.theme "dark"}}>Dark</option>
           </CenSelect>
         </div>
       </section>

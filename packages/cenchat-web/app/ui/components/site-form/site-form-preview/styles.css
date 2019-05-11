@@ -31,9 +31,9 @@
 
 .site-form-preview__card--dark {
   --brand-color: var(--cenchat-brand-color);
-  --font-primary-color: rgba(255, 255, 255, 1);
-  --font-secondary-color: rgba(255, 255, 255, 0.7);
-  --surface-background-color: #212121;
+  --font-primary-color: rgba(255, 255, 255, 0.87);
+  --font-secondary-color: rgba(255, 255, 255, 0.6);
+  --surface-background-color: #121212;
   --divider-color: rgba(255, 255, 255, 0.12);
 }
 

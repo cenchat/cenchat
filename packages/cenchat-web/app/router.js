@@ -19,6 +19,7 @@ Router.map(function() {
     this.route('new');
     this.route('site', { path: '/:site_id' }, function() {
       this.route('update');
+      this.route('members');
     });
   });
 });

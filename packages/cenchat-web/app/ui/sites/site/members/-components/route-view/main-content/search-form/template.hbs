@@ -1,0 +1,14 @@
+<article class="card" data-test-search-form="host">
+  <div class="card__form">
+    <CenInput
+      data-test-search-form="user"
+      type="search"
+      @label="Username"
+      @onInput={{action @onSearchUserInput}}
+    />
+  </div>
+
+  {{#if @searchedUsers}}
+    <MemberList @members={{@searchedUsers}} @onRoleChange={{action @onRoleChange}} />
+  {{/if}}
+</article>

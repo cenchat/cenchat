@@ -2,27 +2,29 @@
 
 <div class="side-sheet__content" data-test-main-content="host">
   <div class="wrapper">
-    <SiteInfo @site={{@site}} />
+    <SiteInfo @site={{@site}} @isAdmin={{this.isAdmin}} />
 
-    <div class="wrapper__deck">
-      <article class="card">
-        <h4 class="card__heading">Get started</h4>
-        <p class="card__subheading">Let people start a conversation with you on your website. Cenchat is a modern alternative to your comments section. It's easy to set up.</p>
+    {{#if this.isAdmin}}
+      <div class="wrapper__deck" data-test-main-content="tips">
+        <article class="card">
+          <h4 class="card__heading">Get started</h4>
+          <p class="card__subheading">Let people start a conversation with you on your website. Cenchat is a modern alternative to your comments section. It's easy to set up.</p>
 
-        <div class="card__actions">
-          <CenButton>Learn how</CenButton>
-        </div>
-      </article>
+          <div class="card__actions">
+            <CenButton>Learn how</CenButton>
+          </div>
+        </article>
 
-      <article class="card">
-        <h4 class="card__heading">Manage your members</h4>
-        <p class="card__subheading">Have other people help you with managing your Cenchat Site. You can assign roles to them accordingly.</p>
+        <article class="card">
+          <h4 class="card__heading">Manage your members</h4>
+          <p class="card__subheading">Have other people help you with managing your Cenchat Site. You can assign roles to them accordingly.</p>
 
-        <div class="card__actions">
-          <CenButton>Manage</CenButton>
-        </div>
-      </article>
-    </div>
+          <div class="card__actions">
+            <CenLinkButton href={{url-for "sites.site.members"}}>Manage</CenLinkButton>
+          </div>
+        </article>
+      </div>
+    {{/if}}
   </div>
 
   {{yield}}
