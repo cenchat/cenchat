@@ -57,12 +57,13 @@ export default Controller.extend({
     const newPendingRoleChange = { ...this.pendingRoleChange };
 
     Object.keys(this.pendingRoleChange).forEach((key) => {
-      if (role !== key) {
-        newPendingRoleChange[key] = newPendingRoleChange[key].filter(id => id !== user.get('id'));
-      }
+      newPendingRoleChange[key] = newPendingRoleChange[key].filter(id => id !== user.get('id'));
     });
 
-    if (role !== 'none' || this.isMember(user)) {
+    if (
+      (role === 'none' && this.isMember(user))
+      || (role !== 'none' && !this.isInRole(role, user))
+    ) {
       newPendingRoleChange[role] = [...newPendingRoleChange[role], user.get('id')];
     }
 
@@ -89,6 +90,8 @@ export default Controller.extend({
     });
 
     if (response.ok) {
+      this.set('searchedUsers', []);
+      this.set('latestSearchUserQuery', null);
       this.set('pendingRoleChange', {
         admins: [],
         moderators: [],
@@ -136,5 +139,14 @@ export default Controller.extend({
    */
   isMember(user) {
     return this.model.admins.includes(user) || this.model.moderators.includes(user);
+  },
+
+  /**
+   * @param {string} role
+   * @param {Model.User} user
+   * @return {boolean} True if user is part of the role. Otherwise, false.
+   */
+  isInRole(role, user) {
+    return this.model[role].includes(user);
   },
 });

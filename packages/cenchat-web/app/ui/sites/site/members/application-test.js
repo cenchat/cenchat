@@ -2,7 +2,7 @@ import { click, fillIn, visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 
-import { setupApplicationTestState, setupAuthState } from '@cenchat/shared/test-support';
+import { setupApplicationTestState, setupAuthState, timeout } from '@cenchat/shared/test-support';
 import sinon from 'sinon';
 
 module('Acceptance | sites/site/members', (hooks) => {
@@ -50,7 +50,8 @@ module('Acceptance | sites/site/members', (hooks) => {
 
     // Act
     await fillIn('[data-test-search-form="user"] input', 'user_c');
-    await fillIn('[data-test-member-list-item="role-field"]', 'admins');
+    await timeout('1000'); // FIXME: fillIn above doesn't wait that's why we force a timeout
+    await fillIn('[data-test-search-form="host"] [data-test-member-list-item="role-field"]', 'admins');
     await click('[data-test-top-bar="save-button"]');
 
     // Assert
@@ -86,7 +87,8 @@ module('Acceptance | sites/site/members', (hooks) => {
 
     // Act
     await fillIn('[data-test-search-form="user"] input', 'user_c');
-    await fillIn('[data-test-member-list-item="role-field"]', 'moderators');
+    await timeout('1000'); // FIXME: fillIn above doesn't wait that's why we force a timeout
+    await fillIn('[data-test-search-form="host"] [data-test-member-list-item="role-field"]', 'moderators');
     await click('[data-test-top-bar="save-button"]');
 
     // Assert
