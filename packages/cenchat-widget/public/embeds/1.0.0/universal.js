@@ -95,7 +95,7 @@
   function getIframeSrc() {
     const siteId = getSiteId();
     const pageId = getPageId();
-    let iframeUrl = `https://widget.cenchat.com/sites/${siteId}/pages/${pageId}`;
+    const iframeUrl = `https://widget.cenchat.com/sites/${siteId}/pages/${pageId}`;
 
     return `${iframeUrl}${getIframeSrcSearch()}`;
   }
