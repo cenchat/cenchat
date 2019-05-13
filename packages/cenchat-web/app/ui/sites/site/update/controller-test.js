@@ -80,7 +80,6 @@ module('Unit | Controller | sites/site/update', function (hooks) {
       displayName: 'Site 100',
       hostname: 'site-a.com',
       imageUrl: 'site_a.jpg',
-      isVerified: true,
       name: 'site 100',
       theme: 'dark',
     });

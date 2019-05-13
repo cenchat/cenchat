@@ -52,11 +52,6 @@ export default DS.Model.extend({
   imageUrl: DS.attr('string'),
 
   /**
-   * @type {boolean}
-   */
-  isVerified: DS.attr('boolean'),
-
-  /**
    * @type {Array.<Model.User>}
    */
   moderators: DS.hasMany('user', {

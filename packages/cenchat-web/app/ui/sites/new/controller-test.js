@@ -71,7 +71,6 @@ module('Unit | Controller | sites/new', function (hooks) {
       displayName: 'Site 100',
       hostname: 'site-100.com',
       imageUrl: null,
-      isVerified: false,
       name: 'site 100',
       theme: 'dark',
     });
