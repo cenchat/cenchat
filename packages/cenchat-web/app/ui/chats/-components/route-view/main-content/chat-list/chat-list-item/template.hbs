@@ -8,7 +8,7 @@
       </h2>
 
       <p class="list__secondary-text list__wrap-text" data-test-chat-list-item="message">
-        {{or (concat "@" @chat.lastMessage.author.displayUsername) "Anonymous"}}: {{@chat.lastMessage.text}}
+        {{or @chat.lastMessage.author.displayUsername "Anonymous"}}: {{@chat.lastMessage.text}}
       </p>
     </div>
 

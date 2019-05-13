@@ -24,6 +24,6 @@ module('Integration | Component | my-account/-components/route-view/main-content
     await render(hbs`{{my-account/-components/route-view/main-content/profile-card user=this.user}}`);
 
     // Assert
-    assert.dom('[data-test-profile-card="name"]').hasText('@user_a');
+    assert.dom('[data-test-profile-card="name"]').hasText('user_a');
   });
 });

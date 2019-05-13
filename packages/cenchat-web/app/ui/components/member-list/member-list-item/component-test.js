@@ -31,7 +31,7 @@ module('Integration | Component | member-list/member-list-item', function (hooks
     `);
 
     // Assert
-    assert.dom('[data-test-member-list-item="display-username"]').hasText('@user_a');
+    assert.dom('[data-test-member-list-item="display-username"]').hasText('user_a');
   });
 
   test('should fire an external action when changing role', async function (assert) {

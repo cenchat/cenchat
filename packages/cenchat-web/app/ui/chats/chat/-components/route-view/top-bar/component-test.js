@@ -46,6 +46,6 @@ module('Integration | Component | chats/chat/-components/route-view/top-bar', fu
 
     // Assert
     await timeout(100); // Wait for relationships to load
-    assert.dom('[data-test-top-bar="heading"]').hasText('@user_b');
+    assert.dom('[data-test-top-bar="heading"]').hasText('user_b');
   });
 });

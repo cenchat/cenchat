@@ -30,7 +30,7 @@ module('Integration | Component | message-list-item', function (hooks) {
     await render(hbs`<MessageListItem @messageGroup={{this.messageGroup}} />`);
 
     // Assert
-    assert.dom('[data-test-message-list-item="author-name"]').hasText('@user_b');
+    assert.dom('[data-test-message-list-item="author-name"]').hasText('user_b');
     assert.dom('[data-test-message-list-item="timestamp"]').exists();
     assert.dom('[data-test-message-list-item="content"]').exists({ count: 2 });
   });

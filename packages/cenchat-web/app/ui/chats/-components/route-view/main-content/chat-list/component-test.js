@@ -30,7 +30,7 @@ module('Integration | Component | chats/-components/route-view/main-content/chat
 
     const elements = this.element.querySelectorAll('[data-test-chat-list-item="message"]');
 
-    assert.dom(elements[0]).hasText('@user_c: Message C');
-    assert.dom(elements[1]).hasText('@user_b: Message B');
+    assert.dom(elements[0]).hasText('user_c: Message C');
+    assert.dom(elements[1]).hasText('user_b: Message B');
   });
 });
