@@ -1,7 +1,6 @@
 import { currentURL, visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
-import EmberObject from '@ember/object';
 
 import sinon from 'sinon';
 
@@ -34,15 +33,18 @@ module('Acceptance | site/page', function (hooks) {
 
     server.respondWith(
       'POST',
-      'https://us-central1-cenchat-stg.cloudfunctions.net/app/pages',
-      [200, { 'Content-Type': 'application/json' }, ''],
+      'https://us-central1-cenchat-app-staging.cloudfunctions.net/app/api/pages',
+      [204, { 'Content-Type': 'application/json' }, ''],
     );
 
     const store = this.owner.lookup('service:store');
+    const site = await store.findRecord('site', 'site_a');
+    const page = store.createRecord('page', { id: 'site_a__page_100' });
+    const stub = sinon.stub(store, 'findRecord');
 
-    sinon
-      .stub(store, 'findRecord')
-      .returns(Promise.resolve(EmberObject.create({ id: 'site_a__page_100' })));
+    stub.withArgs('site', 'site_a').returns(Promise.resolve(site));
+    stub.withArgs('page', 'site_a__page_100').onFirstCall().returns(Promise.resolve(null));
+    stub.withArgs('page', 'site_a__page_100').onSecondCall().returns(Promise.resolve(page));
 
     // Act
     await visit('/sites/site_a/pages/page_100?slug=foobardee');

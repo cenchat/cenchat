@@ -1,5 +1,5 @@
 <article class="empty-state" ...attributes>
-  <CenIcon @class="empty-state__image fa-6x" @icon="cloud-sun" />
+  <CenIcon @class="empty-state__image fa-6x" @icon={{or @icon "cloud-sun"}} />
 
   <header class="empty-state__header">
     <h2 class="empty-state__title" data-test-empty-state="title">

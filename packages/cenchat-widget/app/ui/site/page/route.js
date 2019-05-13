@@ -37,6 +37,15 @@ export default Route.extend({
   /**
    * @override
    */
+  afterModel(model) {
+    if (!model) {
+      this.transitionTo('error');
+    }
+  },
+
+  /**
+   * @override
+   */
   redirect(model, transition) {
     if (model && transition.targetName === 'site.page.index') {
       this.transitionTo('site.page.chats');
@@ -63,16 +72,20 @@ export default Route.extend({
    * @return {Promise} Resolves to the fetched page if it exists
    * @function
    */
-  getPage(params) {
+  async getPage(params) {
     const site = this.modelFor('site');
     const pageId = `${site.id}__${params.page_postfix_id}`;
 
-    return this.store.findRecord('page', pageId).catch(() => null);
+    try {
+      return await this.store.findRecord('page', pageId);
+    } catch (error) {
+      return null;
+    }
   },
 
   /**
    * @param {Object} params
-   * @return {Promise} Resolves to the created page
+   * @return {Promise.<Model.Page|null>} Resolves to the created page or null if failed creating
    * @function
    */
   async createPage(params) {
@@ -86,14 +99,15 @@ export default Route.extend({
         site: siteId,
         slug: fixedEncodeURIComponent(slug),
       };
-
-      await fetch(`${config.apiHost}/pages`, {
+      const response = await fetch(`${config.apiHost}/pages`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...page, site: `sites/${siteId}` }),
       });
 
-      return this.store.findRecord('page', page.id);
+      if (response.ok) {
+        return this.store.findRecord('page', page.id);
+      }
     }
 
     return null;

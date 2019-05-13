@@ -1,10 +1,17 @@
 (function () {
   /**
+   * @return {Element|null} Cenchat button
+   */
+  function getCenchatButton() {
+    return document.querySelector('#cenchat-widget-button')
+  }
+
+  /**
    * @return {string} Site ID
    * @function
    */
   function getSiteId() {
-    return document.querySelector('meta[property="cenchat:id"]').getAttribute('content');
+    return getCenchatButton().getAttribute('data-site-id');
   }
 
   /**
@@ -12,7 +19,7 @@
    * @function
    */
   function getPageId() {
-    return document.querySelector('#cenchat-widget-button').getAttribute('data-page-id');
+    return getCenchatButton().getAttribute('data-page-id');
   }
 
   /**
@@ -88,11 +95,7 @@
   function getIframeSrc() {
     const siteId = getSiteId();
     const pageId = getPageId();
-    let iframeUrl = `https://widget.cenchat.com/sites/${siteId}`;
-
-    if (pageId) {
-      iframeUrl = `${iframeUrl}/pages/${pageId}`;
-    }
+    const iframeUrl = `https://widget.cenchat.com/sites/${siteId}/pages/${pageId}`;
 
     return `${iframeUrl}${getIframeSrcSearch()}`;
   }
@@ -285,7 +288,7 @@
    * @function
    */
   function setupButton() {
-    const buttonElement = document.querySelector('#cenchat-widget-button');
+    const buttonElement = getCenchatButton();
 
     buttonElement.addEventListener('click', () => {
       if (window.matchMedia('(max-width: 959px)').matches) {
@@ -298,7 +301,9 @@
     });
   }
 
-  setupStyles();
-  setupContainer();
-  setupButton();
+  if (getCenchatButton() && getSiteId() && getPageId()) {
+    setupStyles();
+    setupContainer();
+    setupButton();
+  }
 }());
