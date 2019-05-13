@@ -2,12 +2,10 @@
 @import "liquid-fire.css";
 @import "pod-styles.css";
 
-html {
-  font-family: var(--font-family);
-}
-
 body {
   height: 100vh;
+  font-family: var(--font-family);
+  color: var(--font-primary-color);
   background-color: var(--surface-background-color);
 }
 

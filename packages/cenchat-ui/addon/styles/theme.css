@@ -1,30 +1,129 @@
 .cenchat-theme {
   /* Colors */
-  --dark-87: rgba(0, 0, 0, 0.87);
-  --dark-60: rgba(0, 0, 0, 0.6);
-  --dark-38: rgba(0, 0, 0, 0.38);
+  --dark-4: rgba(0, 0, 0, 0.04);
+  --dark-5: rgba(0, 0, 0, 0.05);
+  --dark-7: rgba(0, 0, 0, 0.07);
+  --dark-8: rgba(0, 0, 0, 0.08);
+  --dark-9: rgba(0, 0, 0, 0.09);
+  --dark-11: rgba(0, 0, 0, 0.11);
   --dark-12: rgba(0, 0, 0, 0.12);
+  --dark-14: rgba(0, 0, 0, 0.14);
+  --dark-15: rgba(0, 0, 0, 0.15);
+  --dark-16: rgba(0, 0, 0, 0.16);
+  --dark-38: rgba(0, 0, 0, 0.38);
+  --dark-60: rgba(0, 0, 0, 0.6);
+  --dark-87: rgba(0, 0, 0, 0.87);
 
   /* Scaffolding */
   --brand-color: var(--cenchat-brand-color);
-  --brand-text-color: var(--cenchat-brand-text-color);
   --surface-background-color: #fff;
+  --inverse-surface-background-color: #121212;
   --disabled-color: var(--dark-38);
+  --hover-color: var(--dark-4);
+  --active-color: var(--dark-12);
   --danger-color: #b00020;
+
+  /* Border */
+  --border-color-1: var(--dark-5);
+  --border-color-2: var(--dark-7);
+  --border-color-3: var(--dark-8);
+  --border-color-4: var(--dark-9);
+  --border-color-6: var(--dark-11);
+  --border-color-8: var(--dark-12);
+  --border-color-12: var(--dark-14);
+  --border-color-16: var(--dark-15);
+  --border-color-24: var(--dark-16);
 
   /* Divider */
   --divider-color: var(--dark-12);
 
-  /* List */
-  --list-item-disabled-text-color: var(--disabled-color);
-  --list-item-hover-background-color: rgba(0, 0, 0, 0.06);
-  --list-item-active-background-color: rgba(0, 0, 0, 0.06);
+  /* Typography */
+  --font-primary-color: var(--dark-87);
+  --font-secondary-color: var(--dark-60);
+}
 
-  /* Toast */
-  --toast-text-color: #fff;
-  --toast-background-color: #303030;
+.light-theme {
+  /* Colors */
+  --dark-4: rgba(0, 0, 0, 0.04);
+  --dark-5: rgba(0, 0, 0, 0.05);
+  --dark-7: rgba(0, 0, 0, 0.07);
+  --dark-8: rgba(0, 0, 0, 0.08);
+  --dark-9: rgba(0, 0, 0, 0.09);
+  --dark-11: rgba(0, 0, 0, 0.11);
+  --dark-12: rgba(0, 0, 0, 0.12);
+  --dark-14: rgba(0, 0, 0, 0.14);
+  --dark-15: rgba(0, 0, 0, 0.15);
+  --dark-16: rgba(0, 0, 0, 0.16);
+  --dark-38: rgba(0, 0, 0, 0.38);
+  --dark-60: rgba(0, 0, 0, 0.6);
+  --dark-87: rgba(0, 0, 0, 0.87);
+
+  /* Scaffolding */
+  --surface-background-color: #fff;
+  --inverse-surface-background-color: #121212;
+  --disabled-color: var(--dark-38);
+  --hover-color: var(--dark-4);
+  --active-color: var(--dark-12);
+  --danger-color: #b00020;
+
+  /* Border */
+  --border-color-1: var(--dark-5);
+  --border-color-2: var(--dark-7);
+  --border-color-3: var(--dark-8);
+  --border-color-4: var(--dark-9);
+  --border-color-6: var(--dark-11);
+  --border-color-8: var(--dark-12);
+  --border-color-12: var(--dark-14);
+  --border-color-16: var(--dark-15);
+  --border-color-24: var(--dark-16);
+
+  /* Divider */
+  --divider-color: var(--dark-12);
 
   /* Typography */
   --font-primary-color: var(--dark-87);
   --font-secondary-color: var(--dark-60);
+}
+
+.dark-theme {
+  /* Colors */
+  --light-4: rgba(255, 255, 255, 0.04);
+  --light-5: rgba(255, 255, 255, 0.05);
+  --light-7: rgba(255, 255, 255, 0.07);
+  --light-8: rgba(255, 255, 255, 0.08);
+  --light-9: rgba(255, 255, 255, 0.09);
+  --light-11: rgba(255, 255, 255, 0.11);
+  --light-12: rgba(255, 255, 255, 0.12);
+  --light-14: rgba(255, 255, 255, 0.14);
+  --light-15: rgba(255, 255, 255, 0.15);
+  --light-16: rgba(255, 255, 255, 0.16);
+  --light-38: rgba(255, 255, 255, 0.38);
+  --light-60: rgba(255, 255, 255, 0.6);
+  --light-87: rgba(255, 255, 255, 0.87);
+
+  /* Scaffolding */
+  --surface-background-color: #121212;
+  --inverse-surface-background-color: #fff;
+  --disabled-color: var(--light-38);
+  --hover-color: var(--light-4);
+  --active-color: var(--light-12);
+  --danger-color: #b00020;
+
+  /* Border */
+  --border-color-1: var(--light-5);
+  --border-color-2: var(--light-7);
+  --border-color-3: var(--light-8);
+  --border-color-4: var(--light-9);
+  --border-color-6: var(--light-11);
+  --border-color-8: var(--light-12);
+  --border-color-12: var(--light-14);
+  --border-color-16: var(--light-15);
+  --border-color-24: var(--light-16);
+
+  /* Divider */
+  --divider-color: var(--light-12);
+
+  /* Typography */
+  --font-primary-color: var(--light-87);
+  --font-secondary-color: var(--light-60);
 }
