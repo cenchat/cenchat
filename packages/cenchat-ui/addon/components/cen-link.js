@@ -31,7 +31,7 @@ export default Component.extend({
   /**
    * @override
    */
-  attributeBindings: ['href'],
+  attributeBindings: ['href', 'target', 'rel'],
 
   /**
    * @type {boolean}
