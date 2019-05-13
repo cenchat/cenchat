@@ -21,7 +21,7 @@
 
 .sign-in-card-view-email__continue-anonymously-button {
   padding: 0;
-  color: var(--indicator-color);
+  color: var(--font-primary-color);
   text-decoration: underline;
   background: none;
   border: none;

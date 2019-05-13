@@ -47,7 +47,7 @@
   font-weight: var(--font-weight-medium);
   color: var(--font-primary-color);
   background-color: var(--surface-background-color);
-  border-bottom: 2px solid var(--divider-color);
+  border-bottom: 2px solid var(--border-color-4);
 }
 
 .site-form-preview__card-content {
@@ -60,7 +60,7 @@
   padding-right: 16px;
   padding-left: 16px;
   overflow: hidden;
-  border: 1px solid var(--divider-color);
+  border: 2px solid var(--border-color-1);
   border-radius: var(--border-radius-square);
 }
 
@@ -71,7 +71,7 @@
   padding-right: 6px;
   padding-left: 6px;
   background-color: var(--surface-background-color);
-  border-top: 2px solid var(--divider-color);
+  border-top: 2px solid var(--border-color-8);
 }
 
 .site-form-preview__card-bottom-bar button {

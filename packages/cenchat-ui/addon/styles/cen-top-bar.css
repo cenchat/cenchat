@@ -4,7 +4,7 @@
   height: 56px;
   padding: 10px;
   background-color: var(--surface-background-color);
-  border-bottom: 2px solid var(--divider-color);
+  border-bottom: 2px solid var(--border-color-4);
 }
 
 @media (min-width: 960px) {

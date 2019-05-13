@@ -3,18 +3,18 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 2400;
+  z-index: 1200;
   box-sizing: border-box;
   display: flex;
-  align-items: cennter;
+  align-items: center;
   min-height: 52px;
   font-family: var(--font-family);
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-regular);
   line-height: 1.25rem;
-  color: var(--toast-text-color);
-  background-color: var(--toast-background-color);
-  box-shadow: var(--elevation-24);
+  color: var(--font-primary-color);
+  background-color: var(--surface-background-color);
+  box-shadow: var(--elevation-12);
   transition-timing-function: ease-out;
   transition-duration: 195ms;
   transition-property: transform;
@@ -30,10 +30,13 @@
 @media (min-width: 960px) {
   .cen-toast {
     right: auto;
+    z-index: 600;
     min-width: 288px;
     max-width: 568px;
     margin: 16px;
+    overflow: hidden;
     border-radius: var(--border-radius-square);
+    box-shadow: var(--elevation-6);
     transform: translateY(calc(130% + 16px));
   }
 }
@@ -42,6 +45,18 @@
   .cen-toast {
     transition-duration: 150ms;
   }
+}
+
+.cen-toast::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 25;
+  content: '';
+  background: var(--inverse-surface-background-color);
+  opacity: 0.11;
 }
 
 .cen-toast[opened] {
@@ -66,6 +81,11 @@
   .cen-toast[opened] {
     transition-duration: 175ms;
   }
+}
+
+.cen-toast > * {
+  position: relative;
+  z-index: 50;
 }
 
 .cen-toast span {

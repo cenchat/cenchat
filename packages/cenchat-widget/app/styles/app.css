@@ -1,13 +1,10 @@
 @import "layout.css";
 @import "liquid-fire.css";
 @import "pod-styles.css";
-@import "themes.css";
-
-html {
-  font-family: var(--font-family);
-}
 
 body {
+  font-family: var(--font-family);
+  color: var(--font-primary-color);
   background-color: var(--surface-background-color);
 }
 

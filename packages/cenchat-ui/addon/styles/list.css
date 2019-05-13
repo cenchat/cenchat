@@ -22,17 +22,17 @@
 }
 
 .list__action:hover {
-  background-color: var(--list-item-hover-background-color) !important;
+  background-color: var(--hover-color) !important;
 }
 
 .list__action:active,
 .list__action--active,
 .list__action.active {
-  background-color: var(--list-item-active-background-color) !important;
+  background-color: var(--active-color) !important;
 }
 
 .list__action:disabled {
-  color: var(--list-item-disabled-text-color) !important;
+  color: var(--disabled-color) !important;
 }
 
 a.list__action {
