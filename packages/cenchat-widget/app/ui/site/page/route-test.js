@@ -38,8 +38,8 @@ module('Unit | Route | site/page', function (hooks) {
 
     server.respondWith(
       'POST',
-      'https://us-central1-cenchat-stg.cloudfunctions.net/app/pages',
-      [200, { 'Content-Type': 'application/json' }, ''],
+      'https://us-central1-cenchat-app-staging.cloudfunctions.net/app/api/pages',
+      [204, { 'Content-Type': 'application/json' }, ''],
     );
 
     const route = this.owner.lookup('route:site/page');
@@ -74,6 +74,20 @@ module('Unit | Route | site/page', function (hooks) {
 
     // Assert
     assert.equal(result, null);
+  });
+
+  test('should transition to error when model could not be resolved', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    const route = this.owner.lookup('route:site/page');
+    const stub = sinon.stub(route, 'transitionTo');
+
+    // Act
+    await route.afterModel(null);
+
+    // Assert
+    assert.ok(stub.calledWithExactly('error'));
   });
 
   test('should redirect to site.page.chats when model is available and transition target is site.page.index', function (assert) {
