@@ -75,7 +75,6 @@ export default function getFixtureData() {
             displayName: 'Site A',
             hostname: 'site-a.com',
             imageUrl: 'site_a.jpg',
-            isVerified: true,
             name: 'site a',
             theme: 'light',
 
@@ -105,7 +104,6 @@ export default function getFixtureData() {
             displayName: 'Site B',
             hostname: 'site-b.com',
             imageUrl: 'site_b.jpg',
-            isVerified: true,
             name: 'site b',
             theme: 'light',
 
@@ -133,7 +131,6 @@ export default function getFixtureData() {
             displayName: 'Site C',
             hostname: 'site-c.com',
             imageUrl: 'site_c.jpg',
-            isVerified: false,
             name: 'site c',
             theme: 'light',
 
