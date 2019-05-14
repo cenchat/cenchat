@@ -10,6 +10,25 @@ module('Unit | Controller | chats/chat', function (hooks) {
     setupTestState();
   });
 
+  test('should be able to update the chat\'s isPublic property', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    const controller = this.owner.lookup('controller:chats/chat');
+    const store = this.owner.lookup('service:store');
+
+    controller.set('model', await store.findRecord('chat', 'site_a__page_a__user_b'));
+
+    // Act
+    await controller.handleToggleChatVisibilityClick(true);
+
+    // Assert
+    const db = this.owner.lookup('service:firebase').firestore();
+    const chatDocSnapshot = await db.doc('chats/site_a__page_a__user_b').get();
+
+    assert.equal(chatDocSnapshot.get('isPublic'), true);
+  });
+
   test('should create message record when sending a message', async function (assert) {
     assert.expect(1);
 

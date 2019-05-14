@@ -12,6 +12,38 @@ module('Acceptance | chats/chat', function (hooks) {
     setupApplicationTestState();
   });
 
+  test('should make a chat visible to everyone', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    await authenticateSession({
+      user: { uid: 'user_a' },
+    });
+    await visit('/chats/site_a__page_a__user_c/');
+
+    // Act
+    await click('[data-test-top-bar="turn-on-visibility-button"]');
+
+    // Assert
+    assert.dom('[data-test-application="toast"]').hasText('Chat is now visible to everyone');
+  });
+
+  test('should make a chat not visible to everyone', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    await authenticateSession({
+      user: { uid: 'user_a' },
+    });
+    await visit('/chats/site_a__page_a__user_b/');
+
+    // Act
+    await click('[data-test-top-bar="turn-off-visibility-button"]');
+
+    // Assert
+    assert.dom('[data-test-application="toast"]').hasText('Chat is now visible only to the creator and the site members');
+  });
+
   test('should create a message record when sending a message', async function (assert) {
     assert.expect(1);
 
