@@ -1,7 +1,6 @@
 .site-page-chats_route-view-main-content-chat-collection-item {
   position: relative;
-  padding-right: 16px;
-  padding-left: 16px;
+  padding: 16px;
 }
 
 .site-page-chats_route-view-main-content-chat-collection-item:not(:last-child) {
@@ -10,20 +9,21 @@
 
 .site-page-chats_route-view-main-content-chat-collection-item__message-list {
   max-height: 160px;
+  padding: 0;
+  overflow: hidden;
 }
 
 .site-page-chats_route-view-main-content-chat-collection-item__fade {
   position: absolute;
   right: 0;
-  bottom: 36px;
+  bottom: 48px;
   left: 0;
   height: 72px;
   background: linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .site-page-chats_route-view-main-content-chat-collection-item__footer {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 16px;
   font-size: var(--font-size-12);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-12);

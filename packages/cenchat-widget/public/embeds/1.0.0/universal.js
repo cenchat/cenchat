@@ -275,6 +275,10 @@
         getContainerElement().classList.remove('cenchat-widget-container--visible');
 
         iframeElement.removeEventListener('animationend', onAnimationEnd);
+
+        if (window.matchMedia('(max-width: 959px)').matches) {
+          document.documentElement.style.removeProperty('overflow');
+        }
       };
 
       iframeElement.addEventListener('animationend', onAnimationEnd);
