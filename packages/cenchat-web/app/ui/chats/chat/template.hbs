@@ -1,5 +1,9 @@
 {{import RouteView from "./-components/route-view"}}
 
-<RouteView @chat={{this.model}} @onSendMessageEvent={{action this.handleSendMessageEvent}}>
+<RouteView
+  @chat={{this.model}}
+  @onSendMessageEvent={{action this.handleSendMessageEvent}}
+  @onToggleChatVisibilityClick={{action this.handleToggleChatVisibilityClick}}
+>
   {{outlet}}
 </RouteView>

@@ -16,13 +16,20 @@ module('Integration | Component | chats/chat/-components/route-view', function (
 
     this.set('chat', chat);
     this.set('onSendMessageEvent', () => {});
+    this.set('onToggleChatVisibilityClick', () => {});
   });
 
   test('should show <TopBar />', async function (assert) {
     assert.expect(1);
 
     // Act
-    await render(hbs`{{chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`
+      {{chats/chat/-components/route-view
+        chat=this.chat
+        onSendMessageEvent=(action this.onSendMessageEvent)
+        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+      }}
+    `);
 
     // Assert
     assert.dom('[data-test-top-bar="host"]').exists();
@@ -32,7 +39,13 @@ module('Integration | Component | chats/chat/-components/route-view', function (
     assert.expect(1);
 
     // Act
-    await render(hbs`{{chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`
+      {{chats/chat/-components/route-view
+        chat=this.chat
+        onSendMessageEvent=(action this.onSendMessageEvent)
+        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+      }}
+    `);
 
     // Assert
     assert.dom('[data-test-main-content="host"]').exists();
@@ -42,7 +55,13 @@ module('Integration | Component | chats/chat/-components/route-view', function (
     assert.expect(1);
 
     // Act
-    await render(hbs`{{chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`
+      {{chats/chat/-components/route-view
+        chat=this.chat
+        onSendMessageEvent=(action this.onSendMessageEvent)
+        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+      }}
+    `);
 
     // Assert
     assert.dom('[data-test-chat-composer="host"]').exists();

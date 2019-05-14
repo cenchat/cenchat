@@ -13,4 +13,22 @@
       {{or @chat.creator.displayUsername "Anonymous"}}
     </h2>
   {{/if}}
+
+  {{#if @chat.isPublic}}
+    <CenIconButton
+      data-test-top-bar="turn-off-visibility-button"
+      title="Make chat not visible to everyone"
+      aria-label="Make chat not visible to everyone"
+      @icon="unlock"
+      @onClick={{action @onToggleChatVisibilityClick false}}
+    />
+  {{else}}
+    <CenIconButton
+      data-test-top-bar="turn-on-visibility-button"
+      title="Make chat visible to everyone"
+      aria-label="Make chat visible to everyone"
+      @icon="lock"
+      @onClick={{action @onToggleChatVisibilityClick true}}
+    />
+  {{/if}}
 </CenTopBar>

@@ -2,7 +2,7 @@
 {{import MainContent from "./main-content"}}
 
 <SideSheet class="liquid-fire-side-sheet" data-test-route-view={{@chat.id}}>
-  <TopBar @chat={{@chat}} />
+  <TopBar @chat={{@chat}} @onToggleChatVisibilityClick={{action @onToggleChatVisibilityClick}} />
 
   <MainContent id="chats-chat_route-view__main-content" @chat={{@chat}}>
     {{yield}}
