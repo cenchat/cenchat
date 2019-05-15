@@ -22,5 +22,5 @@
   min-height: 56px;
   padding: 9px 10px;
   margin-top: auto;
-  border-top: 2px solid var(--divider-color);
+  border-top: 2px solid var(--border-color-8);
 }

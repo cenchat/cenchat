@@ -35,6 +35,22 @@ module('Integration | Component | chats/chat/-components/route-view', function (
     assert.dom('[data-test-top-bar="host"]').exists();
   });
 
+  test('should show <AsideContent />', async function (assert) {
+    assert.expect(1);
+
+    // Act
+    await render(hbs`
+      {{chats/chat/-components/route-view
+        chat=this.chat
+        onSendMessageEvent=(action this.onSendMessageEvent)
+        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+      }}
+    `);
+
+    // Assert
+    assert.dom('[data-test-aside-content="host"]').exists();
+  });
+
   test('should show <MainContent />', async function (assert) {
     assert.expect(1);
 

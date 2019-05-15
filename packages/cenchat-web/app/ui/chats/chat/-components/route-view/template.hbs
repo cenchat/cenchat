@@ -1,8 +1,10 @@
 {{import TopBar from "./top-bar"}}
+{{import AsideContent from "./aside-content"}}
 {{import MainContent from "./main-content"}}
 
 <SideSheet class="liquid-fire-side-sheet" data-test-route-view={{@chat.id}}>
   <TopBar @chat={{@chat}} @onToggleChatVisibilityClick={{action @onToggleChatVisibilityClick}} />
+  <AsideContent @chat={{@chat}} />
 
   <MainContent id="chats-chat_route-view__main-content" @chat={{@chat}}>
     {{yield}}
