@@ -1,0 +1,12 @@
+.chats-chat_aside-content-page-info-banner {
+  padding: 16px;
+  font-size: var(--font-size-12);
+  line-height: var(--line-height-12);
+  color: var(--font-secondary-color);
+  border-bottom: 2px solid var(--border-color-4);
+}
+
+.chats-chat_aside-content-page-info-banner__text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
