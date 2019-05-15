@@ -56,10 +56,12 @@ export default Component.extend({
    * @override
    */
   click(event) {
-    event.preventDefault();
-
     const href = this.element.getAttribute('href');
 
-    this.router.transitionTo(href);
+    if (!href.startsWith('http')) {
+      event.preventDefault();
+
+      this.router.transitionTo(href);
+    }
   },
 });
