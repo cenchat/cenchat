@@ -1,4 +1,7 @@
-<li class="list__item" data-test-chat-list-item="host">
+<li
+  class="list__item {{if @chat.isUnread "chats_route-view-main-content-chat-list-item--unread"}}"
+  data-test-chat-list-item="host"
+>
   {{#if (and @chat.site @chat.lastMessage.author)}}
     <CenLink class="list__action" href={{url-for "chats.chat" @chat.id}} />
 

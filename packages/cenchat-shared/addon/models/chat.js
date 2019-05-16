@@ -90,6 +90,11 @@ export default DS.Model.extend({
   hasManyLimit: { descendingMessages: 16, messages: 16 },
 
   /**
+   * @type {boolean}
+   */
+  isUnread: false,
+
+  /**
    * @type {Array.<Model.Messages>}
    */
   reverseDescendingMessages: computed('descendingMessages', {

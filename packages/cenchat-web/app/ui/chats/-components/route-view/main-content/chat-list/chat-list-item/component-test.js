@@ -29,4 +29,30 @@ module('Integration | Component | chats/-components/route-view/main-content/chat
     assert.dom('[data-test-chat-list-item="message"]').hasText('user_b: Message B');
     assert.dom('[data-test-chat-list-item="timestamp"]').exists();
   });
+
+  test('should mark chat as unread if true', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    this.set('chat.isUnread', true);
+
+    // Act
+    await render(hbs`{{chats/-components/route-view/main-content/chat-list/chat-list-item chat=this.chat}}`);
+
+    // Assert
+    assert.dom('[data-test-chat-list-item="host"]').hasClass('chats_route-view-main-content-chat-list-item--unread');
+  });
+
+  test('should mark chat as unread if true', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    this.set('chat.isUnread', false);
+
+    // Act
+    await render(hbs`{{chats/-components/route-view/main-content/chat-list/chat-list-item chat=this.chat}}`);
+
+    // Assert
+    assert.dom('[data-test-chat-list-item="host"]').hasNoClass('chats_route-view-main-content-chat-list-item--unread');
+  });
 });
