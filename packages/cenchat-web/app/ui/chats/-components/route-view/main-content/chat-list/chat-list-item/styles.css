@@ -1,0 +1,9 @@
+.chats_route-view-main-content-chat-list-item--unread .list__primary-text,
+.chats_route-view-main-content-chat-list-item--unread .list__secondary-text,
+.chats_route-view-main-content-chat-list-item--unread .list__meta {
+  font-weight: var(--font-weight-medium);
+}
+
+.chats_route-view-main-content-chat-list-item--unread .list__secondary-text {
+  color: var(--font-primary-color);
+}

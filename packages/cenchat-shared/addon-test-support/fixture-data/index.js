@@ -221,6 +221,12 @@ export default function getFixtureData() {
                   },
                 },
               },
+
+              unreadChats: {
+                __doc__: {
+                  site_a__page_a__user_b: {},
+                },
+              },
             },
           },
 

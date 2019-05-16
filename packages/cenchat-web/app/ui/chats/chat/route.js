@@ -8,6 +8,16 @@ export default Route.extend({
   /**
    * @type {Ember.Service}
    */
+  firebase: service('firebase'),
+
+  /**
+   * @type {Ember.Service}
+   */
+  session: service('session'),
+
+  /**
+   * @type {Ember.Service}
+   */
   store: service('store'),
 
   /**
@@ -15,5 +25,23 @@ export default Route.extend({
    */
   model(params) {
     return this.store.findRecord('chat', params.chat_id);
+  },
+
+  /**
+   * @override
+   */
+  async afterModel(model) {
+    if (model.get('isUnread')) {
+      const db = this.firebase.firestore();
+      const { uid } = this.session.data.authenticated.user;
+
+      await db
+        .collection('users')
+        .doc(uid)
+        .collection('unreadChats')
+        .doc(model.get('id'))
+        .delete();
+      model.set('isUnread', false);
+    }
   },
 });
