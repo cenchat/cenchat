@@ -1,24 +1,23 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const Funnel = require('broccoli-funnel');
 const cssimport = require('postcss-import');
 const cssnext = require('postcss-cssnext');
 
 module.exports = function(defaults) {
-  const filesToExclude = [];
+  const trees = {};
 
-  // TODO: Remove this once Module Unification lands
   if (EmberApp.env() === 'production') {
-    filesToExclude.push('**/*-test.js');
+    trees.app = new Funnel('app', {
+      exclude: ['**/*-test.js'],
+    });
   }
 
   const app = new EmberApp(defaults, {
+    trees,
     fingerprint: {
-      exclude: ['universal.js'],
-    },
-    funnel: {
-      // TODO: Remove this once Module Unification lands
-      exclude: filesToExclude,
+      replaceExtensions: ['html', 'css', 'js', 'webmanifest'],
     },
     postcssOptions: {
       compile: {
