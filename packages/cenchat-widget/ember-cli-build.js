@@ -17,7 +17,7 @@ module.exports = function(defaults) {
   const app = new EmberApp(defaults, {
     trees,
     fingerprint: {
-      replaceExtensions: ['html', 'css', 'js', 'webmanifest'],
+      exclude: ['universal.js'],
     },
     postcssOptions: {
       compile: {
