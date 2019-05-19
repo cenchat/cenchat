@@ -1,9 +1,18 @@
 (function () {
   /**
+   * @param {string} value
+   * @return {string} Encoded URL
+   * @function
+   */
+  function fixedEncodeURIComponent(value) {
+    return encodeURIComponent(value).replace(/[.!'()*]/g, c => `%${c.charCodeAt(0).toString(16)}`);
+  }
+
+  /**
    * @return {Element|null} Cenchat button
    */
   function getCenchatButton() {
-    return document.querySelector('#cenchat-widget-button')
+    return document.querySelector('#cenchat-widget-button');
   }
 
   /**
@@ -23,12 +32,11 @@
   }
 
   /**
-   * @param {string} value
-   * @return {string} Encoded URL
+   * @return {Element} Container element
    * @function
    */
-  function fixedEncodeURIComponent(value) {
-    return encodeURIComponent(value).replace(/[.!'()*]/g, c => `%${c.charCodeAt(0).toString(16)}`);
+  function getContainerElement() {
+    return document.querySelector('.cenchat-widget-container');
   }
 
   /**
@@ -69,6 +77,14 @@
   }
 
   /**
+   * @return {Element} IFrame element
+   * @function
+   */
+  function getIframeElement() {
+    return document.querySelector('.cenchat-widget-iframe');
+  }
+
+  /**
    * @return {string} IFrame source URL search
    * @function
    */
@@ -101,7 +117,6 @@
   }
 
   /**
-   * @return {Element} IFrame
    * @function
    */
   function createIframe() {
@@ -114,22 +129,6 @@
 
       getContainerElement().appendChild(iframeElement);
     }
-  }
-
-  /**
-   * @return {Element} IFrame element
-   * @function
-   */
-  function getIframeElement() {
-    return document.querySelector('.cenchat-widget-iframe');
-  }
-
-  /**
-   * @return {Element} Container element
-   * @function
-   */
-  function getContainerElement() {
-    return document.querySelector('.cenchat-widget-container');
   }
 
   /**

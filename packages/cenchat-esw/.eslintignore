@@ -20,7 +20,11 @@
 /package.json.ember-try
 
 # [custom] ember generated files
+config.js
+index.js
+.eslintrc.js
+.template-lintrc.js
 testem.js
 **/app/*.js
-config/*.js
+**/config/*.js
 tests/*.js
