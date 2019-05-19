@@ -1,3 +1,5 @@
+/* eslint node/no-extraneous-require: off */
+
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
@@ -5,7 +7,7 @@ const Funnel = require('broccoli-funnel');
 const cssimport = require('postcss-import');
 const cssnext = require('postcss-cssnext');
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   const trees = {};
 
   if (EmberApp.env() === 'production') {

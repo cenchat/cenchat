@@ -23,4 +23,6 @@ before_install:
 
 script:
   - ./node_modules/.bin/lerna bootstrap
+  - ./node_modules/.bin/lerna run lint:hbs
+  - ./node_modules/.bin/lerna run lint:js
   - ./node_modules/.bin/lerna run test
