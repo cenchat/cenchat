@@ -1,21 +1,20 @@
 .layout {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  padding-top: 56px;
+  padding-bottom: 52px;
 }
 
 .layout__header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 400;
 }
 
-.layout__content {
-  flex: 1;
-  width: 100%;
-  overflow: auto;
-}
-
 .layout__nav {
-  position: relative;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 800;
 }
