@@ -77,6 +77,22 @@
   }
 
   /**
+   * @return {Element} Outer wrapper element
+   * @function
+   */
+  function getOuterWrapperElement() {
+    return document.querySelector('.cenchat-widget-outer-wrapper');
+  }
+
+  /**
+   * @return {Element} Inner wrapper element
+   * @function
+   */
+  function getInnerWrapperElement() {
+    return document.querySelector('.cenchat-widget-inner-wrapper');
+  }
+
+  /**
    * @return {Element} IFrame element
    * @function
    */
@@ -127,7 +143,7 @@
 
       iframeElement.src = getIframeSrc();
 
-      getContainerElement().appendChild(iframeElement);
+      getInnerWrapperElement().appendChild(iframeElement);
     }
   }
 
@@ -153,7 +169,7 @@
         pointer-events: auto;
       }
       
-      .cenchat-widget-iframe {
+      .cenchat-widget-outer-wrapper {
         position: fixed;
         bottom: 0;
         z-index: 25600;
@@ -169,7 +185,7 @@
       }
       
       @media (min-width: 960px) {
-        .cenchat-widget-iframe {
+        .cenchat-widget-outer-wrapper {
           top: auto;
           right: 24px;
           bottom: 24px;
@@ -181,23 +197,36 @@
         }
       }
       
-      .cenchat-widget-iframe--hiding {
+      .cenchat-widget-outer-wrapper--hiding {
         display: block;
-        animation-name: cenchat-widget-iframe-compress;
+        animation-name: cenchat-widget-outer-wrapper-compress;
         animation-duration: 195ms;
         animation-timing-function: ease-in;
         animation-fill-mode: forwards;
       }
       
-      .cenchat-widget-iframe--visible {
+      .cenchat-widget-outer-wrapper--visible {
         display: block;
-        animation-name: cenchat-widget-iframe-expand;
+        animation-name: cenchat-widget-outer-wrapper-expand;
         animation-duration: 225ms;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
       }
       
-      @keyframes cenchat-widget-iframe-expand {
+      .cenchat-widget-inner-wrapper {
+        -webkit-overflow-scrolling: touch;
+        display: flex;
+        height: 100%;
+        overflow: auto;
+      }
+      
+      .cenchat-widget-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      
+      @keyframes cenchat-widget-outer-wrapper-expand {
         0% {
           transform: translateY(120%);
         }
@@ -207,7 +236,7 @@
         }
       }
       
-      @keyframes cenchat-widget-iframe-compress {
+      @keyframes cenchat-widget-outer-wrapper-compress {
         0% {
           transform: translateY(0);
         }
@@ -218,7 +247,7 @@
       }
       
       @media (min-width: 960px) {
-        @keyframes cenchat-widget-iframe-expand {
+        @keyframes cenchat-widget-outer-wrapper-expand {
           0% {
             transform: scale(0, 0);
           }
@@ -236,7 +265,7 @@
           }
         }
       
-        @keyframes cenchat-widget-iframe-compress {
+        @keyframes cenchat-widget-outer-wrapper-compress {
           0% {
             transform: scale(1, 1);
           }
@@ -267,24 +296,36 @@
 
     containerElement.classList.add('cenchat-widget-container');
     containerElement.addEventListener('click', () => {
-      const iframeElement = getIframeElement();
+      const outerWrapperElement = getOuterWrapperElement();
       const onAnimationEnd = () => {
-        iframeElement.classList.add('cenchat-widget-iframe--hiding');
+        outerWrapperElement.classList.add('cenchat-widget-outer-wrapper--hiding');
 
         getContainerElement().classList.remove('cenchat-widget-container--visible');
 
-        iframeElement.removeEventListener('animationend', onAnimationEnd);
+        outerWrapperElement.removeEventListener('animationend', onAnimationEnd);
 
         if (window.matchMedia('(max-width: 959px)').matches) {
           document.documentElement.style.removeProperty('overflow');
         }
       };
 
-      iframeElement.addEventListener('animationend', onAnimationEnd);
-      iframeElement.classList.replace('cenchat-widget-iframe--visible', 'cenchat-widget-iframe--hiding');
+      outerWrapperElement.addEventListener('animationend', onAnimationEnd);
+      outerWrapperElement.classList.replace('cenchat-widget-outer-wrapper--visible', 'cenchat-widget-outer-wrapper--hiding');
     });
 
     document.body.appendChild(containerElement);
+
+    const outerWrapperElement = document.createElement('div');
+
+    outerWrapperElement.classList.add('cenchat-widget-outer-wrapper');
+
+    containerElement.appendChild(outerWrapperElement);
+
+    const innerWrapperElement = document.createElement('div');
+
+    innerWrapperElement.classList.add('cenchat-widget-inner-wrapper');
+
+    outerWrapperElement.appendChild(innerWrapperElement);
   }
 
   /**
@@ -300,7 +341,7 @@
 
       createIframe();
       getContainerElement().classList.add('cenchat-widget-container--visible');
-      getIframeElement().classList.add('cenchat-widget-iframe--visible');
+      getOuterWrapperElement().classList.add('cenchat-widget-outer-wrapper--visible');
     });
   }
 
