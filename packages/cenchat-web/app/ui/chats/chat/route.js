@@ -43,5 +43,8 @@ export default Route.extend({
         .delete();
       model.set('isUnread', false);
     }
+
+    // Preload site and page
+    await Promise.all([model.get('site'), model.get('page')]);
   },
 });

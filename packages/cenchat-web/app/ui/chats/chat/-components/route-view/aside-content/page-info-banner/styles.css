@@ -6,7 +6,15 @@
   border-bottom: 2px solid var(--border-color-4);
 }
 
-.chats-chat_aside-content-page-info-banner__text {
+.chats-chat_aside-content-page-info-banner__title-text {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.chats-chat_aside-content-page-info-banner__url-text {
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

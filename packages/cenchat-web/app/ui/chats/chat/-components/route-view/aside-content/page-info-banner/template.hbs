@@ -1,14 +1,29 @@
 <article class="chats-chat_aside-content-page-info-banner" data-test-page-info-banner="host">
-  <p class="chats-chat_aside-content-page-info-banner__text">
-    <div>Chat for:</div>
+  {{#if @chat.page.title}}
+    <p class="chats-chat_aside-content-page-info-banner__title-text">
+      <div>Chat for:</div>
 
-    <CenLink
-      data-test-page-info-banner="title"
-      href="http://{{@chat.site.hostname}}/{{@chat.page.slug}}"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {{@chat.page.title}}
-    </CenLink>
-  </p>
+      <CenLink
+        data-test-page-info-banner="title"
+        href={{decode-uri-component (concat "http://" @chat.site.hostname @chat.page.slug)}}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{@chat.page.title}}
+      </CenLink>
+    </p>
+  {{else}}
+    <p class="chats-chat_aside-content-page-info-banner__url-text">
+      <div>Chat for:</div>
+
+      <CenLink
+        data-test-page-info-banner="title"
+        href={{decode-uri-component (concat "http://" @chat.site.hostname @chat.page.slug)}}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{decode-uri-component (concat "http://" @chat.site.hostname @chat.page.slug)}}
+      </CenLink>
+    </p>
+  {{/if}}
 </article>
