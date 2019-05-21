@@ -1,6 +1,6 @@
 {{outlet}}
 
-<CenNavBar class="layout__nav">
+<CenNavBar>
   <CenIconLinkButton href={{url-for "site.page.chats"}} @icon="comment" />
 
   {{#if this.session.isAuthenticated}}
