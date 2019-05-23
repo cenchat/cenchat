@@ -76,18 +76,19 @@ module('Unit | Route | site/page', function (hooks) {
     assert.equal(result, null);
   });
 
-  test('should transition to error when model could not be resolved', async function (assert) {
+  test('should throw an error when model could not be resolved', async function (assert) {
     assert.expect(1);
 
     // Arrange
     const route = this.owner.lookup('route:site/page');
-    const stub = sinon.stub(route, 'transitionTo');
 
-    // Act
-    await route.afterModel(null);
-
-    // Assert
-    assert.ok(stub.calledWithExactly('error'));
+    try {
+      // Act
+      await route.afterModel(null);
+    } catch (error) {
+      // Assert
+      assert.equal(error.message, 'Unable to load page');
+    }
   });
 
   test('should redirect to site.page.chats when model is available and transition target is site.page.index', function (assert) {
