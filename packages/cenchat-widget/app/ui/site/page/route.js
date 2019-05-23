@@ -39,7 +39,7 @@ export default Route.extend({
    */
   afterModel(model) {
     if (!model) {
-      this.transitionTo('error');
+      throw new Error('Unable to load page');
     }
   },
 

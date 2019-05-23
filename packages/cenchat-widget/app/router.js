@@ -20,7 +20,6 @@ Router.map(function() {
     this.route('pages', function() {});
   });
   this.route('sign-in');
-  this.route('error');
 });
 
 export default Router;
