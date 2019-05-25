@@ -31,7 +31,7 @@ export default Component.extend({
     const texts = first3Messages.map(message => message.get('text'));
     const mergedText = texts.join('\n');
 
-    if (mergedText.length > 240) {
+    if (mergedText.length > 180) {
       this.set('isReadMoreVisible', true);
     }
   },
