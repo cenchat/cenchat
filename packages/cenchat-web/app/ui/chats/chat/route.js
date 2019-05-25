@@ -31,7 +31,9 @@ export default Route.extend({
    * @override
    */
   async afterModel(model) {
-    if (model.get('isUnread')) {
+    const isUnread = await model.get('isUnread');
+
+    if (isUnread) {
       const db = this.firebase.firestore();
       const { uid } = this.session.data.authenticated.user;
 
@@ -41,7 +43,6 @@ export default Route.extend({
         .collection('unreadChats')
         .doc(model.get('id'))
         .delete();
-      model.set('isUnread', false);
     }
 
     // Preload site and page

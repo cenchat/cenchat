@@ -1,10 +1,21 @@
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 import DS from 'ember-data';
 
 /**
  * @namespace Model
  */
 export default DS.Model.extend({
+  /**
+   * @type {Ember.Service}
+   */
+  firebase: service('firebase'),
+
+  /**
+   * @type {Ember.Service}
+   */
+  session: service('session'),
+
   /**
    * @type {Model.User}
    */
@@ -92,7 +103,23 @@ export default DS.Model.extend({
   /**
    * @type {boolean}
    */
-  isUnread: false,
+  isUnread: computed('lastActivityTimestamp', {
+    get() {
+      if (this.session.isAuthenticated) {
+        const { uid } = this.session.data.authenticated.user;
+
+        return this.firebase.firestore()
+          .collection('users')
+          .doc(uid)
+          .collection('unreadChats')
+          .doc(this.get('id'))
+          .get()
+          .then(snapshot => snapshot.exists);
+      }
+
+      return Promise.resolve(false);
+    },
+  }),
 
   /**
    * @type {Array.<Model.Messages>}

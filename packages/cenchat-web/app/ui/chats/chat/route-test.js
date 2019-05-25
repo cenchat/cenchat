@@ -24,7 +24,7 @@ module('Unit | Route | chats', function (hooks) {
   });
 
   test('should remove unread state of the chat model', async function (assert) {
-    assert.expect(2);
+    assert.expect(1);
 
     // Arrange
     await setupAuthState({
@@ -42,8 +42,6 @@ module('Unit | Route | chats', function (hooks) {
     await route.afterModel(chat);
 
     // Assert
-    assert.equal(chat.get('isUnread'), false);
-
     const db = this.owner.lookup('service:firebase').firestore();
     const unreadChatDocSnapshot = await db
       .collection('users')

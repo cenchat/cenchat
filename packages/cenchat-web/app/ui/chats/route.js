@@ -29,24 +29,4 @@ export default Route.extend({
 
     return user.get('latestActiveChats');
   },
-
-  /**
-   * @override
-   */
-  async afterModel(model) {
-    const db = this.firebase.firestore();
-    const { uid } = this.session.data.authenticated.user;
-    const promises = model.map(async (chat) => {
-      const unreadChatDocSnapshot = await db
-        .collection('users')
-        .doc(uid)
-        .collection('unreadChats')
-        .doc(chat.get('id'))
-        .get();
-
-      chat.set('isUnread', unreadChatDocSnapshot.exists);
-    });
-
-    return Promise.all(promises);
-  },
 });
