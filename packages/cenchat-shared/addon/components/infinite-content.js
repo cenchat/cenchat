@@ -90,6 +90,10 @@ export default Component.extend({
       } else {
         this.processStandardScroll();
       }
+
+      if (this.args.onScrollToBottom) {
+        this.processOnBottomScroll();
+      }
     }
   },
 
@@ -120,6 +124,15 @@ export default Component.extend({
       this.set('previousScrollHeight', this.scrollerElement.scrollHeight);
 
       this.args.onLoadMoreContentEvent();
+    }
+  },
+
+  /**
+   * @function
+   */
+  processOnBottomScroll() {
+    if (this.isScrolledToBottom) {
+      this.args.onScrollToBottom();
     }
   },
 

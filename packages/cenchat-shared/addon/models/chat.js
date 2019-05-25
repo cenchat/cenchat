@@ -103,7 +103,7 @@ export default DS.Model.extend({
   /**
    * @type {boolean}
    */
-  isUnread: computed('lastActivityTimestamp', {
+  isUnread: computed('lastActivityTimestamp', 'cacheBusterForIsUnread', {
     get() {
       if (this.session.isAuthenticated) {
         const { uid } = this.session.data.authenticated.user;
