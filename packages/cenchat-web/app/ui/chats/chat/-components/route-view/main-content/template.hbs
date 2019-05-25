@@ -4,6 +4,7 @@
   @isReversed="true"
   @isAbleToLoadMoreContent={{if (lte this.currentLimit @chat.reverseDescendingMessages.length) true false}}
   @onLoadMoreContentEvent={{action this.handleLoadMoreContentEvent}}
+  @onScrollToBottom={{action this.handleScrollToBottom}}
   ...attributes
 >
   <MessageList @messages={{@chat.reverseDescendingMessages}} />
