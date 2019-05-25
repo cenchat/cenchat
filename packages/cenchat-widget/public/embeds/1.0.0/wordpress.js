@@ -188,7 +188,7 @@
         .cenchat-widget-outer-wrapper {
           top: auto;
           right: 24px;
-          bottom: 24px;
+          bottom: 104px;
           left: auto;
           width: 320px;
           height: 568px;
@@ -224,6 +224,36 @@
         width: 100%;
         height: 100%;
         border: none;
+      }
+
+      #cenchat-widget-button {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 60000;
+        display: inline-block !important;
+        width: 56px;
+        height: 56px;
+        padding: 16px;
+        border: none;
+        border-radius: 28px;
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+        animation-name: cenchat-widget-button-expand;
+        animation-duration: 100ms;
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        animation-fill-mode: forwards;
+      }
+
+      @media (min-width: 960px) {
+        #cenchat-widget-button {
+          right: 24px;
+          bottom: 24px;
+        }
+      }
+
+      #cenchat-widget-button svg {
+        height: 24px;
+        margin-left: -25%;
       }
       
       @keyframes cenchat-widget-outer-wrapper-expand {
@@ -280,6 +310,16 @@
       
           100% {
             transform: scale(0, 0);
+          }
+        }
+
+        @keyframes cenchat-widget-button-expand {
+          0% {
+            transform: scale(0);
+          }
+        
+          100% {
+            transform: scale(1);
           }
         }
       }
