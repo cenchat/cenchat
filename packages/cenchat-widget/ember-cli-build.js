@@ -19,7 +19,7 @@ module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     trees,
     fingerprint: {
-      exclude: ['universal.js'],
+      exclude: ['universal.js', 'wordpress.js'],
     },
     postcssOptions: {
       compile: {
