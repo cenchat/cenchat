@@ -12,8 +12,8 @@
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-regular);
   line-height: 1.25rem;
-  color: var(--font-primary-color);
-  background-color: var(--surface-background-color);
+  color: var(--toast-text-color);
+  background-color: var(--toast-background-color);
   box-shadow: var(--elevation-24);
   transition-timing-function: ease-out;
   transition-duration: 195ms;
@@ -45,18 +45,6 @@
   .cen-toast {
     transition-duration: 150ms;
   }
-}
-
-.cen-toast::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 25;
-  content: '';
-  background: var(--inverse-surface-background-color);
-  opacity: 0.11;
 }
 
 .cen-toast[opened] {
