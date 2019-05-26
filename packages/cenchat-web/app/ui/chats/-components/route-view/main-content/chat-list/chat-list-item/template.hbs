@@ -2,13 +2,29 @@
   class="list__item {{if (await @chat.isUnread) "chats_route-view-main-content-chat-list-item--unread"}}"
   data-test-chat-list-item="host"
 >
-  {{#if (and @chat.site @chat.lastMessage.author)}}
+  {{#if (and @chat.site @chat.page @chat.creator @chat.lastMessage.author)}}
     <CenLink class="list__action" href={{url-for "chats.chat" @chat.id}} />
 
     <div class="list__multi-line-content">
-      <h2 class="list__primary-text list__wrap-text" data-test-chat-list-item="name">
-        {{@chat.site.displayName}}
-      </h2>
+      {{#if (eq @chat.creator.id this.session.data.authenticated.user.uid)}}
+        <h2 class="list__primary-text list__wrap-text" data-test-chat-list-item="site-name-for-creator">
+          {{@chat.site.displayName}}
+        </h2>
+
+        {{#if @chat.page.title}}
+          <p class="list__secondary-text list__wrap-text" data-test-chat-list-item="page-title-for-creator">
+            {{@chat.page.title}}
+          </p>
+        {{/if}}
+      {{else}}
+        <h2 class="list__primary-text list__wrap-text" data-test-chat-list-item="creator-username-for-site-member">
+          {{or @chat.creator.displayUsername "Anonymous"}}
+        </h2>
+
+        <p class="list__secondary-text list__wrap-text" data-test-chat-list-item="page-info-for-site-member">
+          {{@chat.site.displayName}} {{#if @chat.page.title}}- {{@chat.page.title}}{{/if}}
+        </p>
+      {{/if}}
 
       <p class="list__secondary-text list__wrap-text" data-test-chat-list-item="message">
         {{or @chat.lastMessage.author.displayUsername "Anonymous"}}: {{@chat.lastMessage.text}}
