@@ -19,8 +19,9 @@
 }
 
 .chats-chat-route-view__toolbar {
-  min-height: 56px;
-  padding: 9px 10px;
+  min-height: 52px;
+  padding: 8px 10px;
   margin-top: auto;
-  border-top: 2px solid var(--border-color-8);
+  background-color: var(--bar-background-color);
+  border-top: 1px solid var(--divider-color);
 }

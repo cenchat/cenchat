@@ -4,8 +4,8 @@
   height: 52px;
   padding-right: 6px;
   padding-left: 6px;
-  background-color: var(--surface-background-color);
-  border-top: 2px solid var(--border-color-8);
+  background-color: var(--bar-background-color);
+  border-top: 1px solid var(--divider-color);
 }
 
 .cen-nav-bar button,

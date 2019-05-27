@@ -1,6 +1,7 @@
 .layout {
   padding-top: 56px;
   padding-bottom: 52px;
+  background-color: var(--container-background-color);
 }
 
 @media (min-width: 960px) {
