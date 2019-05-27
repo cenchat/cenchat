@@ -3,8 +3,8 @@
   align-items: center;
   height: 56px;
   padding: 10px;
-  background-color: var(--surface-background-color);
-  border-bottom: 2px solid var(--border-color-4);
+  background-color: var(--bar-background-color);
+  border-bottom: 1px solid var(--divider-color);
 }
 
 @media (min-width: 960px) {

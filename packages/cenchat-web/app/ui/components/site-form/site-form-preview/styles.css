@@ -17,7 +17,7 @@
   margin-right: auto;
   margin-left: auto;
   overflow: hidden;
-  border: 1px solid var(--divider-color);
+  border: 2px solid var(--border-color);
   border-radius: var(--border-radius-square);
 }
 
@@ -26,7 +26,9 @@
   --font-primary-color: rgba(0, 0, 0, 0.87);
   --font-secondary-color: rgba(0, 0, 0, 0.6);
   --surface-background-color: #fff;
+  --bar-background-color: #fafafa;
   --divider-color: rgba(0, 0, 0, 0.12);
+  --border-color: rgba(0, 0, 0, 0.05);
 }
 
 .site-form-preview__card--dark {
@@ -34,7 +36,9 @@
   --font-primary-color: rgba(255, 255, 255, 0.87);
   --font-secondary-color: rgba(255, 255, 255, 0.6);
   --surface-background-color: #121212;
+  --bar-background-color: #212121;
   --divider-color: rgba(255, 255, 255, 0.12);
+  --border-color: rgba(255, 255, 255, 0.05);
 }
 
 .site-form-preview__card-top-bar {
@@ -46,21 +50,21 @@
   font-size: var(--font-size-20);
   font-weight: var(--font-weight-medium);
   color: var(--font-primary-color);
-  background-color: var(--surface-background-color);
-  border-bottom: 2px solid var(--border-color-4);
+  background-color: var(--bar-background-color);
+  border-bottom: 1px solid var(--divider-color);
 }
 
 .site-form-preview__card-content {
   flex: 1;
   padding: 16px;
-  background-color: var(--surface-background-color);
+  background-color: var(--container-background-color);
 }
 
 .site-form-preview__card-messages {
   padding-right: 16px;
   padding-left: 16px;
   overflow: hidden;
-  border: 2px solid var(--border-color-1);
+  border: 2px solid var(--border-color);
   border-radius: var(--border-radius-square);
 }
 
@@ -70,8 +74,8 @@
   height: 52px;
   padding-right: 6px;
   padding-left: 6px;
-  background-color: var(--surface-background-color);
-  border-top: 2px solid var(--border-color-8);
+  background-color: var(--bar-background-color);
+  border-top: 1px solid var(--divider-color);
 }
 
 .site-form-preview__card-bottom-bar button {

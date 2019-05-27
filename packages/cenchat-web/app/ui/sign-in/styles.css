@@ -4,6 +4,7 @@
   height: calc(100vh - 112px);
   padding-right: 16px;
   padding-left: 16px;
+  margin-top: -56px;
 }
 
 .sign-in__card {
@@ -24,7 +25,8 @@
     max-width: 456px;
     height: auto;
     padding: 40px;
-    border: 1px solid var(--divider-color);
+    margin-top: 0;
+    border: 2px solid var(--border-color);
     border-radius: var(--border-radius-square);
   }
 }

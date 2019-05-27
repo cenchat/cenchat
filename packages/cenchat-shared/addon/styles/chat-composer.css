@@ -4,6 +4,7 @@
 
 .chat-composer__message-field {
   flex: 1;
+  min-height: 36px;
   padding: 6px;
   margin-right: 10px;
   font-family: var(--font-family);
@@ -11,7 +12,7 @@
   line-height: var(--line-height-14);
   color: var(--font-primary-color);
   resize: none;
-  background-color: var(--surface-background-color);
+  background-color: transparent;
   border: none;
 }
 
