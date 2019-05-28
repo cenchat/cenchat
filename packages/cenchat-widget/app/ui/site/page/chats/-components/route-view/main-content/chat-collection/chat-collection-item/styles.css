@@ -19,7 +19,7 @@
   bottom: 48px;
   left: 0;
   height: 72px;
-  background: linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(0deg, var(--surface-background-color) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .site-page-chats_route-view-main-content-chat-collection-item__footer {
