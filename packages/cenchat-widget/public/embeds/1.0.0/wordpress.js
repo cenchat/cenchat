@@ -8,10 +8,19 @@
     return encodeURIComponent(value).replace(/[.!'()*]/g, c => `%${c.charCodeAt(0).toString(16)}`);
   }
 
+  /**
+   * @return {string} RGB
+   * @function
+   */
   function getThemeColor() {
     return getComputedStyle(document.body).getPropertyValue('background-color');
   }
-  
+
+  /**
+   * @param {string} themeColor
+   * @return {boolean} True if light. Otherwise, false.
+   * @function
+   */
   function isLightThemeColor(themeColor) {
     const rgb = themeColor.replace(/[^\d,]/g, '').split(',');
 
