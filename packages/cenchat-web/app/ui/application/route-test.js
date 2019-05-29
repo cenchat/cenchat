@@ -1,5 +1,6 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
+import EmberObject from '@ember/object';
 
 import { setupAuthState } from '@cenchat/shared/test-support';
 import sinon from 'sinon';
@@ -56,5 +57,40 @@ module('Unit | Route | application', function (hooks) {
 
     // Assert
     assert.ok(stub.calledWithExactly('chats'));
+  });
+
+  test('should set scrim visibility to true', function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    const route = this.owner.lookup('route:application');
+    const controller = EmberObject.create();
+    const transition = { promise: Promise.resolve() };
+
+    sinon.stub(route, 'controllerFor').returns(controller);
+
+    // Act
+    route.send('loading', transition);
+
+    // Assert
+    assert.equal(controller.isScrimVisible, true);
+  });
+
+  test('should set scrim visibility to false after transition resolves', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    const route = this.owner.lookup('route:application');
+    const controller = EmberObject.create();
+    const transition = { promise: Promise.resolve() };
+
+    sinon.stub(route, 'controllerFor').returns(controller);
+
+    // Act
+    await route.send('loading', transition);
+
+    // Assert
+    await transition;
+    assert.equal(controller.isScrimVisible, false);
   });
 });

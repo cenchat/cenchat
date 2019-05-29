@@ -28,22 +28,16 @@ export default Route.extend({
      * @override
      */
     loading(transition) {
-      let scrimElement = document.querySelector('.scrim');
+      let controller;
 
-      if (!scrimElement) {
-        const progressBarElement = document.createElement('div');
+      try {
+        controller = this.controllerFor('application');
 
-        progressBarElement.classList.add('scrim__progress-bar');
-
-        scrimElement = document.createElement('div');
-
-        scrimElement.classList.add('scrim');
-
-        scrimElement.appendChild(progressBarElement);
-        document.body.appendChild(scrimElement);
+        controller.set('isScrimVisible', true);
+        transition.promise.finally(() => controller.set('isScrimVisible', false));
+      } catch (error) {
+        // Do nothing
       }
-
-      transition.promise.finally(() => scrimElement.remove());
     },
   },
 

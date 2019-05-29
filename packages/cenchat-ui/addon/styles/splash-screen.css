@@ -10,6 +10,10 @@
   justify-content: center;
 }
 
+.splash-screen--covered {
+  background-color: var(--surface-background-color);
+}
+
 .splash-screen--loaded {
   animation-name: splash-screen-fade-to-none;
   animation-duration: 1000ms;
