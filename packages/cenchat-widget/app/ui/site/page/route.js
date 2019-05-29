@@ -30,6 +30,27 @@ export default Route.extend({
   /**
    * @override
    */
+  actions: {
+    /**
+     * @override
+     */
+    loading(transition) {
+      let controller;
+
+      try {
+        controller = this.controllerFor('site.page');
+
+        controller.set('isScrimVisible', true);
+        transition.promise.finally(() => controller.set('isScrimVisible', false));
+      } catch (error) {
+        // Do nothing
+      }
+    },
+  },
+
+  /**
+   * @override
+   */
   model(params) {
     return this.findOrCreatePage(params);
   },

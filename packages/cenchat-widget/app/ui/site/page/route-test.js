@@ -132,4 +132,39 @@ module('Unit | Route | site/page', function (hooks) {
     // Assert
     assert.ok(transitionToStub.notCalled);
   });
+
+  test('should set scrim visibility to true', function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    const route = this.owner.lookup('route:site/page');
+    const controller = EmberObject.create();
+    const transition = { promise: Promise.resolve() };
+
+    sinon.stub(route, 'controllerFor').returns(controller);
+
+    // Act
+    route.send('loading', transition);
+
+    // Assert
+    assert.equal(controller.isScrimVisible, true);
+  });
+
+  test('should set scrim visibility to false after transition resolves', async function (assert) {
+    assert.expect(1);
+
+    // Arrange
+    const route = this.owner.lookup('route:site/page');
+    const controller = EmberObject.create();
+    const transition = { promise: Promise.resolve() };
+
+    sinon.stub(route, 'controllerFor').returns(controller);
+
+    // Act
+    await route.send('loading', transition);
+
+    // Assert
+    await transition;
+    assert.equal(controller.isScrimVisible, false);
+  });
 });

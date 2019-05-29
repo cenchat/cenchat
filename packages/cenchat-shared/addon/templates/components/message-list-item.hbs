@@ -1,19 +1,21 @@
 <li class="message-list-item" data-test-message-list-item="host" ...attributes>
-  <div class="message-list-item__header">
-    <h3
-      class="message-list-item__author-name {{if (eq @messageGroup.author.id @messageGroup.messages.firstObject.chat.creator.id) "message-list-item__author-name--badged"}}"
-      data-test-message-list-item="author-name"
-    >
-      {{or @messageGroup.author.displayUsername "Anonymous"}}
-    </h3>
+  {{#if @messageGroup.author.isLoaded}}
+    <div class="message-list-item__header">
+      <h3
+        class="message-list-item__author-name {{if (eq @messageGroup.author.id @messageGroup.messages.firstObject.chat.creator.id) "message-list-item__author-name--badged"}}"
+        data-test-message-list-item="author-name"
+      >
+        {{or @messageGroup.author.displayUsername "Anonymous"}}
+      </h3>
 
-    <time class="message-list-item__timestamp" data-test-message-list-item="timestamp">
-      {{moment-from-now @messageGroup.timestamp}}
-    </time>
-  </div>
+      <time class="message-list-item__timestamp" data-test-message-list-item="timestamp">
+        {{moment-from-now @messageGroup.timestamp}}
+      </time>
+    </div>
 
-  {{#each @messageGroup.messages as |message|}}
-    {{!-- Pre-wrapped. Don't multi-line --}}
-    <p class="message-list-item__content" data-test-message-list-item="content">{{linkify message.text target="_blank" rel="noreferrer noopener"}}</p>
-  {{/each}}
+    {{#each @messageGroup.messages as |message|}}
+      {{!-- Pre-wrapped. Don't multi-line --}}
+      <p class="message-list-item__content" data-test-message-list-item="content">{{linkify message.text target="_blank" rel="noreferrer noopener"}}</p>
+    {{/each}}
+  {{/if}}
 </li>

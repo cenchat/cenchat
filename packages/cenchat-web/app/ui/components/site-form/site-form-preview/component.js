@@ -30,7 +30,7 @@ export default Component.extend({
    */
   previewMessages: [
     EmberObject.create({
-      author: EmberObject.create({ id: 'johndoe', displayUsername: 'JohnDoe' }),
+      author: EmberObject.create({ id: 'johndoe', displayUsername: 'JohnDoe', isLoaded: true }),
       chat: EmberObject.create({
         creator: EmberObject.create({ id: 'johndoe' }),
       }),
@@ -39,7 +39,7 @@ export default Component.extend({
       text: 'Hi. Do you support dark theme?',
     }),
     EmberObject.create({
-      author: EmberObject.create({ id: 'kriskelly', displayUsername: 'KrisKelly' }),
+      author: EmberObject.create({ id: 'kriskelly', displayUsername: 'KrisKelly', isLoaded: true }),
       chat: EmberObject.create({
         creator: EmberObject.create({ id: 'johndoe' }),
       }),

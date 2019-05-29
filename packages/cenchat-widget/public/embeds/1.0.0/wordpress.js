@@ -9,6 +9,31 @@
   }
 
   /**
+   * @return {string} RGB
+   * @function
+   */
+  function getThemeColor() {
+    return getComputedStyle(document.body).getPropertyValue('background-color');
+  }
+
+  /**
+   * @param {string} themeColor
+   * @return {boolean} True if light. Otherwise, false.
+   * @function
+   */
+  function isLightThemeColor(themeColor) {
+    const rgb = themeColor.replace(/[^\d,]/g, '').split(',');
+
+    if (rgb.length > 3) {
+      return true;
+    }
+
+    const brightness = ((rgb[0] * 299) + (rgb[1] * 587) + (rgb[2] * 114)) / 1000;
+
+    return brightness > 155;
+  }
+
+  /**
    * @return {Element|null} Cenchat button
    */
   function getCenchatButton() {
@@ -177,7 +202,6 @@
         width: 100%;
         height: calc(100% - 56px);
         overflow: hidden;
-        background-color: #fff;
         border: none;
         border-top-left-radius: 16px;
         border-top-right-radius: 16px;
@@ -358,6 +382,14 @@
     const outerWrapperElement = document.createElement('div');
 
     outerWrapperElement.classList.add('cenchat-widget-outer-wrapper');
+
+    const themeColor = getThemeColor();
+
+    if (isLightThemeColor(themeColor)) {
+      outerWrapperElement.style.setProperty('background-color', '#ffffff');
+    } else {
+      outerWrapperElement.style.setProperty('background-color', '#121212');
+    }
 
     containerElement.appendChild(outerWrapperElement);
 

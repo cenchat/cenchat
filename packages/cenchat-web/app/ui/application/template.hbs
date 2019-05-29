@@ -22,3 +22,9 @@
 </CenNavBar>
 
 <CenToast data-test-application="toast" />
+
+{{#if this.isScrimVisible}}
+  <div class="scrim">
+    <div class="scrim__progress-bar" aria-role="progressbar" aria-valuetext="Loading"></div>
+  </div>
+{{/if}}
