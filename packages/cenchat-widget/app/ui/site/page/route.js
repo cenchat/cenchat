@@ -30,6 +30,33 @@ export default Route.extend({
   /**
    * @override
    */
+  actions: {
+    /**
+     * @override
+     */
+    loading(transition) {
+      let scrimElement = document.querySelector('.scrim');
+
+      if (!scrimElement) {
+        const progressBarElement = document.createElement('div');
+
+        progressBarElement.classList.add('scrim__progress-bar');
+
+        scrimElement = document.createElement('div');
+
+        scrimElement.classList.add('scrim');
+
+        scrimElement.appendChild(progressBarElement);
+        document.body.appendChild(scrimElement);
+      }
+
+      transition.promise.finally(() => scrimElement.remove());
+    },
+  },
+
+  /**
+   * @override
+   */
   model(params) {
     return this.findOrCreatePage(params);
   },

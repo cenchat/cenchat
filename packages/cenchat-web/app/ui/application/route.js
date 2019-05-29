@@ -23,6 +23,33 @@ export default Route.extend({
   /**
    * @override
    */
+  actions: {
+    /**
+     * @override
+     */
+    loading(transition) {
+      let scrimElement = document.querySelector('.scrim');
+
+      if (!scrimElement) {
+        const progressBarElement = document.createElement('div');
+
+        progressBarElement.classList.add('scrim__progress-bar');
+
+        scrimElement = document.createElement('div');
+
+        scrimElement.classList.add('scrim');
+
+        scrimElement.appendChild(progressBarElement);
+        document.body.appendChild(scrimElement);
+      }
+
+      transition.promise.finally(() => scrimElement.remove());
+    },
+  },
+
+  /**
+   * @override
+   */
   beforeModel() {
     if (!this.session.isAuthenticated) {
       this.transitionTo('sign-in');
@@ -38,6 +65,8 @@ export default Route.extend({
       await this.store.findRecord('user', this.session.data.authenticated.user.uid);
       this.setupPushNotification();
     }
+
+    this.hideSplashScreen();
   },
 
   /**
@@ -75,6 +104,17 @@ export default Route.extend({
       } catch (error) {
         // Do nothing
       }
+    }
+  },
+
+  /**
+   * @function
+   */
+  hideSplashScreen() {
+    const splashScreenElement = document.querySelector('.splash-screen');
+
+    if (splashScreenElement) {
+      splashScreenElement.classList.add('splash-screen--loaded');
     }
   },
 });

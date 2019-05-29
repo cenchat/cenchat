@@ -26,6 +26,11 @@
   fill: var(--cenchat-brand-color);
 }
 
+.error__content {
+  height: 100%;
+  background-color: var(--container-background-color);
+}
+
 .error__empty-state {
   display: flex;
   flex-direction: column;
