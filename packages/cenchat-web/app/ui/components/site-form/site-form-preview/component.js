@@ -30,7 +30,7 @@ export default Component.extend({
    */
   previewMessages: [
     EmberObject.create({
-      author: EmberObject.create({ id: 'johndoe', displayUsername: 'JohnDoe' }),
+      author: EmberObject.create({ id: 'johndoe', displayUsername: 'JohnDoe', isLoaded: true }),
       chat: EmberObject.create({
         creator: EmberObject.create({ id: 'johndoe' }),
       }),
