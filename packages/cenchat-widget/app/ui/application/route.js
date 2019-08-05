@@ -4,16 +4,18 @@ import Route from '@ember/routing/route';
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class ApplicationRoute extends Route {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @override
@@ -25,7 +27,7 @@ export default Route.extend({
     }
 
     this.hideSplashScreen();
-  },
+  }
 
   /**
    * @function
@@ -36,5 +38,5 @@ export default Route.extend({
     if (splashScreenElement) {
       splashScreenElement.classList.add('splash-screen--loaded');
     }
-  },
-});
+  }
+}

@@ -3,25 +3,25 @@ import Component from '@ember/component';
 /**
  * @namespace
  */
-export default Component.extend({
+export default class ChatCollectionItemComponent extends Component {
   /**
    * @override
    */
-  tagName: '',
+  tagName = '';
 
   /**
    * @type {boolean}
    */
-  isReadMoreVisible: false,
+  isReadMoreVisible = false;
 
   /**
    * @override
    */
   init(...args) {
-    this._super(...args);
+    super.init(...args);
 
     this.setupIsReadMoreVisible();
-  },
+  }
 
   /**
    * @function
@@ -35,5 +35,5 @@ export default Component.extend({
     if (mergedText.length > 180 || (mergedText.length > 100 && numOfNewLines > 2)) {
       this.set('isReadMoreVisible', true);
     }
-  },
-});
+  }
+}

@@ -1,49 +1,49 @@
-import { computed } from '@ember/object';
+import { computed, action } from '@ember/object';
 import Component from '@ember/component';
 
 /**
  * @namespace Component
  */
-export default Component.extend({
+export default class MainContentComponent extends Component {
   /**
    * @override
    */
-  tagName: '',
+  tagName = '';
 
   /**
    * @type {number}
    */
-  currentLimit: null,
+  currentLimit = null;
 
   /**
    * @type {string}
    */
-  field: computed('args', {
-    get() {
-      if (this.args.permissionState === 'writer') {
-        return 'descendingMessages';
-      }
+  @computed('args')
+  get field() {
+    if (this.args.permissionState === 'writer') {
+      return 'descendingMessages';
+    }
 
-      if (this.args.permissionState === 'reader') {
-        return 'messages';
-      }
+    if (this.args.permissionState === 'reader') {
+      return 'messages';
+    }
 
-      return null;
-    },
-  }),
+    return null;
+  }
 
   /**
    * @override
    */
   init(...args) {
-    this._super(...args);
+    super.init(...args);
 
     this.set('currentLimit', this.args.chat.get(`hasManyLimit.${this.field}`));
-  },
+  }
 
   /**
    * @function
    */
+  @action
   async handleLoadMoreContentEvent() {
     const currentLimit = this.args.chat.get(`hasManyLimit.${this.field}`);
 
@@ -54,5 +54,5 @@ export default Component.extend({
     });
 
     await this.args.chat.get(this.field).reload();
-  },
-});
+  }
+}

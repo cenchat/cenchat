@@ -9,30 +9,32 @@ import fixedEncodeURIComponent from 'cenchat-widget/utils/fixed-encode-uri-compo
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class PageRoute extends Route {
   /**
    * @type {Ember.Service}
    */
-  firebase: service('firebase'),
+  @service('firebase')
+  firebase;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @override
    */
-  queryParams: {
+  queryParams = {
     slug: { as: 'slug' },
-  },
+  };
 
   /**
    * @override
    */
   model(params) {
     return this.findOrCreatePage(params);
-  },
+  }
 
   /**
    * @override
@@ -41,7 +43,7 @@ export default Route.extend({
     if (!model) {
       throw new Error('Unable to load page');
     }
-  },
+  }
 
   /**
    * @override
@@ -50,7 +52,7 @@ export default Route.extend({
     if (model && transition.targetName === 'site.page.index') {
       this.transitionTo('site.page.chats');
     }
-  },
+  }
 
   /**
    * @param {Object} params
@@ -65,7 +67,7 @@ export default Route.extend({
     }
 
     return page;
-  },
+  }
 
   /**
    * @param {Object} params
@@ -81,7 +83,7 @@ export default Route.extend({
     } catch (error) {
       return null;
     }
-  },
+  }
 
   /**
    * @param {Object} params
@@ -111,5 +113,5 @@ export default Route.extend({
     }
 
     return null;
-  },
-});
+  }
+}
