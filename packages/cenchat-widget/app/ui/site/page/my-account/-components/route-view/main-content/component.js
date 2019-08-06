@@ -1,3 +1,4 @@
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 
@@ -6,28 +7,31 @@ import toast from '@cenchat/ui/utils/toast';
 /**
  * @namespace Component
  */
-export default Component.extend({
+export default class MainContentComponent extends Component {
   /**
    * @type {Ember.Service}
    */
-  router: service('router'),
+  @service('router')
+  router;
 
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @override
    */
-  tagName: '',
+  tagName = '';
 
   /**
    * @function
    */
+  @action
   async handleSignOutClick() {
     await this.session.invalidate();
     toast('Signed out successfully');
     this.router.transitionTo('site.page.chats');
-  },
-});
+  }
+}

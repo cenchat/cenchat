@@ -4,16 +4,17 @@ import Route from '@ember/routing/route';
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class ChatRoute extends Route {
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @override
    */
   async model(params) {
     return this.store.findRecord('chat', params.chat_id);
-  },
-});
+  }
+}

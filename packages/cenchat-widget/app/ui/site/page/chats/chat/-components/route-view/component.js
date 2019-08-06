@@ -1,38 +1,41 @@
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 
 /**
  * @namespace Component
  */
-export default Component.extend({
+export default class RouteViewComponent extends Component {
   /**
    * @type {Ember.Service}
    */
-  firebase: service('firebase'),
+  @service('firebase')
+  firebase;
 
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @override
    */
-  tagName: '',
+  tagName = '';
 
   /**
    * @type {string}
    */
-  permissionState: null,
+  permissionState = null;
 
   /**
    * @override
    */
   init(...args) {
-    this._super(...args);
+    super.init(...args);
 
     this.setupPermissionState();
-  },
+  }
 
   /**
    * @override
@@ -52,7 +55,7 @@ export default Component.extend({
     } else {
       this.set('permissionState', 'reader');
     }
-  },
+  }
 
   /**
    * @return {Promise.<boolean>} Resolves to true if site member. Otherwise, false.
@@ -70,16 +73,17 @@ export default Component.extend({
     } catch (error) {
       return false;
     }
-  },
+  }
 
   /**
    * @function
    */
+  @action
   async handleSendMessageClick(...args) {
     const element = document.querySelector('#site-page-chats-chat_route-view__main-content');
 
     element.scrollTop = element.scrollHeight;
 
     await this.onSendMessageEvent(...args);
-  },
-});
+  }
+}

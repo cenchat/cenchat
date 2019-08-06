@@ -4,14 +4,15 @@ import Component from '@ember/component';
 /**
  * @namespace Component
  */
-export default Component.extend({
+export default class MainContentComponent extends Component {
   /**
    * @type {Ember.Service}
    */
-  router: service(),
+  @service('router')
+  router;
 
   /**
    * @override
    */
-  tagName: '',
-});
+  tagName = '';
+}

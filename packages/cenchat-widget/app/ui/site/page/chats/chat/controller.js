@@ -1,3 +1,4 @@
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
 
@@ -6,21 +7,24 @@ import firebase from 'firebase';
 /**
  * @namespace Controller
  */
-export default Controller.extend({
+export default class ChatController extends Controller {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @param {string} text
    * @function
    */
+  @action
   async handleSendMessageEvent(text) {
     const currentUser = this.store.peekRecord('user', this.session.data.authenticated.user.uid);
     const chat = this.model;
@@ -40,5 +44,5 @@ export default Controller.extend({
         },
       },
     });
-  },
-});
+  }
+}

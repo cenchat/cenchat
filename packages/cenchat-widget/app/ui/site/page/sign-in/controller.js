@@ -1,26 +1,25 @@
-import { computed } from '@ember/object';
+import { action } from '@ember/object';
 import Controller from '@ember/controller';
 
 /**
  * @namespace Controller
  */
-export default Controller.extend({
+export default class SignInController extends Controller {
   /**
    * @type {string}
    */
-  redirectUrl: computed({
-    get() {
-      const page = this.model;
-      const redirectUrl = `http://${page.get('site.hostname')}${decodeURIComponent(page.slug)}`;
+  get redirectUrl() {
+    const page = this.model;
+    const redirectUrl = `http://${page.get('site.hostname')}${decodeURIComponent(page.slug)}`;
 
-      return redirectUrl;
-    },
-  }),
+    return redirectUrl;
+  }
 
   /**
    * @function
    */
+  @action
   handleAfterSignInEvent() {
     this.transitionToRoute('site.page.chats');
-  },
-});
+  }
+}

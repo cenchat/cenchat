@@ -1,4 +1,7 @@
 import Route from '@ember/routing/route';
 
-export default Route.extend({
-});
+/**
+ * @namespace Route
+ */
+export default class MyAccountRoute extends Route {
+}

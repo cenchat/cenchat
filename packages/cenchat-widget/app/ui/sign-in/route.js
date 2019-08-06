@@ -4,11 +4,12 @@ import Route from '@ember/routing/route';
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class SignInRoute extends Route {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @override
@@ -17,5 +18,5 @@ export default Route.extend({
     if (this.session.isAuthenticated && !this.session.data.authenticated.user.isAnonymous) {
       window.location.replace('https://cenchat.com');
     }
-  },
-});
+  }
+}

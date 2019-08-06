@@ -1,3 +1,4 @@
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
 
@@ -6,21 +7,24 @@ import firebase from 'firebase';
 /**
  * @namespace Controller
  */
-export default Controller.extend({
+export default class NewController extends Controller {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @param {string} text
    * @function
    */
+  @action
   async handleSendMessageClick(text) {
     if (!this.session.isAuthenticated) {
       await this.signInAnonymously();
@@ -30,7 +34,7 @@ export default Controller.extend({
     const chatId = await this.saveChatAndMessage(currentUser, text);
 
     this.transitionToRoute('site.page.chats.chat', chatId);
-  },
+  }
 
   /**
    * @function
@@ -43,7 +47,7 @@ export default Controller.extend({
 
       return credential;
     });
-  },
+  }
 
   /**
    * @param {Model.User} currentUser
@@ -80,5 +84,5 @@ export default Controller.extend({
     });
 
     return chat.get('id');
-  },
-});
+  }
+}

@@ -3,7 +3,7 @@ import Route from '@ember/routing/route';
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class ChatsRoute extends Route {
   /**
    * @override
    */
@@ -11,5 +11,5 @@ export default Route.extend({
     const page = this.modelFor('site.page');
 
     return page.get('publicChats');
-  },
-});
+  }
+}

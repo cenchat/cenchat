@@ -4,9 +4,10 @@ import Controller from '@ember/controller';
 /**
  * @namespace Controller
  */
-export default Controller.extend({
+export default class PageController extends Controller {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
-});
+  @service('session')
+  session;
+}

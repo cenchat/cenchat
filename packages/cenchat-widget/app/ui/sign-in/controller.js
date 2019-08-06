@@ -1,16 +1,13 @@
-import { computed } from '@ember/object';
 import Controller from '@ember/controller';
 
 /**
  * @namespace Controller
  */
-export default Controller.extend({
+export default class SignInController extends Controller {
   /**
    * @type {string}
    */
-  redirectUrl: computed({
-    get() {
-      return new URL(window.location).searchParams.get('redirect_url');
-    },
-  }),
-});
+  get redirectUrl() {
+    return new URL(window.location).searchParams.get('redirect_url');
+  }
+}
