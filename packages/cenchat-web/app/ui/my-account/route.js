@@ -4,16 +4,18 @@ import Route from '@ember/routing/route';
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class MyAccountRoute extends Route {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @override
@@ -22,5 +24,5 @@ export default Route.extend({
     const { uid } = this.session.data.authenticated.user;
 
     return this.store.findRecord('user', uid);
-  },
-});
+  }
+}

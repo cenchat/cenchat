@@ -1,45 +1,28 @@
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
 
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class Application extends Route {
   /**
    * @type {Ember.Service}
    */
-  firebase: service('firebase'),
-
-  /**
-   * @type {Ember.Service}
-   */
-  session: service('session'),
+  @service('firebase')
+  firebase;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('session')
+  session;
 
   /**
-   * @override
+   * @type {Ember.Service}
    */
-  actions: {
-    /**
-     * @override
-     */
-    loading(transition) {
-      let controller;
-
-      try {
-        controller = this.controllerFor('application');
-
-        controller.set('isScrimVisible', true);
-        transition.promise.finally(() => controller.set('isScrimVisible', false));
-      } catch (error) {
-        // Do nothing
-      }
-    },
-  },
+  @service('store')
+  store;
 
   /**
    * @override
@@ -48,7 +31,7 @@ export default Route.extend({
     if (!this.session.isAuthenticated) {
       this.transitionTo('sign-in');
     }
-  },
+  }
 
   /**
    * @override
@@ -61,7 +44,7 @@ export default Route.extend({
     }
 
     this.hideSplashScreen();
-  },
+  }
 
   /**
    * @override
@@ -70,7 +53,24 @@ export default Route.extend({
     if (this.session.isAuthenticated && transition.targetName === 'index') {
       this.transitionTo('chats');
     }
-  },
+  }
+
+  /**
+   * @override
+   */
+  @action
+  loading(transition) {
+    let controller;
+
+    try {
+      controller = this.controllerFor('application');
+
+      controller.set('isScrimVisible', true);
+      transition.promise.finally(() => controller.set('isScrimVisible', false));
+    } catch (error) {
+      // Do nothing
+    }
+  }
 
   /**
    * @function
@@ -99,7 +99,7 @@ export default Route.extend({
         // Do nothing
       }
     }
-  },
+  }
 
   /**
    * @function
@@ -110,5 +110,5 @@ export default Route.extend({
     if (splashScreenElement) {
       splashScreenElement.classList.add('splash-screen--loaded');
     }
-  },
-});
+  }
+}

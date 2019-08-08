@@ -4,30 +4,31 @@ import Component from '@ember/component';
 /**
  * @namespace Component
  */
-export default Component.extend({
+export default class MainContentComponent extends Component {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @override
    */
-  tagName: '',
+  tagName = '';
 
   /**
    * @type {boolean}
    */
-  isAdmin: false,
+  isAdmin = false;
 
   /**
    * @override
    */
   init(...args) {
-    this._super(...args);
+    super.init(...args);
 
     this.setupIsAdmin();
-  },
+  }
 
   /**
    * @function
@@ -36,5 +37,5 @@ export default Component.extend({
     const { uid: currentUserId } = this.session.data.authenticated.user;
 
     this.set('isAdmin', await this.args.site.isAdmin(currentUserId));
-  },
-});
+  }
+}

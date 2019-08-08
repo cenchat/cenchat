@@ -1,3 +1,4 @@
+import { action } from '@ember/object';
 import { getOwner } from '@ember/application';
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
@@ -8,51 +9,56 @@ import toast from '@cenchat/ui/utils/toast';
 /**
  * @namespace Controller
  */
-export default Controller.extend({
+export default class MembersController extends Controller {
   /**
    * @type {Ember.Service}
    */
-  firebase: service('firebase'),
+  @service('firebase')
+  firebase;
 
   /**
    * @type {Ember.Service}
    */
-  router: service('router'),
+  @service('router')
+  router;
 
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @type {Object}
    */
-  pendingRoleChange: {
+  pendingRoleChange = {
     admins: [],
     moderators: [],
     none: [],
-  },
+  };
 
   /**
    * @type {Array.<Model.User>}
    */
-  searchedUsers: [],
+  searchedUsers = [];
 
   /**
    * @type {string}
    */
-  latestSearchUserQuery: null,
+  latestSearchUserQuery = null;
 
   /**
    * @param {Model.User} user
    * @param {string} role
    * @function
    */
+  @action
   handleRoleChange(user, role) {
     const newPendingRoleChange = { ...this.pendingRoleChange };
 
@@ -68,11 +74,12 @@ export default Controller.extend({
     }
 
     this.set('pendingRoleChange', newPendingRoleChange);
-  },
+  }
 
   /**
    * @override
    */
+  @action
   async handleSaveRolesClick() {
     const config = getOwner(this).resolveRegistration('config:environment');
     const token = await this.session.data.authenticated.user.getIdToken();
@@ -104,12 +111,13 @@ export default Controller.extend({
 
       toast(data);
     }
-  },
+  }
 
   /**
    * @param {string} query
    * @function
    */
+  @action
   async handleSearchUserInput(query) {
     this.set('latestSearchUserQuery', query);
 
@@ -130,7 +138,7 @@ export default Controller.extend({
 
       this.set('searchedUsers', searchedUsers);
     }
-  },
+  }
 
   /**
    * @param {Model.User} user
@@ -139,7 +147,7 @@ export default Controller.extend({
    */
   isMember(user) {
     return this.model.admins.includes(user) || this.model.moderators.includes(user);
-  },
+  }
 
   /**
    * @param {string} role
@@ -148,5 +156,5 @@ export default Controller.extend({
    */
   isInRole(role, user) {
     return this.model[role].includes(user);
-  },
-});
+  }
+}

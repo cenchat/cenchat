@@ -1,4 +1,4 @@
-import { computed } from '@ember/object';
+import { action, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
 
@@ -7,45 +7,48 @@ import toast from '@cenchat/ui/utils/toast';
 /**
  * @namespace Controller
  */
-export default Controller.extend({
+export default class UpdateController extends Controller {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @type {Object}
    */
-  pendingProfileChange: { displayUsername: null },
+  pendingProfileChange = { displayUsername: null };
 
   /**
    * @type {boolean}
    */
-  hasPendingProfileChanges: computed('pendingProfileChange', {
-    get() {
-      return (
-        this.pendingProfileChange.displayUsername !== null
-        && this.pendingProfileChange.displayUsername.trim()
-      );
-    },
-  }),
+  @computed('pendingProfileChange')
+  get hasPendingProfileChanges() {
+    return (
+      this.pendingProfileChange.displayUsername !== null
+      && this.pendingProfileChange.displayUsername.trim()
+    );
+  }
 
   /**
    * @param {Object} data
    * @function
    */
+  @action
   handleProfileUpdateEvent(data) {
     this.set('pendingProfileChange', { ...this.pendingProfileChange, ...data });
-  },
+  }
 
   /**
    * @function
    */
+  @action
   async handleProfileFormSubmit() {
     const { displayUsername: newDisplayUsername } = this.pendingProfileChange;
     const newUsername = newDisplayUsername.toLowerCase();
@@ -76,5 +79,5 @@ export default Controller.extend({
         toast(error.message);
       }
     }
-  },
-});
+  }
+}

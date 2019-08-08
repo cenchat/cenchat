@@ -1,43 +1,47 @@
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 
 /**
  * @namespace Component
  */
-export default Component.extend({
+export default class MainContentComponent extends Component {
   /**
    * @type {Ember.Service}
    */
-  firebase: service('firebase'),
+  @service('firebase')
+  firebase;
 
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @override
    */
-  tagName: '',
+  tagName = '';
 
   /**
    * @type {number}
    */
-  currentLimit: null,
+  currentLimit = null;
 
   /**
    * @override
    */
   init(...args) {
-    this._super(...args);
+    super.init(...args);
 
     this.set('currentLimit', this.args.chat.get('hasManyLimit.descendingMessages'));
     this.markChatAsRead();
-  },
+  }
 
   /**
    * @function
    */
+  @action
   async handleLoadMoreContentEvent() {
     const currentLimit = this.args.chat.get('hasManyLimit.descendingMessages');
 
@@ -48,14 +52,15 @@ export default Component.extend({
     });
 
     await this.args.chat.get(this.field).reload();
-  },
+  }
 
   /**
    * @function
    */
+  @action
   async handleScrollToBottom() {
     await this.markChatAsRead();
-  },
+  }
 
   /**
    * @function
@@ -78,5 +83,5 @@ export default Component.extend({
 
       this.args.chat.set('cacheBusterForIsUnread', randomString);
     }
-  },
-});
+  }
+}

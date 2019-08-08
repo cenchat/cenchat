@@ -4,23 +4,25 @@ import Route from '@ember/routing/route';
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class SiteRoute extends Route {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @override
    */
   model(params) {
     return this.store.findRecord('site', params.site_id);
-  },
+  }
 
   /**
    * @override
@@ -32,5 +34,5 @@ export default Route.extend({
     if (!isMember) {
       this.transitionTo('sites');
     }
-  },
-});
+  }
+}

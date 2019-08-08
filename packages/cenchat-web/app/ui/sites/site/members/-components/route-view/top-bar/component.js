@@ -1,22 +1,24 @@
 import { computed } from '@ember/object';
 import Component from '@ember/component';
 
-export default Component.extend({
+/**
+ * @namespace Component
+ */
+export default class TopBarComponent extends Component {
   /**
    * @override
    */
-  tagName: '',
+  tagName = '';
 
   /**
    * @type {boolean}
    */
-  isSaveDisabled: computed('args', {
-    get() {
-      const arrayWithValues = Object.keys(this.args.pendingRoleChange).find(key => (
-        this.args.pendingRoleChange[key].length > 0
-      ));
+  @computed('args')
+  get isSaveDisabled() {
+    const arrayWithValues = Object.keys(this.args.pendingRoleChange).find(key => (
+      this.args.pendingRoleChange[key].length > 0
+    ));
 
-      return !arrayWithValues;
-    },
-  }),
-});
+    return !arrayWithValues;
+  }
+}

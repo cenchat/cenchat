@@ -4,21 +4,24 @@ import Route from '@ember/routing/route';
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class ChatsRoute extends Route {
   /**
    * @type {Ember.Service}
    */
-  firebase: service('firebase'),
+  @service('firebase')
+  firebase;
 
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @override
@@ -28,5 +31,5 @@ export default Route.extend({
     const user = await this.store.findRecord('user', uid);
 
     return user.get('latestActiveChats');
-  },
-});
+  }
+}

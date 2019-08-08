@@ -4,31 +4,31 @@ import EmberObject from '@ember/object';
 /**
  * @namespace Component
  */
-export default Component.extend({
+export default class SiteFormPreviewComponent extends Component {
   /**
    * @override
    */
-  tagName: 'section',
+  tagName = 'section';
 
   /**
    * @override
    */
-  classNames: ['site-form-preview'],
+  classNames = ['site-form-preview'];
 
   /**
    * @override
    */
-  classNameBindings: ['args.theme'],
+  classNameBindings = ['args.theme'];
 
   /**
    * @type {string}
    */
-  'data-test-site-form-preview': 'host',
+  'data-test-site-form-preview' = 'host';
 
   /**
    * @type {Array.<Object>}
    */
-  previewMessages: [
+  previewMessages = [
     EmberObject.create({
       author: EmberObject.create({ id: 'johndoe', displayUsername: 'JohnDoe', isLoaded: true }),
       chat: EmberObject.create({
@@ -47,29 +47,29 @@ export default Component.extend({
       isNew: false,
       text: 'Yes, dark theme is supported. :)',
     }),
-  ],
+  ];
 
   /**
    * @override
    */
   didInsertElement(...args) {
-    this._super(...args);
+    super.didInsertElement(...args);
 
     this.element.querySelector('.site-form-preview__card').style.setProperty(
       '--brand-color',
       this.args.brandColor,
     );
-  },
+  }
 
   /**
    * @override
    */
   didUpdate(...args) {
-    this._super(...args);
+    super.didUpdate(...args);
 
     this.element.querySelector('.site-form-preview__card').style.setProperty(
       '--brand-color',
       this.args.brandColor,
     );
-  },
-});
+  }
+}
