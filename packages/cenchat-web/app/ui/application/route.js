@@ -5,7 +5,7 @@ import Route from '@ember/routing/route';
 /**
  * @namespace Route
  */
-export default class Application extends Route {
+export default class ApplicationRoute extends Route {
   /**
    * @type {Ember.Service}
    */
