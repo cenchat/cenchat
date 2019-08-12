@@ -18,3 +18,15 @@ Installation
 ```
 lerna add @cenchat/esw --scope <package> --dev
 ```
+
+
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [GPL-3.0](../../LICENSE).
