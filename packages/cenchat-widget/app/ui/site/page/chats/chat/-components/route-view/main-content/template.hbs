@@ -4,7 +4,7 @@
     data-test-main-content="host"
     @isReversed="true"
     @isAbleToLoadMoreContent={{if (lte this.currentLimit @chat.reverseDescendingMessages.length) true false}}
-    @onLoadMoreContentEvent={{action this.handleLoadMoreContentEvent}}
+    @onLoadMoreContentEvent={{fn this.handleLoadMoreContentEvent}}
     ...attributes
   >
     <MessageList @messages={{@chat.reverseDescendingMessages}} />
@@ -15,7 +15,7 @@
     class="site-page-chats-chat_route-view-main-content side-sheet__content"
     data-test-main-content="host"
     @isAbleToLoadMoreContent={{if (lte this.currentLimit @chat.messages.length) true false}}
-    @onLoadMoreContentEvent={{action this.handleLoadMoreContentEvent}}
+    @onLoadMoreContentEvent={{fn this.handleLoadMoreContentEvent}}
     ...attributes
   >
     <MessageList @messages={{@chat.messages}} />

@@ -3,7 +3,7 @@
     class="site-page-sign-in__card"
     @isAnonymousSignInAllowed={{true}}
     @redirectUrl={{this.redirectUrl}}
-    @onAfterSignInEvent={{action this.handleAfterSignInEvent}}
+    @onAfterSignInEvent={{fn this.handleAfterSignInEvent}}
   />
 
   {{outlet}}

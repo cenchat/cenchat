@@ -17,7 +17,7 @@
   <article class="card">
     <ul class="list">
       <li class="list__item">
-        <button class="list__action" onclick={{action this.handleSignOutClick}}></button>
+        <button class="list__action" {{on "click" this.handleSignOutClick}}></button>
         <CenIcon @class="list__icon" @icon="sign-out-alt" />
         <div class="list__single-line-content">Sign out</div>
       </li>
