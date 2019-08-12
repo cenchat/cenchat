@@ -19,7 +19,7 @@ module('Integration | Component | message-list-item', function (hooks) {
     this.set('messageGroup', {
       author: messageA.get('author'),
       timestamp: messageA.get('createdOn'),
-      messages: new A([messageA, messageB]),
+      messages: A([messageA, messageB]),
     });
   });
 
