@@ -1,3 +1,4 @@
+import { action } from '@ember/object';
 import Controller from '@ember/controller';
 
 import toast from '@cenchat/ui/utils/toast';
@@ -5,21 +6,22 @@ import toast from '@cenchat/ui/utils/toast';
 /**
  * @namespace Controller
  */
-export default Controller.extend({
+export default class UpdateController extends Controller {
   /**
    * @type {Object}
    */
-  newSiteData: null,
+  newSiteData = null;
 
   /**
    * @type {boolean}
    */
-  hasPendingSiteChanges: false,
+  hasPendingSiteChanges = false;
 
   /**
    * @param {Object} data
    * @function
    */
+  @action
   handleSiteUpdateEvent(data) {
     if (!this.newSiteData) {
       this.set('newSiteData', {
@@ -32,11 +34,12 @@ export default Controller.extend({
 
     this.set('newSiteData', { ...this.newSiteData, ...data });
     this.set('hasPendingSiteChanges', true);
-  },
+  }
 
   /**
    * @function
    */
+  @action
   async handleSiteFormSubmit() {
     this.model.setProperties({
       ...this.newSiteData,
@@ -51,5 +54,5 @@ export default Controller.extend({
     } catch (error) {
       toast(error.message);
     }
-  },
-});
+  }
+}

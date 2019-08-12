@@ -1,30 +1,38 @@
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 
 /**
  * @namespace Component
  */
-export default Component.extend({
+export default class RouteViewComponent extends Component {
   /**
    * @type {Ember.Service}
    */
-  firebase: service('firebase'),
+  @service('firebase')
+  firebase;
 
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @override
    */
-  tagName: '',
+  tagName = '';
 
+  /**
+   * @param  {...any} args
+   * @function
+   */
+  @action
   async handleSendMessageClick(...args) {
     const element = document.querySelector('#chats-chat_route-view__main-content');
 
     element.scrollTop = element.scrollHeight;
 
     await this.onSendMessageEvent(...args);
-  },
-});
+  }
+}

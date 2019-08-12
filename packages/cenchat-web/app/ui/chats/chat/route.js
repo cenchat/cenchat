@@ -4,28 +4,31 @@ import Route from '@ember/routing/route';
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class ChatRoute extends Route {
   /**
    * @type {Ember.Service}
    */
-  firebase: service('firebase'),
+  @service('firebase')
+  firebase;
 
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @type {Ember.Service}
    */
-  store: service('store'),
+  @service('store')
+  store;
 
   /**
    * @override
    */
   model(params) {
     return this.store.findRecord('chat', params.chat_id);
-  },
+  }
 
   /**
    * @override
@@ -33,5 +36,5 @@ export default Route.extend({
   async afterModel(model) {
     // Preload site and page
     await Promise.all([model.get('site'), model.get('page')]);
-  },
-});
+  }
+}

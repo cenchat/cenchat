@@ -4,11 +4,12 @@ import Route from '@ember/routing/route';
 /**
  * @namespace Route
  */
-export default Route.extend({
+export default class UpdateRoute extends Route {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @override
@@ -21,12 +22,12 @@ export default Route.extend({
     if (!isAdmin) {
       this.transitionTo('sites.site');
     }
-  },
+  }
 
   /**
    * @override
    */
   model() {
     return this.modelFor('sites.site');
-  },
-});
+  }
+}

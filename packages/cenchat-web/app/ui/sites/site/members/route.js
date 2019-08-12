@@ -4,11 +4,12 @@ import Route from '@ember/routing/route';
 /**
  * @namespace
  */
-export default Route.extend({
+export default class MembersRoute extends Route {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @override
@@ -21,7 +22,7 @@ export default Route.extend({
     if (!isAdmin) {
       this.transitionTo('sites.site');
     }
-  },
+  }
 
   /**
    * @override
@@ -31,5 +32,5 @@ export default Route.extend({
     const [admins, moderators] = await Promise.all([site.get('admins'), site.get('moderators')]);
 
     return { admins, moderators };
-  },
-});
+  }
+}

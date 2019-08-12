@@ -4,14 +4,15 @@ import Component from '@ember/component';
 /**
  * @namespace Component
  */
-export default Component.extend({
+export default class TopBarComponent extends Component {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @override
    */
-  tagName: '',
-});
+  tagName = '';
+}

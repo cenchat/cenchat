@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module'
@@ -19,6 +20,14 @@ module.exports = {
   rules: {
   },
   overrides: [
+    // route files
+    {
+      files: ['**/*/component.js', '**/*/controller.js', '**/*/route.js'],
+      rules: {
+        'class-methods-use-this': 'off',
+      },
+    },
+
     // node files
     {
       files: [

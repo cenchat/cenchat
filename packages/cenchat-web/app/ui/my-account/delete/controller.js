@@ -1,3 +1,4 @@
+import { action } from '@ember/object';
 import { getOwner } from '@ember/application';
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
@@ -7,15 +8,17 @@ import fetch from 'fetch';
 /**
  * @namespace Controller
  */
-export default Controller.extend({
+export default class DeleteController extends Controller {
   /**
    * @type {Ember.Service}
    */
-  session: service('session'),
+  @service('session')
+  session;
 
   /**
    * @function
    */
+  @action
   async handleDeleteAccountFormSubmit() {
     const config = getOwner(this).resolveRegistration('config:environment');
     const token = await this.session.data.authenticated.user.getIdToken();
@@ -32,5 +35,5 @@ export default Controller.extend({
     if (config.environment !== 'test') {
       window.location.replace('https://cenchat.com');
     }
-  },
-});
+  }
+}
