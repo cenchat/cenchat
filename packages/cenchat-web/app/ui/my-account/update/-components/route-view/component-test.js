@@ -28,8 +28,8 @@ module('Integration | Component | my-account/update/-components/route-view', fun
       {{my-account/update/-components/route-view
         user=this.user
         hasPendingProfileChanges=this.hasPendingProfileChanges
-        onProfileUpdateEvent=(action this.onProfileUpdateEvent)
-        onProfileFormSubmit=(action this.onProfileFormSubmit)
+        onProfileUpdateEvent=(fn this.onProfileUpdateEvent)
+        onProfileFormSubmit=(fn this.onProfileFormSubmit)
       }}
     `);
 
@@ -45,8 +45,8 @@ module('Integration | Component | my-account/update/-components/route-view', fun
       {{my-account/update/-components/route-view
         user=this.user
         hasPendingProfileChanges=this.hasPendingProfileChanges
-        onProfileUpdateEvent=(action this.onProfileUpdateEvent)
-        onProfileFormSubmit=(action this.onProfileFormSubmit)
+        onProfileUpdateEvent=(fn this.onProfileUpdateEvent)
+        onProfileFormSubmit=(fn this.onProfileFormSubmit)
       }}
     `);
 

@@ -1,6 +1,6 @@
 <main class="sign-in">
   <div class="sign-in__container">
-    <SignInCard class="sign-in__card" @onAfterSignInEvent={{action this.handleAfterSignInEvent}} />
+    <SignInCard class="sign-in__card" @onAfterSignInEvent={{fn this.handleAfterSignInEvent}} />
   </div>
 
   {{outlet}}

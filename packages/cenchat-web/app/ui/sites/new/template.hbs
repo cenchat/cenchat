@@ -2,8 +2,8 @@
 
 <RouteView
   @hasPendingSiteChanges={{this.hasPendingSiteChanges}}
-  @onSiteUpdateEvent={{action this.handleSiteUpdateEvent}}
-  @onSiteFormSubmit={{action this.handleSiteFormSubmit}}
+  @onSiteUpdateEvent={{fn this.handleSiteUpdateEvent}}
+  @onSiteFormSubmit={{fn this.handleSiteFormSubmit}}
 >
   {{outlet}}
 </RouteView>

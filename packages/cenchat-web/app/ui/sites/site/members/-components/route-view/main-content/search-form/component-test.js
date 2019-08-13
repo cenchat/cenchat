@@ -27,8 +27,8 @@ module('Integration | Component | sites/site/members/-components/route-view/main
     await render(hbs`
       {{sites/site/members/-components/route-view/main-content/search-form
         searchedUsers=this.searchedUsers
-        onRoleChange=(action this.onRoleChange)
-        onSearchUserInput=(action this.onSearchUserInput)
+        onRoleChange=(fn this.onRoleChange)
+        onSearchUserInput=(fn this.onSearchUserInput)
       }}
     `);
 
@@ -46,8 +46,8 @@ module('Integration | Component | sites/site/members/-components/route-view/main
     await render(hbs`
       {{sites/site/members/-components/route-view/main-content/search-form
         searchedUsers=this.searchedUsers
-        onRoleChange=(action this.onRoleChange)
-        onSearchUserInput=(action this.onSearchUserInput)
+        onRoleChange=(fn this.onRoleChange)
+        onSearchUserInput=(fn this.onSearchUserInput)
       }}
     `);
     await fillIn('[data-test-search-form="user"] input', 'user_a');

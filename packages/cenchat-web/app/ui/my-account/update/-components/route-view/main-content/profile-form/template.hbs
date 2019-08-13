@@ -2,7 +2,7 @@
   <CenForm
     class="card__form"
     id="my-account-profile_route-view-main-content-profile-form"
-    @onSubmit={{action this.onProfileFormSubmit}}
+    @onSubmit={{fn this.onProfileFormSubmit}}
   >
     <CenInput
       data-test-profile-form="display-username"
@@ -14,7 +14,7 @@
       value={{@user.displayUsername}}
       required="true"
       @label="Username"
-      @onInput={{action this.handleDisplayUsernameInput}}
+      @onInput={{fn this.handleDisplayUsernameInput}}
     />
   </CenForm>
 </div>

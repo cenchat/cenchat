@@ -6,7 +6,11 @@
   </div>
 
   <div class="sites-site-members_route-view-main-content-message-list-item__role-dropdown">
-    <select data-test-member-list-item="role-field" value={{@type}} onchange={{action @onRoleChange value="target.value"}}>
+    <select
+      data-test-member-list-item="role-field"
+      value={{@type}}
+      {{on "change" (fn @onRoleChange)}}
+    >
       <option value="none">None</option>
       <option value="admins" selected={{eq @type "admin"}}>Admin</option>
       <option value="moderators" selected={{eq @type "moderator"}}>Moderator</option>

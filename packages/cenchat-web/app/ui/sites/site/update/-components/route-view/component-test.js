@@ -28,8 +28,8 @@ module('Integration | Component | sites/site/update/-components/route-view', fun
       {{sites/site/update/-components/route-view
         site=this.site
         hasPendingSiteChanges=this.hasPendingSiteChanges
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
 
@@ -45,8 +45,8 @@ module('Integration | Component | sites/site/update/-components/route-view', fun
       {{sites/site/update/-components/route-view
         site=this.site
         hasPendingSiteChanges=this.hasPendingSiteChanges
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
 

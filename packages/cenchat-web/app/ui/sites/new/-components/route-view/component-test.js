@@ -23,8 +23,8 @@ module('Integration | Component | sites/new/-components/route-view', function (h
     await render(hbs`
       {{sites/new/-components/route-view
         hasPendingSiteChanges=this.hasPendingSiteChanges
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
 
@@ -39,8 +39,8 @@ module('Integration | Component | sites/new/-components/route-view', function (h
     await render(hbs`
       {{sites/new/-components/route-view
         hasPendingSiteChanges=this.hasPendingSiteChanges
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
 

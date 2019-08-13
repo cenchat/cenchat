@@ -9,8 +9,8 @@
 
       <SearchForm
         @searchedUsers={{@searchedUsers}}
-        @onRoleChange={{action @onRoleChange}}
-        @onSearchUserInput={{action @onSearchUserInput}}
+        @onRoleChange={{fn @onRoleChange}}
+        @onSearchUserInput={{fn @onSearchUserInput}}
       />
     </section>
 
@@ -23,7 +23,7 @@
         <h5 class="card__heading card__heading--small">Admins</h5>
         <p class="card__subheading">Can manage all aspects of the Site. They can publicize and respond to chats, manage the members, and update the Site info.</p>
 
-        <MemberList @members={{@admins}} @type="admin" @onRoleChange={{action @onRoleChange}} />
+        <MemberList @members={{@admins}} @type="admin" @onRoleChange={{fn @onRoleChange}} />
       </article>
 
       {{#if @moderators}}
@@ -32,7 +32,7 @@
           <p class="card__subheading">Can publicize and respond to chats</p>
 
           <div class="card">
-            <MemberList @members={{@moderators}} @type="moderator" @onRoleChange={{action @onRoleChange}} />
+            <MemberList @members={{@moderators}} @type="moderator" @onRoleChange={{fn @onRoleChange}} />
           </div>
         </article>
       {{/if}}

@@ -1,7 +1,7 @@
 {{import TopBar from "./top-bar"}}
 {{import MainContent from "./main-content"}}
 
-<TopBar @onSignOutClick={{action @onSignOutClick}} />
+<TopBar @onSignOutClick={{fn @onSignOutClick}} />
 
 <MainContent @user={{@user}}>
   {{yield}}

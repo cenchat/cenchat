@@ -32,8 +32,8 @@ module('Integration | Component | sites/site/members/-components/route-view/main
         admins=this.admins
         moderators=this.moderators
         searchedUsers=this.searchedUsers
-        onRoleChange=(action this.onRoleChange)
-        onSearchUserInput=(action this.onSearchUserInput)
+        onRoleChange=(fn this.onRoleChange)
+        onSearchUserInput=(fn this.onSearchUserInput)
       }}
     `);
 
@@ -50,8 +50,8 @@ module('Integration | Component | sites/site/members/-components/route-view/main
         admins=this.admins
         moderators=this.moderators
         searchedUsers=this.searchedUsers
-        onRoleChange=(action this.onRoleChange)
-        onSearchUserInput=(action this.onSearchUserInput)
+        onRoleChange=(fn this.onRoleChange)
+        onSearchUserInput=(fn this.onSearchUserInput)
       }}
     `);
 
@@ -68,8 +68,8 @@ module('Integration | Component | sites/site/members/-components/route-view/main
         admins=this.admins
         moderators=this.moderators
         searchedUsers=this.searchedUsers
-        onRoleChange=(action this.onRoleChange)
-        onSearchUserInput=(action this.onSearchUserInput)
+        onRoleChange=(fn this.onRoleChange)
+        onSearchUserInput=(fn this.onSearchUserInput)
       }}
     `);
 
@@ -89,8 +89,8 @@ module('Integration | Component | sites/site/members/-components/route-view/main
         admins=this.admins
         moderators=this.moderators
         searchedUsers=this.searchedUsers
-        onRoleChange=(action this.onRoleChange)
-        onSearchUserInput=(action this.onSearchUserInput)
+        onRoleChange=(fn this.onRoleChange)
+        onSearchUserInput=(fn this.onSearchUserInput)
       }}
     `);
 

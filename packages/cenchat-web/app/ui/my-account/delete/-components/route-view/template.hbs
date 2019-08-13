@@ -12,7 +12,7 @@
     <h3>Delete account</h3>
   </CenTopBar>
 
-  <MainContent @onDeleteAccountFormSubmit={{action @onDeleteAccountFormSubmit}}>
+  <MainContent @onDeleteAccountFormSubmit={{fn @onDeleteAccountFormSubmit}}>
     {{yield}}
   </MainContent>
 </SideSheet>

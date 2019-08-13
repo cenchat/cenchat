@@ -30,7 +30,7 @@ module('Integration | Component | sites/site/members/-components/route-view/top-
     await render(hbs`
       {{sites/site/members/-components/route-view/top-bar
         pendingRoleChange=this.pendingRoleChange
-        onSaveRolesClick=(action this.onSaveRolesClick)
+        onSaveRolesClick=(fn this.onSaveRolesClick)
       }}
     `);
 
@@ -45,7 +45,7 @@ module('Integration | Component | sites/site/members/-components/route-view/top-
     await render(hbs`
       {{sites/site/members/-components/route-view/top-bar
         pendingRoleChange=this.pendingRoleChange
-        onSaveRolesClick=(action this.onSaveRolesClick)
+        onSaveRolesClick=(fn this.onSaveRolesClick)
       }}
     `);
 
@@ -69,7 +69,7 @@ module('Integration | Component | sites/site/members/-components/route-view/top-
     await render(hbs`
       {{sites/site/members/-components/route-view/top-bar
         pendingRoleChange=this.pendingRoleChange
-        onSaveRolesClick=(action this.onSaveRolesClick)
+        onSaveRolesClick=(fn this.onSaveRolesClick)
       }}
     `);
     await click('[data-test-top-bar="save-button"]');

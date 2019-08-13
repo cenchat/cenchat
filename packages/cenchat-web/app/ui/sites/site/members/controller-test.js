@@ -31,7 +31,7 @@ module('Unit | Controller | sites/site/members', function (hooks) {
     controller.set('model', this.model);
 
     // Act
-    controller.handleRoleChange(user, 'admins');
+    controller.handleRoleChange(user, { target: { value: 'admins' } });
 
     // Arrange
     assert.deepEqual(controller.pendingRoleChange, {
@@ -52,7 +52,7 @@ module('Unit | Controller | sites/site/members', function (hooks) {
     controller.set('model', this.model);
 
     // Act
-    controller.handleRoleChange(user, 'moderators');
+    controller.handleRoleChange(user, { target: { value: 'moderators' } });
 
     // Arrange
     assert.deepEqual(controller.pendingRoleChange, {
@@ -73,7 +73,7 @@ module('Unit | Controller | sites/site/members', function (hooks) {
     controller.set('model', this.model);
 
     // Act
-    controller.handleRoleChange(user, 'none');
+    controller.handleRoleChange(user, { target: { value: 'none' } });
 
     // Arrange
     assert.deepEqual(controller.pendingRoleChange, {
@@ -94,7 +94,7 @@ module('Unit | Controller | sites/site/members', function (hooks) {
     controller.set('model', this.model);
 
     // Act
-    controller.handleRoleChange(user, 'admins');
+    controller.handleRoleChange(user, { target: { value: 'admins' } });
 
     // Arrange
     assert.deepEqual(controller.pendingRoleChange, {
@@ -115,7 +115,7 @@ module('Unit | Controller | sites/site/members', function (hooks) {
     controller.set('model', this.model);
 
     // Act
-    controller.handleRoleChange(user, 'moderators');
+    controller.handleRoleChange(user, { target: { value: 'moderators' } });
 
     // Arrange
     assert.deepEqual(controller.pendingRoleChange, {
@@ -136,7 +136,7 @@ module('Unit | Controller | sites/site/members', function (hooks) {
     controller.set('model', this.model);
 
     // Act
-    controller.handleRoleChange(user, 'none');
+    controller.handleRoleChange(user, { target: { value: 'none' } });
 
     // Arrange
     assert.deepEqual(controller.pendingRoleChange, {

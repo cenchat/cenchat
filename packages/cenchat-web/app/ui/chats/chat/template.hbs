@@ -2,8 +2,8 @@
 
 <RouteView
   @chat={{this.model}}
-  @onSendMessageEvent={{action this.handleSendMessageEvent}}
-  @onToggleChatVisibilityClick={{action this.handleToggleChatVisibilityClick}}
+  @onSendMessageEvent={{fn this.handleSendMessageEvent}}
+  @onToggleChatVisibilityClick={{fn this.handleToggleChatVisibilityClick}}
 >
   {{outlet}}
 </RouteView>

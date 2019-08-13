@@ -3,12 +3,12 @@
 {{import MainContent from "./main-content"}}
 
 <SideSheet class="liquid-fire-side-sheet" data-test-route-view={{@chat.id}}>
-  <TopBar @chat={{@chat}} @onToggleChatVisibilityClick={{action @onToggleChatVisibilityClick}} />
+  <TopBar @chat={{@chat}} @onToggleChatVisibilityClick={{fn @onToggleChatVisibilityClick}} />
   <AsideContent @chat={{@chat}} />
 
   <MainContent id="chats-chat_route-view__main-content" @chat={{@chat}}>
     {{yield}}
   </MainContent>
 
-  <ChatComposer class="chats-chat-route-view__toolbar" @onSendMessageClick={{action this.handleSendMessageClick}} />
+  <ChatComposer class="chats-chat-route-view__toolbar" @onSendMessageClick={{fn this.handleSendMessageClick}} />
 </SideSheet>

@@ -20,7 +20,7 @@
       title="Make chat not visible to everyone"
       aria-label="Make chat not visible to everyone"
       @icon="unlock"
-      @onClick={{action @onToggleChatVisibilityClick false}}
+      @onClick={{fn @onToggleChatVisibilityClick false}}
     />
   {{else}}
     <CenIconButton
@@ -28,7 +28,7 @@
       title="Make chat visible to everyone"
       aria-label="Make chat visible to everyone"
       @icon="lock"
-      @onClick={{action @onToggleChatVisibilityClick true}}
+      @onClick={{fn @onToggleChatVisibilityClick true}}
     />
   {{/if}}
 </CenTopBar>

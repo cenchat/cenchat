@@ -35,9 +35,9 @@ module('Integration | Component | sites/site/members/-components/route-view', fu
         moderators=this.moderators
         pendingRoleChange=this.pendingRoleChange
         searchedUsers=this.searchedUsers
-        onRoleChange=(action this.onRoleChange)
-        onSearchUserInput=(action this.onSearchUserInput)
-        onSaveRolesClick=(action this.onSaveRolesClick)
+        onRoleChange=(fn this.onRoleChange)
+        onSearchUserInput=(fn this.onSearchUserInput)
+        onSaveRolesClick=(fn this.onSaveRolesClick)
       }}
     `);
 
@@ -55,9 +55,9 @@ module('Integration | Component | sites/site/members/-components/route-view', fu
         moderators=this.moderators
         pendingRoleChange=this.pendingRoleChange
         searchedUsers=this.searchedUsers
-        onRoleChange=(action this.onRoleChange)
-        onSearchUserInput=(action this.onSearchUserInput)
-        onSaveRolesClick=(action this.onSaveRolesClick)
+        onRoleChange=(fn this.onRoleChange)
+        onSearchUserInput=(fn this.onSearchUserInput)
+        onSaveRolesClick=(fn this.onSaveRolesClick)
       }}
     `);
 

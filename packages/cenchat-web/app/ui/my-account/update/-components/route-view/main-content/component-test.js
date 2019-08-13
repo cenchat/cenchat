@@ -24,7 +24,7 @@ module('Integration | Component | my-account/update/-components/route-view/main-
 
     // Act
     await render(hbs`
-      {{my-account/update/-components/route-view/main-content user=this.user onProfileUpdateEvent=(action this.onProfileUpdateEvent) onProfileFormSubmit=(action this.onProfileFormSubmit)}}
+      {{my-account/update/-components/route-view/main-content user=this.user onProfileUpdateEvent=(fn this.onProfileUpdateEvent) onProfileFormSubmit=(fn this.onProfileFormSubmit)}}
     `);
 
     // Assert

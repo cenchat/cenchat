@@ -27,7 +27,7 @@ module('Integration | Component | site/page/chats/chat/-components/route-view', 
     });
 
     // Act
-    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(fn this.onSendMessageEvent)}}`);
 
     // Assert
     assert.dom('[data-test-route-view="anonymous-banner"]').exists();
@@ -42,7 +42,7 @@ module('Integration | Component | site/page/chats/chat/-components/route-view', 
     });
 
     // Act
-    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(fn this.onSendMessageEvent)}}`);
 
     // Assert
     assert.dom('[data-test-route-view="anonymous-banner"]').doesNotExist();
@@ -57,7 +57,7 @@ module('Integration | Component | site/page/chats/chat/-components/route-view', 
     });
 
     // Act
-    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(fn this.onSendMessageEvent)}}`);
 
     // Assert
     assert.dom('[data-test-route-view="anonymous-banner"]').doesNotExist();
@@ -72,7 +72,7 @@ module('Integration | Component | site/page/chats/chat/-components/route-view', 
     });
 
     // Act
-    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(fn this.onSendMessageEvent)}}`);
 
     // Assert
     assert.dom('[data-test-main-content="host"]').exists();
@@ -87,7 +87,7 @@ module('Integration | Component | site/page/chats/chat/-components/route-view', 
     });
 
     // Act
-    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(fn this.onSendMessageEvent)}}`);
 
     // Assert
     assert.dom('[data-test-chat-composer="host"]').exists();
@@ -102,7 +102,7 @@ module('Integration | Component | site/page/chats/chat/-components/route-view', 
     });
 
     // Act
-    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(fn this.onSendMessageEvent)}}`);
 
     // Assert
     assert.dom('[data-test-chat-composer="host"]').exists();
@@ -117,7 +117,7 @@ module('Integration | Component | site/page/chats/chat/-components/route-view', 
     });
 
     // Act
-    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(fn this.onSendMessageEvent)}}`);
 
     // Assert
     assert.dom('[data-test-chat-composer="host"]').doesNotExist();
@@ -132,7 +132,7 @@ module('Integration | Component | site/page/chats/chat/-components/route-view', 
     });
 
     // Act
-    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(fn this.onSendMessageEvent)}}`);
 
     // Assert
     assert.dom('[data-test-route-view="composer-disabled"]').exists();
@@ -147,7 +147,7 @@ module('Integration | Component | site/page/chats/chat/-components/route-view', 
     });
 
     // Act
-    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(fn this.onSendMessageEvent)}}`);
 
     // Assert
     assert.dom('[data-test-route-view="composer-disabled"]').doesNotExist();
@@ -162,7 +162,7 @@ module('Integration | Component | site/page/chats/chat/-components/route-view', 
     });
 
     // Act
-    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(action this.onSendMessageEvent)}}`);
+    await render(hbs`{{site/page/chats/chat/-components/route-view chat=this.chat onSendMessageEvent=(fn this.onSendMessageEvent)}}`);
 
     // Assert
     assert.dom('[data-test-route-view="composer-disabled"]').doesNotExist();
