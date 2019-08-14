@@ -23,7 +23,7 @@ module('Integration | Component | site/page/chats/new/-components/route-view', f
     session.set('isAuthenticated', false);
 
     // Act
-    await render(hbs`{{site/page/chats/new/-components/route-view onSendMessageClick=(action this.onSendMessageClick)}}`);
+    await render(hbs`{{site/page/chats/new/-components/route-view onSendMessageClick=(fn this.onSendMessageClick)}}`);
 
     // Assert
     assert.dom('[data-test-route-view="anonymous-banner"]').exists();
@@ -43,7 +43,7 @@ module('Integration | Component | site/page/chats/new/-components/route-view', f
     });
 
     // Act
-    await render(hbs`{{site/page/chats/new/-components/route-view onSendMessageClick=(action this.onSendMessageClick)}}`);
+    await render(hbs`{{site/page/chats/new/-components/route-view onSendMessageClick=(fn this.onSendMessageClick)}}`);
 
     // Assert
     assert.dom('[data-test-route-view="anonymous-banner"]').exists();
@@ -63,7 +63,7 @@ module('Integration | Component | site/page/chats/new/-components/route-view', f
     });
 
     // Act
-    await render(hbs`{{site/page/chats/new/-components/route-view onSendMessageClick=(action this.onSendMessageClick)}}`);
+    await render(hbs`{{site/page/chats/new/-components/route-view onSendMessageClick=(fn this.onSendMessageClick)}}`);
 
     // Assert
     assert.dom('[data-test-route-view="anonymous-banner"]').doesNotExist();

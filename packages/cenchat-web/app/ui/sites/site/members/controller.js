@@ -55,11 +55,12 @@ export default class MembersController extends Controller {
 
   /**
    * @param {Model.User} user
-   * @param {string} role
+   * @param {Event} event
    * @function
    */
   @action
-  handleRoleChange(user, role) {
+  handleRoleChange(user, event) {
+    const { value: role } = event.target;
     const newPendingRoleChange = { ...this.pendingRoleChange };
 
     Object.keys(this.pendingRoleChange).forEach((key) => {

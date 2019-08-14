@@ -4,7 +4,7 @@
   <CenForm
     class="card__form card__form--sectioned"
     id="site-form"
-    @onSubmit={{action this.onSiteFormSubmit}}
+    @onSubmit={{fn this.onSiteFormSubmit}}
   >
     <section>
       <CenSubheader>
@@ -22,7 +22,7 @@
         disabled={{if @site true false}}
         required="true"
         @label="Hostname"
-        @onInput={{action this.handleHostnameInput}}
+        @onInput={{fn this.handleHostnameInput}}
       />
       <CenInput
         data-test-site-form="name"
@@ -31,7 +31,7 @@
         value={{@site.displayName}}
         required="true"
         @label="Name"
-        @onInput={{action this.handleNameInput}}
+        @onInput={{fn this.handleNameInput}}
       />
     </section>
 
@@ -52,13 +52,13 @@
             value={{@site.brandColor}}
             required="true"
             @label="Brand color (in hex code)"
-            @onInput={{action this.handleBrandColorInput}}
+            @onInput={{fn this.handleBrandColorInput}}
           />
 
           <CenSelect
             data-test-site-form="theme"
             @label="Theme"
-            @onChange={{action this.handleThemeChange}}
+            @onChange={{fn this.handleThemeChange}}
           >
             <option value="light" selected={{eq @site.theme "light"}}>Light</option>
             <option value="dark" selected={{eq @site.theme "dark"}}>Dark</option>

@@ -4,11 +4,11 @@
       data-test-search-form="user"
       type="search"
       @label="Username"
-      @onInput={{action @onSearchUserInput}}
+      @onInput={{fn @onSearchUserInput}}
     />
   </div>
 
   {{#if @searchedUsers}}
-    <MemberList @members={{@searchedUsers}} @onRoleChange={{action @onRoleChange}} />
+    <MemberList @members={{@searchedUsers}} @onRoleChange={{fn @onRoleChange}} />
   {{/if}}
 </article>

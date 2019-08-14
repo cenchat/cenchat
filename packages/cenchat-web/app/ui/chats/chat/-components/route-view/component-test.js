@@ -26,8 +26,8 @@ module('Integration | Component | chats/chat/-components/route-view', function (
     await render(hbs`
       {{chats/chat/-components/route-view
         chat=this.chat
-        onSendMessageEvent=(action this.onSendMessageEvent)
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onSendMessageEvent=(fn this.onSendMessageEvent)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
 
@@ -42,8 +42,8 @@ module('Integration | Component | chats/chat/-components/route-view', function (
     await render(hbs`
       {{chats/chat/-components/route-view
         chat=this.chat
-        onSendMessageEvent=(action this.onSendMessageEvent)
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onSendMessageEvent=(fn this.onSendMessageEvent)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
 
@@ -58,8 +58,8 @@ module('Integration | Component | chats/chat/-components/route-view', function (
     await render(hbs`
       {{chats/chat/-components/route-view
         chat=this.chat
-        onSendMessageEvent=(action this.onSendMessageEvent)
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onSendMessageEvent=(fn this.onSendMessageEvent)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
 
@@ -74,8 +74,8 @@ module('Integration | Component | chats/chat/-components/route-view', function (
     await render(hbs`
       {{chats/chat/-components/route-view
         chat=this.chat
-        onSendMessageEvent=(action this.onSendMessageEvent)
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onSendMessageEvent=(fn this.onSendMessageEvent)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
 

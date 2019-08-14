@@ -22,7 +22,7 @@ module('Integration | Component | my-account/-components/route-view', function (
     assert.expect(1);
 
     // Act
-    await render(hbs`{{my-account/-components/route-view user=this.user onSignOutClick=(action this.onSignOutClick)}}`);
+    await render(hbs`{{my-account/-components/route-view user=this.user onSignOutClick=(fn this.onSignOutClick)}}`);
 
     // Assert
     assert.dom('[data-test-top-bar="host"]').exists();
@@ -32,7 +32,7 @@ module('Integration | Component | my-account/-components/route-view', function (
     assert.expect(1);
 
     // Act
-    await render(hbs`{{my-account/-components/route-view user=this.user onSignOutClick=(action this.onSignOutClick)}}`);
+    await render(hbs`{{my-account/-components/route-view user=this.user onSignOutClick=(fn this.onSignOutClick)}}`);
 
     // Assert
     assert.dom('[data-test-main-content="host"]').exists();

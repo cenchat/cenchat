@@ -26,7 +26,7 @@ module('Integration | Component | member-list/member-list-item', function (hooks
     await render(hbs`
       {{member-list/member-list-item
         member=this.member
-        onRoleChange=(action this.onRoleChange this.member)
+        onRoleChange=(fn this.onRoleChange this.member)
       }}
     `);
 
@@ -44,12 +44,12 @@ module('Integration | Component | member-list/member-list-item', function (hooks
     await render(hbs`
       {{member-list/member-list-item
         member=this.member
-        onRoleChange=(action this.onRoleChange this.member)
+        onRoleChange=(fn this.onRoleChange this.member)
       }}
     `);
     await fillIn('[data-test-member-list-item="role-field"]', 'moderators');
 
     // Assert
-    assert.ok(spy.calledWith(this.member, 'moderators'));
+    assert.ok(spy.calledWith(this.member));
   });
 });

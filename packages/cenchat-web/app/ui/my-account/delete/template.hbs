@@ -1,5 +1,5 @@
 {{import RouteView from "./-components/route-view"}}
 
-<RouteView @onDeleteAccountFormSubmit={{action this.handleDeleteAccountFormSubmit}}>
+<RouteView @onDeleteAccountFormSubmit={{fn this.handleDeleteAccountFormSubmit}}>
   {{outlet}}
 </RouteView>

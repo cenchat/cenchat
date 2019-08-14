@@ -6,8 +6,8 @@
 
   <MainContent
     @site={{@site}}
-    @onSiteUpdateEvent={{action @onSiteUpdateEvent}}
-    @onSiteFormSubmit={{action @onSiteFormSubmit}}
+    @onSiteUpdateEvent={{fn @onSiteUpdateEvent}}
+    @onSiteFormSubmit={{fn @onSiteFormSubmit}}
   >
     {{yield}}
   </MainContent>

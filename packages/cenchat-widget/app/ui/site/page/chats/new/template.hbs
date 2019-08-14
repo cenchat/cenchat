@@ -1,5 +1,5 @@
 {{import RouteView from "./-components/route-view"}}
 
-<RouteView @onSendMessageClick={{action this.handleSendMessageClick}}>
+<RouteView @onSendMessageClick={{fn this.handleSendMessageClick}}>
   {{outlet}}
 </RouteView>

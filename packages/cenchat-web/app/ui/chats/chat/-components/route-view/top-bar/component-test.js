@@ -31,7 +31,7 @@ module('Integration | Component | chats/chat/-components/route-view/top-bar', fu
     await render(hbs`
       {{chats/chat/-components/route-view/top-bar
         chat=this.chat
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
 
@@ -52,7 +52,7 @@ module('Integration | Component | chats/chat/-components/route-view/top-bar', fu
     await render(hbs`
       {{chats/chat/-components/route-view/top-bar
         chat=this.chat
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
 
@@ -75,7 +75,7 @@ module('Integration | Component | chats/chat/-components/route-view/top-bar', fu
     await render(hbs`
       {{chats/chat/-components/route-view/top-bar
         chat=this.chat
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
 
@@ -95,7 +95,7 @@ module('Integration | Component | chats/chat/-components/route-view/top-bar', fu
     await render(hbs`
       {{chats/chat/-components/route-view/top-bar
         chat=this.chat
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
 
@@ -115,7 +115,7 @@ module('Integration | Component | chats/chat/-components/route-view/top-bar', fu
     await render(hbs`
       {{chats/chat/-components/route-view/top-bar
         chat=this.chat
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
 
@@ -137,7 +137,7 @@ module('Integration | Component | chats/chat/-components/route-view/top-bar', fu
     await render(hbs`
       {{chats/chat/-components/route-view/top-bar
         chat=this.chat
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
 
@@ -161,7 +161,7 @@ module('Integration | Component | chats/chat/-components/route-view/top-bar', fu
     await render(hbs`
       {{chats/chat/-components/route-view/top-bar
         chat=this.chat
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
     await click('[data-test-top-bar="turn-on-visibility-button"]');
@@ -184,7 +184,7 @@ module('Integration | Component | chats/chat/-components/route-view/top-bar', fu
     await render(hbs`
       {{chats/chat/-components/route-view/top-bar
         chat=this.chat
-        onToggleChatVisibilityClick=(action this.onToggleChatVisibilityClick)
+        onToggleChatVisibilityClick=(fn this.onToggleChatVisibilityClick)
       }}
     `);
     await click('[data-test-top-bar="turn-off-visibility-button"]');

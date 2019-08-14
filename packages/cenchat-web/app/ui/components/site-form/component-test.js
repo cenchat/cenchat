@@ -27,8 +27,8 @@ module('Integration | Component | site-form', function (hooks) {
     await render(hbs`
       {{site-form
         site=this.site
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
 
@@ -46,8 +46,8 @@ module('Integration | Component | site-form', function (hooks) {
     await render(hbs`
       {{site-form
         site=this.site
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
 
@@ -65,8 +65,8 @@ module('Integration | Component | site-form', function (hooks) {
     await render(hbs`
       {{site-form
         site=this.site
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
     await fillIn('[data-test-site-form="hostname"] input', 'site-100.com');
@@ -85,8 +85,8 @@ module('Integration | Component | site-form', function (hooks) {
     await render(hbs`
       {{site-form
         site=this.site
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
     await fillIn('[data-test-site-form="name"] input', 'Site 100');
@@ -105,8 +105,8 @@ module('Integration | Component | site-form', function (hooks) {
     await render(hbs`
       {{site-form
         site=this.site
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
     await fillIn('[data-test-site-form="brand-color"] input', '#ffffff');
@@ -125,8 +125,8 @@ module('Integration | Component | site-form', function (hooks) {
     await render(hbs`
       {{site-form
         site=this.site
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
     await fillIn('[data-test-site-form="theme"] select', 'dark');

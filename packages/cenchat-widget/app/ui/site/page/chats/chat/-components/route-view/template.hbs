@@ -20,7 +20,7 @@
 
   <div class="side-sheet__toolbar">
     {{#if (eq this.permissionState "writer")}}
-      <ChatComposer @onSendMessageClick={{action this.handleSendMessageClick}} />
+      <ChatComposer @onSendMessageClick={{fn this.handleSendMessageClick}} />
     {{else if (eq this.permissionState "reader")}}
       <div class="site-page-chats-chat_route-view__composer-disabled" data-test-route-view="composer-disabled">
         You're not allowed to participate in this chat

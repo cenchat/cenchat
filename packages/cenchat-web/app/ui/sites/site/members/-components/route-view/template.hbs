@@ -2,14 +2,14 @@
 {{import MainContent from "./main-content"}}
 
 <SideSheet class="liquid-fire-side-sheet">
-  <TopBar @pendingRoleChange={{@pendingRoleChange}} @onSaveRolesClick={{action @onSaveRolesClick}}/>
+  <TopBar @pendingRoleChange={{@pendingRoleChange}} @onSaveRolesClick={{fn @onSaveRolesClick}}/>
 
   <MainContent
     @admins={{@admins}}
     @moderators={{@moderators}}
     @searchedUsers={{@searchedUsers}}
-    @onRoleChange={{action @onRoleChange}}
-    @onSearchUserInput={{action @onSearchUserInput}}
+    @onRoleChange={{fn @onRoleChange}}
+    @onSearchUserInput={{fn @onSearchUserInput}}
   >
     {{yield}}
   </MainContent>

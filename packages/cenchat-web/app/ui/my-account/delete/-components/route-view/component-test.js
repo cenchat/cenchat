@@ -18,7 +18,7 @@ module('Integration | Component | my-account/delete/-components/route-view', fun
     assert.expect(1);
 
     // Act
-    await render(hbs`{{my-account/delete/-components/route-view onDeleteAccountFormSubmit=(action this.onDeleteAccountFormSubmit)}}`);
+    await render(hbs`{{my-account/delete/-components/route-view onDeleteAccountFormSubmit=(fn this.onDeleteAccountFormSubmit)}}`);
 
     // Assert
     assert.dom('[data-test-main-content="host"]').exists();

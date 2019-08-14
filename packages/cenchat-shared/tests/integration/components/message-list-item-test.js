@@ -16,10 +16,13 @@ module('Integration | Component | message-list-item', function (hooks) {
     const messageA = await store.findRecord('message', 'message_a');
     const messageB = await store.findRecord('message', 'message_b');
 
+    // Preload relationships
+    await messageA.get('author');
+
     this.set('messageGroup', {
       author: messageA.get('author'),
       timestamp: messageA.get('createdOn'),
-      messages: new A([messageA, messageB]),
+      messages: A([messageA, messageB]),
     });
   });
 

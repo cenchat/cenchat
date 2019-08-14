@@ -23,7 +23,7 @@ module('Integration | Component | member-list', function (hooks) {
     assert.expect(1);
 
     // Act
-    await render(hbs`{{member-list members=this.members onRoleChange=(action this.onRoleChange)}}`);
+    await render(hbs`{{member-list members=this.members onRoleChange=(fn this.onRoleChange)}}`);
 
     // Assert
     assert.dom('[data-test-member-list-item="host"]').exists();

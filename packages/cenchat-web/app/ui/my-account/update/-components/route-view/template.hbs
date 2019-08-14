@@ -6,8 +6,8 @@
 
   <MainContent
     @user={{@user}}
-    @onProfileUpdateEvent={{action @onProfileUpdateEvent}}
-    @onProfileFormSubmit={{action @onProfileFormSubmit}}
+    @onProfileUpdateEvent={{fn @onProfileUpdateEvent}}
+    @onProfileFormSubmit={{fn @onProfileFormSubmit}}
   >
     {{yield}}
   </MainContent>

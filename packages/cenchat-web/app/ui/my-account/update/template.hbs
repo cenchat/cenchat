@@ -3,8 +3,8 @@
 <RouteView
   @user={{this.model}}
   @hasPendingProfileChanges={{this.hasPendingProfileChanges}}
-  @onProfileUpdateEvent={{action this.handleProfileUpdateEvent}}
-  @onProfileFormSubmit={{action this.handleProfileFormSubmit}}
+  @onProfileUpdateEvent={{fn this.handleProfileUpdateEvent}}
+  @onProfileFormSubmit={{fn this.handleProfileFormSubmit}}
 >
   {{outlet}}
 </RouteView>

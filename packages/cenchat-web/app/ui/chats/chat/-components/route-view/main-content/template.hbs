@@ -3,8 +3,8 @@
   data-test-main-content="host"
   @isReversed="true"
   @isAbleToLoadMoreContent={{if (lte this.currentLimit @chat.reverseDescendingMessages.length) true false}}
-  @onLoadMoreContentEvent={{action this.handleLoadMoreContentEvent}}
-  @onScrollToBottom={{action this.handleScrollToBottom}}
+  @onLoadMoreContentEvent={{fn this.handleLoadMoreContentEvent}}
+  @onScrollToBottom={{fn this.handleScrollToBottom}}
   ...attributes
 >
   <MessageList @messages={{@chat.reverseDescendingMessages}} />

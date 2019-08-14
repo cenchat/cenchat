@@ -21,8 +21,8 @@ module('Integration | Component | sites/new/-components/route-view/main-content'
     // Act
     await render(hbs`
       {{sites/new/-components/route-view/main-content
-        onSiteUpdateEvent=(action this.onSiteUpdateEvent)
-        onSiteFormSubmit=(action this.onSiteFormSubmit)
+        onSiteUpdateEvent=(fn this.onSiteUpdateEvent)
+        onSiteFormSubmit=(fn this.onSiteFormSubmit)
       }}
     `);
 

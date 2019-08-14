@@ -16,7 +16,7 @@ module('Integration | Component | my-account/delete/-components/route-view/main-
     assert.expect(1);
 
     // Act
-    await render(hbs`{{my-account/delete/-components/route-view/main-content/delete-account-captcha onDeleteAccountFormSubmit=(action this.onDeleteAccountFormSubmit)}}`);
+    await render(hbs`{{my-account/delete/-components/route-view/main-content/delete-account-captcha onDeleteAccountFormSubmit=(fn this.onDeleteAccountFormSubmit)}}`);
     await fillIn('[data-test-delete-account-captcha="confirm"] input', 'foobar');
 
     // Assert
@@ -27,7 +27,7 @@ module('Integration | Component | my-account/delete/-components/route-view/main-
     assert.expect(1);
 
     // Act
-    await render(hbs`{{my-account/delete/-components/route-view/main-content/delete-account-captcha onDeleteAccountFormSubmit=(action this.onDeleteAccountFormSubmit)}}`);
+    await render(hbs`{{my-account/delete/-components/route-view/main-content/delete-account-captcha onDeleteAccountFormSubmit=(fn this.onDeleteAccountFormSubmit)}}`);
 
     const confirmationKey = this.element
       .querySelector('[data-test-delete-account-captcha="confirm"] div')
@@ -48,7 +48,7 @@ module('Integration | Component | my-account/delete/-components/route-view/main-
     const spy = sinon.spy(this, 'onDeleteAccountFormSubmit');
 
     // Act
-    await render(hbs`{{my-account/delete/-components/route-view/main-content/delete-account-captcha onDeleteAccountFormSubmit=(action this.onDeleteAccountFormSubmit)}}`);
+    await render(hbs`{{my-account/delete/-components/route-view/main-content/delete-account-captcha onDeleteAccountFormSubmit=(fn this.onDeleteAccountFormSubmit)}}`);
 
     const confirmationKey = this.element
       .querySelector('[data-test-delete-account-captcha="confirm"] div')

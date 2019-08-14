@@ -17,7 +17,7 @@ module('Integration | Component | my-account/-components/route-view/top-bar', fu
     this.set('onSignOutClick', stub);
 
     // Act
-    await render(hbs`{{my-account/-components/route-view/top-bar onSignOutClick=(action this.onSignOutClick)}}`);
+    await render(hbs`{{my-account/-components/route-view/top-bar onSignOutClick=(fn this.onSignOutClick)}}`);
     await click('[data-test-top-bar="sign-out-button"]');
 
     // Assert
