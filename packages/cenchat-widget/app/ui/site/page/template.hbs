@@ -1,12 +1,33 @@
 {{outlet}}
 
 <CenNavBar>
-  <CenIconLinkButton href={{url-for "site.page.chats"}} @icon="comment" />
+  <CenIconLinkButton
+    href={{url-for "site.page.chats"}}
+    title="Navigate to comments page"
+    aria-label="Navigate to comments page"
+    @icon="comment"
+  />
 
   {{#if this.session.isAuthenticated}}
-    <CenIconLinkButton href={{url-for "site.page.my-account"}} @icon="user-circle" />
-    <CenIconLinkButton href="https://web.cenchat.com" target="_blank" @icon="home" />
+    <CenIconLinkButton
+      href={{url-for "site.page.my-account"}}
+      title="Navigate to my accounts page"
+      aria-label="Navigate to my accounts page"
+      @icon="user-circle"
+    />
+    <CenIconLinkButton
+      href="https://web.cenchat.com"
+      target="_blank"
+      title="Navigate to Cenchat app"
+      aria-label="Navigate to Cenchat app"
+      @icon="external-link-alt"
+    />
   {{else}}
-    <CenIconLinkButton href={{url-for "site.page.sign-in"}} @icon="sign-in-alt" />
+    <CenIconLinkButton
+      href={{url-for "site.page.sign-in"}}
+      title="Navigate to sign in page"
+      aria-label="Navigate to sign in page"
+      @icon="sign-in-alt"
+    />
   {{/if}}
 </CenNavBar>
