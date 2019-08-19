@@ -15,6 +15,23 @@
   {{/if}}
 
   <article class="card">
+    <header class="card__header">
+      <h3 class="card__heading">Own a blog?</h3>
+      <p class="card__subheading">Use Cenchat for a more personal way to engage with your audience</p>
+    </header>
+
+    <div class="card__actions">
+      <CenLinkButton href="https://cenchat.com/blog/2019/06/06/modern-alternative-to-disqus.html" target="_blank">
+        Why Cenchat
+      </CenLinkButton>
+
+      <CenLinkButton href="https://cenchat.com/docs/setting-up-on-your-website" target="_blank">
+        Get started
+      </CenLinkButton>
+    </div>
+  </article>
+
+  <article class="card">
     <ul class="list">
       <li class="list__item">
         <button class="list__action" {{on "click" this.handleSignOutClick}}></button>
